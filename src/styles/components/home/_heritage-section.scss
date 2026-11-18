@@ -1,0 +1,380 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.heritage-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: min(100svh, 900px);
+  min-height: min(620px, 100svh);
+
+  overflow: hidden;
+  isolation: isolate;
+  background: $color-bg;
+
+  &__background {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+
+    background-image: url("/assets/images/backgrounds/knight.webp");
+    background-position: center 48%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    transform: scale(1.015);
+  }
+
+  // Global overlay
+  &__overlay {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 6, 8, 0.96) 0%,
+        rgba(5, 6, 8, 0.88) 22%,
+        rgba(5, 6, 8, 0.62) 43%,
+        rgba(5, 6, 8, 0.16) 75%,
+        rgba(5, 6, 8, 0.08) 100%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(5, 6, 8, 0.45),
+        transparent 35%,
+        rgba(5, 6, 8, 0.12)
+      );
+  }
+
+  &__container {
+    @include container;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding-block: clamp(3rem, 6vh, 5rem);
+  }
+
+  // Content
+  &__content {
+    position: relative;
+
+    width: min(100%, 620px);
+    padding: clamp(2rem, 4vw, 3.5rem);
+
+    isolation: isolate;
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      inset: -2rem -1.5rem;
+
+      content: "";
+
+      background: linear-gradient(
+        90deg,
+        rgba(5, 6, 8, 0.52) 0%,
+        rgba(5, 6, 8, 0.35) 65%,
+        transparent 100%
+      );
+
+      filter: blur(24px);
+      pointer-events: none;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+
+    display: inline-flex;
+    align-items: center;
+    gap: $space-4;
+
+    margin-bottom: $space-5;
+
+    &::after {
+      display: block;
+
+      width: clamp(45px, 6vw, 85px);
+      height: 1px;
+
+      content: "";
+
+      background: linear-gradient(90deg, $color-gold-light, transparent);
+    }
+  }
+
+  &__title {
+    @include display-type(clamp(2.6rem, 4.2vw, 4rem), 500, 1.08);
+
+    max-width: 600px;
+    margin: 0;
+
+    color: $color-text;
+    text-wrap: balance;
+
+    text-shadow: 0 3px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  &__description {
+    max-width: 460px;
+
+    margin: $space-6 0 $space-8;
+
+    color: rgba($color-text, 0.9);
+
+    font-family: $font-body;
+    font-size: $font-size-md;
+    line-height: 1.75;
+
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+
+    min-height: 48px;
+    padding-inline: $space-6;
+
+    border: 1px solid $color-gold;
+    border-radius: $radius-pill;
+
+    color: $color-gold-light;
+    background: rgba(10, 10, 12, 0.62);
+
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+
+    transition:
+      color $transition-base,
+      background $transition-base,
+      border-color $transition-base,
+      box-shadow $transition-base,
+      transform $transition-base;
+
+    &:hover {
+      color: $color-bg;
+      background: $color-gold-light;
+      border-color: $color-gold-light;
+
+      box-shadow: $shadow-gold;
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+  }
+
+  &__button-arrow {
+    display: inline-block;
+
+    font-size: 1.2rem;
+    line-height: 1;
+
+    transition: transform $transition-base;
+  }
+
+  &__button:hover &__button-arrow {
+    transform: translateX(5px);
+  }
+}
+
+// ============================================================
+// TABLET
+// ============================================================
+
+@include respond-down($breakpoint-lg) {
+  .heritage-section {
+    height: min(100svh, 850px);
+    min-height: min(600px, 100svh);
+
+    &__background {
+      background-position: 58% center;
+    }
+
+    &__overlay {
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 6, 8, 0.88) 0%,
+          rgba(5, 6, 8, 0.72) 35%,
+          rgba(5, 6, 8, 0.38) 68%,
+          rgba(5, 6, 8, 0.12) 100%
+        ),
+        linear-gradient(0deg, rgba(5, 6, 8, 0.22), transparent 55%);
+    }
+
+    &__container {
+      padding-block: $space-12;
+    }
+
+    &__content {
+      width: min(100%, 550px);
+      padding: $space-8;
+
+      // Uklanjamo dodatno zatamnjenje
+      &::before {
+        display: none;
+      }
+    }
+
+    &__title {
+      font-size: clamp(2.6rem, 5.5vw, 3.5rem);
+    }
+
+    &__description {
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    }
+  }
+}
+
+// ============================================================
+// MOBILE
+// ============================================================
+
+@include respond-down($breakpoint-md) {
+  .heritage-section {
+    height: min(100svh, 850px);
+    min-height: min(600px, 100svh);
+
+    align-items: flex-end;
+
+    &__background {
+      background-image: url("/assets/images/backgrounds/knight-mobile.webp");
+      background-position: center top;
+    }
+
+    &__overlay {
+      background: linear-gradient(
+        0deg,
+        rgba(5, 6, 8, 0.82) 0%,
+        rgba(5, 6, 8, 0.68) 25%,
+        rgba(5, 6, 8, 0.32) 52%,
+        rgba(5, 6, 8, 0.08) 100%
+      );
+    }
+
+    &__container {
+      align-items: flex-end;
+
+      padding-block: $space-8 $space-12;
+    }
+
+    &__content {
+      width: 100%;
+
+      padding: $space-6 $space-4;
+
+      // Bez dodatnog tamnog panela iza teksta
+      &::before {
+        display: none;
+      }
+    }
+
+    &__eyebrow {
+      margin-bottom: $space-4;
+    }
+
+    &__title {
+      max-width: 520px;
+
+      font-size: clamp(2.4rem, 8vw, 3.4rem);
+      line-height: 1.06;
+
+      br {
+        display: none;
+      }
+    }
+
+    &__description {
+      max-width: 440px;
+
+      margin-block: $space-5 $space-8;
+
+      font-size: $font-size-base;
+      line-height: 1.7;
+
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+// ============================================================
+// SMALL MOBILE
+// ============================================================
+
+@include respond-down($breakpoint-xs) {
+  .heritage-section {
+    min-height: min(580px, 100svh);
+
+    &__container {
+      padding-block: $space-6 $space-8;
+    }
+
+    &__content {
+      padding-inline: $space-2;
+    }
+
+    &__title {
+      font-size: clamp(2.15rem, 9vw, 2.7rem);
+    }
+
+    &__description {
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// ============================================================
+// SHORT SCREENS
+// ============================================================
+
+@media (max-height: 700px) and (min-width: 769px) {
+  .heritage-section {
+    min-height: min(560px, 100svh);
+
+    &__container {
+      padding-block: $space-6;
+    }
+
+    &__content {
+      padding-block: $space-4;
+    }
+
+    &__eyebrow {
+      margin-bottom: $space-3;
+    }
+
+    &__title {
+      font-size: clamp(2.3rem, 4vw, 3.2rem);
+    }
+
+    &__description {
+      margin-block: $space-4 $space-5;
+      line-height: 1.55;
+    }
+  }
+}
+
+// ============================================================
+// REDUCED MOTION
+// ============================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .heritage-section {
+    &__button,
+    &__button-arrow {
+      transition: none;
+    }
+  }
+}

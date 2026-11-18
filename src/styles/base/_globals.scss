@@ -1,0 +1,94 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "./reset";
+@use "./typography";
+
+:root {
+  color-scheme: dark;
+  --page-bg: #{$color-bg};
+  --page-text: #{$color-text};
+  --accent-gold: #{$color-gold};
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      ellipse at 78% 18%,
+      rgba(76, 67, 62, 0.14),
+      transparent 34rem
+    ),
+    $color-bg;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main {
+  display: block;
+}
+
+.container {
+  @include container;
+}
+
+.section {
+  position: relative;
+  padding-block: $section-space;
+}
+
+.section-divider {
+  @include gold-divider;
+}
+
+.surface-dark {
+  background: rgba($color-surface, 0.82);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  @include gold-focus;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+hr {
+  height: 1px;
+  border: 0;
+  background: $color-border;
+}
+
+// Optional utility for image-backed sections.
+// Keep the actual image URL in the component, not in global styles.
+.image-vignette {
+  position: relative;
+  isolation: isolate;
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(7, 8, 10, 0.88), rgba(7, 8, 10, 0.1) 75%),
+      linear-gradient(0deg, rgba(7, 8, 10, 0.48), transparent 55%);
+  }
+}
+
+@include respond-down($breakpoint-md) {
+  .section {
+    padding-block: clamp(3.5rem, 12vw, 5rem);
+  }
+}

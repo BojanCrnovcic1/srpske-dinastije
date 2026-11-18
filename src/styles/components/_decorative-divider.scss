@@ -1,0 +1,199 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.decorative-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+
+  // ------------------------------------------
+  // Lines
+  // ------------------------------------------
+
+  &__line {
+    flex: 1;
+    min-width: 0;
+    height: 1px;
+
+    background: linear-gradient(
+      90deg,
+      transparent,
+      $color-gold-dark 15%,
+      $color-gold-light 50%,
+      $color-gold-dark 85%,
+      transparent
+    );
+
+    opacity: 0.85;
+    transform: scaleX(0);
+    transform-origin: center;
+    animation: divider-line-reveal 1s ease forwards;
+
+    &--left {
+      transform-origin: right center;
+    }
+
+    &--right {
+      transform-origin: left center;
+      animation-delay: 0.12s;
+    }
+  }
+
+  // ------------------------------------------
+  // Center ornament
+  // ------------------------------------------
+
+  &__ornament {
+    @include flex-center;
+
+    flex: 0 0 auto;
+    position: relative;
+    margin-inline: clamp(0.65rem, 2vw, 1.5rem);
+  }
+
+  &__cross {
+    display: block;
+    width: var(--divider-cross-size);
+    height: var(--divider-cross-size);
+    object-fit: contain;
+
+    filter: drop-shadow(0 0 3px rgba($color-gold, 0.2));
+
+    opacity: 0;
+    transform: translateY(5px) scale(0.92);
+
+    animation:
+      divider-cross-reveal 0.8s ease 0.25s forwards,
+      divider-cross-glow 4s ease-in-out 1.2s infinite;
+  }
+
+  // ------------------------------------------
+  // Sizes
+  // ------------------------------------------
+
+  &--compact {
+    --divider-cross-size: 18px;
+
+    .decorative-divider__ornament {
+      margin-inline: 0.75rem;
+    }
+  }
+
+  &--default {
+    --divider-cross-size: 30px;
+
+    .decorative-divider__ornament {
+      margin-inline: clamp(0.75rem, 2vw, 1.5rem);
+    }
+  }
+
+  &--large {
+    --divider-cross-size: 42px;
+
+    .decorative-divider__ornament {
+      margin-inline: clamp(1rem, 3vw, 2rem);
+    }
+  }
+
+  // ------------------------------------------
+  // Responsive
+  // ------------------------------------------
+
+  @include respond-down($breakpoint-md) {
+    &--large {
+      --divider-cross-size: 34px;
+    }
+
+    &--default {
+      --divider-cross-size: 26px;
+    }
+  }
+
+  @include respond-down($breakpoint-sm) {
+    &--large {
+      --divider-cross-size: 28px;
+    }
+
+    &--default {
+      --divider-cross-size: 22px;
+    }
+
+    &--compact {
+      --divider-cross-size: 16px;
+    }
+
+    &__ornament {
+      margin-inline: 0.65rem;
+    }
+  }
+
+  @include respond-down($breakpoint-xs) {
+    &--large {
+      --divider-cross-size: 24px;
+    }
+
+    &--default {
+      --divider-cross-size: 20px;
+    }
+
+    &__ornament {
+      margin-inline: 0.5rem;
+    }
+
+    &__line {
+      opacity: 0.7;
+    }
+  }
+}
+
+// ------------------------------------------
+// Animations
+// ------------------------------------------
+
+@keyframes divider-line-reveal {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 0.85;
+  }
+}
+
+@keyframes divider-cross-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes divider-cross-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px rgba($color-gold, 0.15));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 6px rgba($color-gold-light, 0.35));
+  }
+}
+
+// ------------------------------------------
+// Accessibility
+// ------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+  .decorative-divider {
+    &__line,
+    &__cross {
+      animation: none;
+      transform: none;
+      opacity: 1;
+    }
+  }
+}

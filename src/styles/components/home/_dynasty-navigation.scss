@@ -1,0 +1,393 @@
+@use "../../abstracts/variables" as *;
+@use "../../abstracts/mixins" as *;
+
+.dynasty-navigation {
+  position: relative;
+  width: 100%;
+  padding-block: clamp(2rem, 3.5vw, 3.25rem);
+  overflow: hidden;
+  background: $color-bg;
+
+  // ============================================================
+  // HEADER
+  // ============================================================
+
+  &__header {
+    @include container;
+
+    margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
+    text-align: center;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+
+    display: block;
+    margin-bottom: $space-2;
+
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    opacity: 0.75;
+  }
+
+  &__title {
+    @include display-type(clamp(1.5rem, 2.2vw, 2rem), 500, 1.1);
+
+    margin: 0;
+    color: $color-text;
+  }
+
+  // ============================================================
+  // MARQUEE
+  // ============================================================
+
+  &__marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      position: absolute;
+      z-index: 2;
+      inset-block: 0;
+
+      width: clamp(1rem, 3vw, 3rem);
+
+      content: "";
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+
+      background: linear-gradient(90deg, $color-bg 0%, rgba($color-bg, 0) 100%);
+    }
+
+    &::after {
+      right: 0;
+
+      background: linear-gradient(
+        270deg,
+        $color-bg 0%,
+        rgba($color-bg, 0) 100%
+      );
+    }
+
+    &:hover .dynasty-navigation__track {
+      animation-play-state: paused;
+    }
+  }
+
+  &__track {
+    display: flex;
+    width: max-content;
+
+    animation: dynasty-marquee 60s linear infinite;
+    will-change: transform;
+  }
+
+  &__group {
+    display: flex;
+    flex: 0 0 auto;
+
+    gap: $space-3;
+    padding-right: $space-3;
+  }
+
+  // ============================================================
+  // CARD
+  // ============================================================
+
+  &__item {
+    position: relative;
+    display: block;
+
+    flex: 0 0 210px;
+    height: 235px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba($color-gold, 0.16);
+    border-radius: $radius-sm;
+
+    background: $color-surface;
+    color: $color-text;
+    text-decoration: none;
+
+    isolation: isolate;
+
+    transition:
+      border-color $transition-base,
+      box-shadow $transition-base,
+      transform $transition-base;
+
+    &:hover,
+    &:focus-visible {
+      z-index: 1;
+
+      border-color: rgba($color-gold-light, 0.5);
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+
+      transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+
+    &:hover {
+      .dynasty-navigation__image img {
+        transform: scale(1.035);
+        filter: brightness(0.78) saturate(0.9);
+      }
+
+      .dynasty-navigation__link span {
+        transform: translateX(3px);
+      }
+    }
+  }
+
+  // ============================================================
+  // IMAGE
+  // ============================================================
+
+  &__image {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+
+    overflow: hidden;
+
+    img {
+      @include image-cover;
+
+      object-position: center;
+      filter: brightness(0.66) saturate(0.75);
+
+      transition:
+        transform $transition-slow,
+        filter $transition-slow;
+    }
+  }
+
+  &__image-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      180deg,
+      rgba(5, 6, 8, 0.02) 10%,
+      rgba(5, 6, 8, 0.14) 40%,
+      rgba(5, 6, 8, 0.86) 100%
+    );
+  }
+
+  // ============================================================
+  // CONTENT
+  // ============================================================
+
+  &__content {
+    position: absolute;
+    inset: auto 0 0;
+
+    padding: $space-3;
+  }
+
+  &__content h3 {
+    margin: 0 0 $space-2;
+
+    color: $color-text;
+
+    font-family: $font-display;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.05;
+  }
+
+  // ============================================================
+  // LINK
+  // ============================================================
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: $space-2;
+    padding-top: $space-2;
+
+    border-top: 1px solid rgba($color-gold, 0.3);
+
+    color: $color-gold-light;
+
+    font-family: $font-ui;
+    font-size: 0.7rem;
+    letter-spacing: 0.025em;
+
+    span {
+      font-size: 1rem;
+      transition: transform $transition-base;
+    }
+  }
+}
+
+// ============================================================
+// MARQUEE ANIMATION
+// ============================================================
+
+@keyframes dynasty-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+// ============================================================
+// TABLET
+// ============================================================
+
+@include respond-down($breakpoint-lg) {
+  .dynasty-navigation {
+    padding-block: $space-8;
+
+    &__header {
+      margin-bottom: $space-5;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__item {
+      flex-basis: 190px;
+      height: 215px;
+    }
+
+    &__track {
+      animation-duration: 54s;
+    }
+  }
+}
+
+// ============================================================
+// MOBILE
+// ============================================================
+
+@include respond-down($breakpoint-md) {
+  .dynasty-navigation {
+    padding-block: $space-6;
+
+    &__header {
+      padding-inline: $container-gutter;
+      margin-bottom: $space-4;
+    }
+
+    &__eyebrow {
+      margin-bottom: $space-2;
+      font-size: 0.6rem;
+    }
+
+    &__title {
+      font-size: clamp(1.4rem, 5.5vw, 1.75rem);
+    }
+
+    &__group {
+      gap: $space-2;
+      padding-right: $space-2;
+    }
+
+    &__item {
+      flex-basis: 165px;
+      height: 200px;
+    }
+
+    &__content {
+      padding: $space-3;
+    }
+
+    &__content h3 {
+      font-size: 1.25rem;
+    }
+
+    &__link {
+      font-size: 0.65rem;
+    }
+
+    &__track {
+      animation-duration: 46s;
+    }
+  }
+}
+
+// ============================================================
+// SMALL MOBILE
+// ============================================================
+
+@include respond-down($breakpoint-xs) {
+  .dynasty-navigation {
+    padding-block: $space-5;
+
+    &__header {
+      margin-bottom: $space-3;
+    }
+
+    &__title {
+      font-size: 1.4rem;
+    }
+
+    &__item {
+      flex-basis: 150px;
+      height: 185px;
+    }
+
+    &__content {
+      padding: $space-2 $space-3;
+    }
+
+    &__content h3 {
+      font-size: 1.15rem;
+      margin-bottom: $space-2;
+    }
+
+    &__link {
+      padding-top: $space-2;
+      font-size: 0.625rem;
+    }
+
+    &__marquee {
+      &::before,
+      &::after {
+        width: 1rem;
+      }
+    }
+  }
+}
+
+// ============================================================
+// REDUCED MOTION
+// ============================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .dynasty-navigation {
+    &__marquee {
+      overflow-x: auto;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    &__track {
+      animation: none;
+    }
+
+    &__group:nth-child(2) {
+      display: none;
+    }
+  }
+}

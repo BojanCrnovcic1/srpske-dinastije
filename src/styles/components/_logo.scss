@@ -1,0 +1,97 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+  width: fit-content;
+  padding: 0;
+
+  background: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    transform $transition-base,
+    filter $transition-base,
+    opacity $transition-base;
+
+  &__image {
+    display: block;
+    width: auto;
+    height: clamp(56px, 5.2vw, 82px);
+    max-width: 100%;
+    object-fit: contain;
+
+    transition:
+      filter $transition-base,
+      opacity $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+
+    .logo__image {
+      filter: drop-shadow(0 0 5px rgba($color-gold-light, 0.22));
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    @include gold-focus;
+    border-radius: $radius-sm;
+  }
+
+  // ==========================================
+  // RESPONSIVE
+  // ==========================================
+
+  @include respond-down($breakpoint-lg) {
+    &__image {
+      height: 68px;
+    }
+  }
+
+  @include respond-down($breakpoint-md) {
+    &__image {
+      height: 60px;
+    }
+  }
+
+  @include respond-down($breakpoint-sm) {
+    &__image {
+      height: 54px;
+    }
+  }
+
+  @include respond-down($breakpoint-xs) {
+    &__image {
+      height: 48px;
+    }
+  }
+}
+
+// ==========================================
+// ACCESSIBILITY
+// ==========================================
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .logo__image {
+    transition: none;
+  }
+
+  .logo:hover,
+  .logo:active {
+    transform: none;
+  }
+}

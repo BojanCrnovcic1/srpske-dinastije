@@ -1,0 +1,83 @@
+// ============================================================
+// Srpske dinastije — design tokens
+// Paleta i dimenzije izvedene iz dostavljene desktop reference.
+// ============================================================
+
+// Colors
+$color-bg: #0b0c0f;
+$color-bg-soft: #111216;
+$color-surface: #151619;
+$color-surface-raised: #1b1b1d;
+
+$color-text: #ead8c2;
+$color-text-muted: #c2b09a;
+$color-text-subtle: #8f8172;
+
+$color-gold: #c99a5b;
+$color-gold-light: #e6bd83;
+$color-gold-dark: #805b35;
+$color-gold-rgb: 201, 154, 91;
+
+$color-border: rgba($color-gold, 0.28);
+$color-border-strong: rgba($color-gold-light, 0.62);
+$color-overlay: rgba(5, 6, 8, 0.72);
+
+// Typography
+$font-display: "Cormorant Garamond", "Georgia", serif;
+$font-body: "Source Serif 4", "Georgia", serif;
+$font-ui: "Source Serif 4", "Georgia", serif;
+
+// Font sizes
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.375rem;
+$font-size-xl: 1.75rem;
+$font-size-2xl: clamp(2rem, 3vw, 3rem);
+$font-size-hero: clamp(3.5rem, 7vw, 6.5rem);
+
+// Layout
+$container-width: 1440px;
+$container-gutter: clamp(1.25rem, 5vw, 4.5rem);
+$header-height: 104px;
+$section-space: clamp(4rem, 8vw, 8rem);
+
+// Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Spacing
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-16: 4rem;
+$space-20: 5rem;
+
+// Borders and effects
+$radius-sm: 2px;
+$radius-md: 6px;
+$radius-pill: 999px;
+
+$shadow-card: 0 18px 48px rgba(0, 0, 0, 0.42);
+$shadow-gold: 0 0 24px rgba($color-gold, 0.22);
+$shadow-gold-strong: 0 0 34px rgba($color-gold, 0.38);
+
+$transition-fast: 180ms ease;
+$transition-base: 300ms ease;
+$transition-slow: 600ms ease;
+
+$z-base: 1;
+$z-header: 20;
+$z-menu: 30;
+$z-overlay: 40;
+$z-modal: 50;

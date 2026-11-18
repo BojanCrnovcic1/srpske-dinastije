@@ -1,0 +1,161 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+
+  min-height: 48px;
+  padding: 0.8rem 1.8rem;
+
+  font-family: $font-ui;
+  font-size: $font-size-base;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.025em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+
+  color: $color-text;
+  background: rgba($color-bg-soft, 0.72);
+  border: 1px solid $color-gold;
+  border-radius: $radius-pill;
+
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+
+  transition:
+    color $transition-base,
+    background $transition-base,
+    border-color $transition-base,
+    box-shadow $transition-base,
+    transform $transition-fast;
+
+  // Subtle golden reflection
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+      110deg,
+      transparent 15%,
+      rgba($color-gold-light, 0.16) 50%,
+      transparent 85%
+    );
+
+    transform: translateX(-120%);
+    transition: transform 700ms ease;
+    pointer-events: none;
+  }
+
+  &:hover {
+    color: $color-bg;
+    background: $color-gold-light;
+    border-color: $color-gold-light;
+    box-shadow: $shadow-gold;
+    transform: translateY(-2px);
+
+    &::before {
+      transform: translateX(120%);
+    }
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    @include gold-focus;
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+    transform: none;
+    box-shadow: none;
+  }
+
+  // ==========================================
+  // PRIMARY
+  // ==========================================
+
+  &--primary {
+    color: $color-text;
+    background: rgba($color-bg, 0.65);
+    border-color: $color-gold;
+
+    &:hover {
+      color: #17120d;
+      background: $color-gold-light;
+    }
+  }
+
+  // ==========================================
+  // SECONDARY
+  // ==========================================
+
+  &--secondary {
+    color: $color-text-muted;
+    background: rgba($color-bg-soft, 0.38);
+    border-color: rgba($color-gold, 0.42);
+
+    &:hover {
+      color: $color-gold-light;
+      background: rgba($color-gold, 0.08);
+      border-color: $color-gold-light;
+      box-shadow: 0 0 16px rgba($color-gold, 0.1);
+      transform: translateY(-1px);
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  // ==========================================
+  // RESPONSIVE
+  // ==========================================
+
+  @include respond-down($breakpoint-md) {
+    min-height: 46px;
+    padding-inline: 1.5rem;
+    font-size: $font-size-sm;
+  }
+
+  @include respond-down($breakpoint-sm) {
+    min-height: 44px;
+    padding: 0.7rem 1.3rem;
+    gap: $space-2;
+  }
+
+  @include respond-down($breakpoint-xs) {
+    min-height: 42px;
+    padding-inline: 1.1rem;
+    font-size: $font-size-sm;
+  }
+}
+
+// ==========================================
+// ACCESSIBILITY
+// ==========================================
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button::before {
+    transition: none;
+  }
+
+  .button:hover,
+  .button:active {
+    transform: none;
+  }
+}
