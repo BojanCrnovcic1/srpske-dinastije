@@ -19,19 +19,21 @@ import { events } from "../data/events";
 ========================================= */
 
 const rulerTitles: Record<RulerTitle, string> = {
-  "veliki-zupan": "Veliki župan",
-  kralj: "Kralj",
-  car: "Car",
-  knez: "Knez",
-  despot: "Despot",
-  princ: "Princ",
-  regent: "Regent",
-  ban: "Ban",
-  vladika: "Vladika",
+  "велики жупан": "Велики жупан",
+  краљ: "Краљ",
+  цар: "Цар",
+  кнез: "Кнез",
+  деспот: "Деспот",
+  принц: "Принц",
+  регент: "Регент",
+  бан: "Бан",
+  владика: "Владика",
+  херцег: "Херцег",
+  господин: "Господин",
 };
 
 const achievementCategories: Record<AchievementCategory, string> = {
-  military: "Vojno dostignuće",
+  military: "Војно достигнуће",
   political: "Političko dostignuće",
   cultural: "Kulturno dostignuće",
   religious: "Vjersko dostignuće",

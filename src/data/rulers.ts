@@ -7,7 +7,7 @@ export const rulers: Ruler[] = [
 
     name: "Стефан Немања",
     slug: "stefan-nemanja",
-    title: "veliki-zupan",
+    title: "велики жупан",
 
     description:
       "Оснивач династије Немањић, велики жупан Рашке који је објединио српске земље, ојачао државну самосталност и утемељио задужбинарство.",
@@ -16,13 +16,13 @@ export const rulers: Ruler[] = [
       {
         start: { year: 1166, precision: "year" },
         end: { year: 1196, precision: "year" },
-        title: "veliki-zupan",
+        title: "велики жупан",
       },
     ],
     titleHistory: [
       {
         start: { year: 1166, precision: "year" },
-        title: "veliki-zupan",
+        title: "велики жупан",
       },
     ],
 
@@ -47,7 +47,7 @@ export const rulers: Ruler[] = [
 
     name: "Стефан Првовенчани",
     slug: "stefan-prvovencani",
-    title: "kralj",
+    title: "краљ",
 
     description:
       "Први крунисани краљ Србије и насљедник Стефана Немање, заслужан за међународни углед краљевине и подршку црквеној самосталности.",
@@ -56,29 +56,29 @@ export const rulers: Ruler[] = [
       {
         start: { year: 1196, precision: "year" },
         end: { year: 1202, precision: "year" },
-        title: "veliki-zupan",
+        title: "велики жупан",
         note: "Први период владавине прије краткотрајног свргавања од стране брата Вукана.",
       },
       {
         start: { year: 1203, precision: "year" },
         end: { year: 1217, precision: "year" },
-        title: "veliki-zupan",
+        title: "велики жупан",
       },
       {
         start: { year: 1217, precision: "year" },
         end: { year: 1228, precision: "year" },
-        title: "kralj",
+        title: "краљ",
         note: "Крунисан за краља Србије 1217. године.",
       },
     ],
     titleHistory: [
       {
         start: { year: 1196, precision: "year" },
-        title: "veliki-zupan",
+        title: "велики жупан",
       },
       {
         start: { year: 1217, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
 
@@ -100,7 +100,7 @@ export const rulers: Ruler[] = [
 
     name: "Стефан Радослав",
     slug: "stefan-radoslav",
-    title: "kralj",
+    title: "краљ",
 
     description:
       "Краљ Србије снажно повезан са Византијом и епирским владарима, током чије владавине је ојачао византијски културни утицај на двору.",
@@ -109,13 +109,13 @@ export const rulers: Ruler[] = [
       {
         start: { year: 1228, precision: "year" },
         end: { year: 1233, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
     titleHistory: [
       {
         start: { year: 1228, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
 
@@ -137,7 +137,7 @@ export const rulers: Ruler[] = [
 
     name: "Стефан Владислав",
     slug: "stefan-vladislav",
-    title: "kralj",
+    title: "краљ",
 
     description:
       "Краљ Србије који је успоставио блиске односе са Бугарском и подигао манастир Милешеву, у који су пренесене мошти Светог Саве.",
@@ -146,13 +146,13 @@ export const rulers: Ruler[] = [
       {
         start: { year: 1234, precision: "year" },
         end: { year: 1243, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
     titleHistory: [
       {
         start: { year: 1234, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
 
@@ -174,7 +174,7 @@ export const rulers: Ruler[] = [
 
     name: "Стефан Урош I",
     slug: "uros-i",
-    title: "kralj",
+    title: "краљ",
 
     description:
       "Дуговјечни краљ Србије који је учврстио централну власт, подстицао развој рударства и трговине те очувао самосталност државе.",
@@ -183,13 +183,13 @@ export const rulers: Ruler[] = [
       {
         start: { year: 1243, precision: "year" },
         end: { year: 1276, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
     titleHistory: [
       {
         start: { year: 1243, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
 
@@ -211,7 +211,7 @@ export const rulers: Ruler[] = [
 
     name: "Стефан Драгутин",
     slug: "dragutin",
-    title: "kralj",
+    title: "краљ",
 
     description:
       "Краљ Србије који је након повреде и сабора у Дежеву предао круну брату Милутину, а као сремски краљ проширио српску власт на сјевер.",
@@ -220,20 +220,20 @@ export const rulers: Ruler[] = [
       {
         start: { year: 1276, precision: "year" },
         end: { year: 1282, precision: "year" },
-        title: "kralj",
+        title: "краљ",
         note: "Краљ Србије до сабора у Дежеву 1282. године.",
       },
       {
         start: { year: 1282, precision: "year" },
         end: { year: 1316, precision: "year" },
-        title: "kralj",
+        title: "краљ",
         note: "Владао сјеверним областима и Сремском земљом као сремски краљ.",
       },
     ],
     titleHistory: [
       {
         start: { year: 1276, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
 
@@ -255,7 +255,7 @@ export const rulers: Ruler[] = [
 
     name: "Стефан Урош II Милутин",
     slug: "milutin",
-    title: "kralj",
+    title: "краљ",
 
     description:
       "Један од најмоћнијих краљева из династије Немањић, који је знатно проширио границе на југу и оставио богато задужбинарско насљеђе.",
@@ -264,13 +264,13 @@ export const rulers: Ruler[] = [
       {
         start: { year: 1282, precision: "year" },
         end: { year: 1321, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
     titleHistory: [
       {
         start: { year: 1282, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
 
@@ -296,7 +296,7 @@ export const rulers: Ruler[] = [
 
     name: "Стефан Урош III Дечански",
     slug: "stefan-decanski",
-    title: "kralj",
+    title: "краљ",
 
     description:
       "Краљ Србије који је након година изгнанства дошао на престо, извојевао побједу код Велбужда и подигао манастир Високе Дечане.",
@@ -305,13 +305,13 @@ export const rulers: Ruler[] = [
       {
         start: { year: 1321, precision: "year" },
         end: { year: 1331, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
     titleHistory: [
       {
         start: { year: 1321, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
     ],
 
@@ -333,7 +333,7 @@ export const rulers: Ruler[] = [
 
     name: "Стефан Душан",
     slug: "stefan-dusan",
-    title: "car",
+    title: "цар",
 
     description:
       "Српски краљ и цар, познат по територијалном ширењу државе до Егејског мора, уздизању цркве у ранг патријаршије и доношењу законика.",
@@ -342,23 +342,23 @@ export const rulers: Ruler[] = [
       {
         start: { year: 1331, precision: "year" },
         end: { year: 1346, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
       {
         start: { year: 1346, precision: "year" },
         end: { year: 1355, precision: "year" },
-        title: "car",
+        title: "цар",
         note: "Царска титула проглашена на сабору у Скопљу 1346. године.",
       },
     ],
     titleHistory: [
       {
         start: { year: 1331, precision: "year" },
-        title: "kralj",
+        title: "краљ",
       },
       {
         start: { year: 1346, precision: "year" },
-        title: "car",
+        title: "цар",
       },
     ],
 
@@ -384,7 +384,7 @@ export const rulers: Ruler[] = [
 
     name: "Стефан Урош V",
     slug: "uros-v",
-    title: "car",
+    title: "цар",
 
     description:
       "Посљедњи владар из династије Немањић, током чије владавине је дошло до јачања обласних господара и слабљења централне царске власти.",
@@ -393,13 +393,13 @@ export const rulers: Ruler[] = [
       {
         start: { year: 1355, precision: "year" },
         end: { year: 1371, precision: "year" },
-        title: "car",
+        title: "цар",
       },
     ],
     titleHistory: [
       {
         start: { year: 1355, precision: "year" },
-        title: "car",
+        title: "цар",
       },
     ],
 

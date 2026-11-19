@@ -5,15 +5,17 @@ import { dynasties } from "../data/dynasties";
 import { events } from "../data/events";
 
 const rulerTitles: Record<RulerTitle, string> = {
-  "veliki-zupan": "Veliki župan",
-  kralj: "Kralj",
-  car: "Car",
-  knez: "Knez",
-  despot: "Despot",
-  princ: "Princ",
-  regent: "Regent",
-  ban: "Ban",
-  vladika: "Vladika",
+  "велики жупан": "Veliki župan",
+  краљ: "Kralj",
+  цар: "Car",
+  кнез: "Knez",
+  деспот: "Despot",
+  принц: "Princ",
+  регент: "Regent",
+  бан: "Ban",
+  владика: "Vladika",
+  херцег: "Херцег",
+  господин: "Господин",
 };
 
 const formatHistoricalDate = (date: HistoricalDate): string => {
