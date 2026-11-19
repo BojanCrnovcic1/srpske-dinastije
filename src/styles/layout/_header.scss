@@ -6,40 +6,47 @@
   top: 0;
   left: 0;
   z-index: $z-header;
-  width: 100%;
 
-  // Više transparentan gradijent (niže alpha vrednosti)
+  width: 100%;
+  max-width: 100%;
+
   background: linear-gradient(
     180deg,
     rgba(8, 9, 11, 0.55) 0%,
     rgba(8, 9, 11, 0.3) 72%,
     rgba(8, 9, 11, 0.05) 100%
   );
+
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 
-  // ==========================================
+  // ==========================================================
   // CONTAINER
-  // ==========================================
+  // ==========================================================
 
   &__container {
     @include container;
     @include flex-between(1.5rem);
 
     position: relative;
+
+    width: min(calc(100% - (#{$container-gutter} * 2)), #{$container-width});
+
+    min-width: 0;
     min-height: $header-height;
   }
 
-  // ==========================================
+  // ==========================================================
   // BRAND
-  // ==========================================
+  // ==========================================================
 
   &__brand {
     display: flex;
     align-items: center;
+
     gap: $space-4;
 
-    flex: 0 0 auto;
+    flex: 0 1 auto;
     min-width: 0;
   }
 
@@ -48,12 +55,16 @@
     flex-direction: column;
     justify-content: center;
 
+    min-width: 0;
+
     color: $color-text;
+
     font-family: $font-display;
     font-size: clamp(1.2rem, 1.6vw, 1.65rem);
     font-weight: 500;
     line-height: 0.96;
     letter-spacing: -0.025em;
+
     text-decoration: none;
     white-space: nowrap;
 
@@ -64,9 +75,9 @@
     }
   }
 
-  // ==========================================
+  // ==========================================================
   // DESKTOP NAVIGATION
-  // ==========================================
+  // ==========================================================
 
   &__navigation {
     display: flex;
@@ -74,11 +85,15 @@
     justify-content: center;
 
     gap: clamp(1.25rem, 2.5vw, 2.75rem);
+
     margin-inline: auto;
+
+    min-width: 0;
   }
 
   &__nav-link {
     position: relative;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -86,9 +101,11 @@
     padding-block: 0.8rem;
 
     color: rgba($color-text, 0.78);
+
     font-family: $font-ui;
     font-size: $font-size-sm;
     font-weight: 400;
+
     text-decoration: none;
     white-space: nowrap;
 
@@ -96,13 +113,13 @@
       color $transition-base,
       text-shadow $transition-base;
 
-    // Active indicator
     &::after {
       content: "";
+
       position: absolute;
-      left: 0;
       right: 0;
       bottom: 0;
+      left: 0;
 
       width: 100%;
       height: 1px;
@@ -116,6 +133,7 @@
 
       transform: scaleX(0);
       transform-origin: center;
+
       transition: transform $transition-base;
     }
 
@@ -134,32 +152,39 @@
     }
   }
 
-  // ==========================================
+  // ==========================================================
   // ACTIONS
-  // ==========================================
+  // ==========================================================
 
   &__actions {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
     gap: $space-4;
 
     flex: 0 0 auto;
   }
 
-  // Audio player button
+  // ==========================================================
+  // AUDIO BUTTON
+  // ==========================================================
+
   &__audio-button {
     @include flex-center;
 
     flex: 0 0 auto;
+
     width: 38px;
     height: 38px;
+
     padding: 0;
 
     color: $color-gold-light;
     font-size: 0.95rem;
 
     background: rgba($color-bg, 0.3);
+
     border: 1px solid rgba($color-gold, 0.7);
     border-radius: 50%;
 
@@ -176,7 +201,9 @@
       color: $color-bg;
       background: $color-gold-light;
       border-color: $color-gold-light;
+
       box-shadow: $shadow-gold;
+
       transform: translateY(-1px);
     }
 
@@ -194,10 +221,9 @@
     }
   }
 
-  // ==========================================
+  // ==========================================================
   // MOBILE MENU BUTTON
-  // Hidden on desktop by default
-  // ==========================================
+  // ==========================================================
 
   &__menu-button {
     display: none;
@@ -205,15 +231,20 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
     gap: 6px;
 
     flex: 0 0 auto;
+
     width: 38px;
     height: 38px;
+
     padding: 0;
 
     color: $color-gold-light;
+
     background: rgba($color-bg, 0.3);
+
     border: 1px solid rgba($color-gold, 0.7);
     border-radius: 50%;
 
@@ -229,6 +260,7 @@
 
     span {
       display: block;
+
       width: 15px;
       height: 1px;
 
@@ -243,6 +275,7 @@
     &:hover {
       background: rgba($color-gold, 0.1);
       border-color: $color-gold-light;
+
       box-shadow: $shadow-gold;
 
       span {
@@ -258,7 +291,6 @@
       @include gold-focus;
     }
 
-    // Hamburger -> X
     &--active {
       span:first-child {
         transform: translateY(3.5px) rotate(45deg);
@@ -270,9 +302,9 @@
     }
   }
 
-  // ==========================================
+  // ==========================================================
   // LARGE SCREENS
-  // ==========================================
+  // ==========================================================
 
   @include respond-down($breakpoint-xl) {
     &__brand {
@@ -288,43 +320,20 @@
     }
   }
 
-  // ==========================================
-  // LAPTOP / SMALL DESKTOP
-  // ==========================================
+  // ==========================================================
+  // SMALL DESKTOP / LAPTOP
+  // ==========================================================
 
   @include respond-down($breakpoint-lg) {
     &__container {
-      min-height: 88px;
+      min-height: 80px;
     }
 
     &__brand-title {
       font-size: 1.3rem;
     }
 
-    &__navigation {
-      gap: 1rem;
-    }
-
-    &__nav-link {
-      font-size: $font-size-sm;
-    }
-
-    &__audio-button {
-      width: 36px;
-      height: 36px;
-    }
-  }
-
-  // ==========================================
-  // TABLET
-  // Hamburger becomes visible
-  // ==========================================
-
-  @include respond-down($breakpoint-md) {
-    &__container {
-      min-height: 80px;
-    }
-
+    // Navigation is hidden before it starts colliding.
     &__navigation {
       display: none;
     }
@@ -338,9 +347,9 @@
     }
   }
 
-  // ==========================================
+  // ==========================================================
   // MOBILE
-  // ==========================================
+  // ==========================================================
 
   @include respond-down($breakpoint-sm) {
     &__container {
@@ -366,9 +375,9 @@
     }
   }
 
-  // ==========================================
+  // ==========================================================
   // SMALL MOBILE
-  // ==========================================
+  // ==========================================================
 
   @include respond-down($breakpoint-xs) {
     &__container {
@@ -403,9 +412,9 @@
   }
 }
 
-// ==========================================
+// ============================================================
 // REDUCED MOTION
-// ==========================================
+// ============================================================
 
 @media (prefers-reduced-motion: reduce) {
   .header {
