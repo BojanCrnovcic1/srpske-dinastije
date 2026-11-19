@@ -5,15 +5,15 @@ import { dynasties } from "../data/dynasties";
 import { events } from "../data/events";
 
 const rulerTitles: Record<RulerTitle, string> = {
-  "велики жупан": "Veliki župan",
-  краљ: "Kralj",
-  цар: "Car",
-  кнез: "Knez",
-  деспот: "Despot",
-  принц: "Princ",
-  регент: "Regent",
-  бан: "Ban",
-  владика: "Vladika",
+  "велики жупан": "Велики жупан",
+  краљ: "Краљ",
+  цар: "Цар",
+  кнез: "Kнез",
+  деспот: "Деспот",
+  принц: "Принц",
+  регент: "Регент",
+  бан: "Бан",
+  владика: "Владика",
   херцег: "Херцег",
   господин: "Господин",
 };
@@ -27,7 +27,7 @@ const formatHistoricalDate = (date: HistoricalDate): string => {
 
     case "century": {
       const century = Math.ceil(year / 100);
-      return `${century}. vijek`;
+      return `${century}. Век`;
     }
 
     case "year":
@@ -44,7 +44,7 @@ const formatPeriod = (
   const startYear = formatHistoricalDate(start);
 
   if (!end) {
-    return `${startYear} – danas`;
+    return `${startYear} – данас`;
   }
 
   return `${startYear} – ${formatHistoricalDate(end)}`;
@@ -52,14 +52,14 @@ const formatPeriod = (
 
 const getRulerPeriod = (ruler: Ruler): string => {
   if (!ruler.reigns.length) {
-    return "Period vladavine nije poznat";
+    return "Период владавине није познат";
   }
 
   const firstReign = ruler.reigns[0];
   const lastReign = ruler.reigns[ruler.reigns.length - 1];
 
   const start = formatHistoricalDate(firstReign.start);
-  const end = lastReign.end ? formatHistoricalDate(lastReign.end) : "danas";
+  const end = lastReign.end ? formatHistoricalDate(lastReign.end) : "данас";
 
   return `${start} – ${end}`;
 };
@@ -118,11 +118,11 @@ const DynastyPage = () => {
         <div className="dynasty-page__hero-content">
           <Link to="/dinastije" className="dynasty-page__back-link">
             <span aria-hidden="true">←</span>
-            Sve dinastije
+            Све династије
           </Link>
 
           <span className="dynasty-page__eyebrow">
-            Srpska istorija i vladarske porodice
+            Српска историја и владарске поридице
           </span>
 
           <h1 className="dynasty-page__title">{dynasty.name}</h1>
@@ -142,7 +142,7 @@ const DynastyPage = () => {
           </p>
 
           <a href="#vladari" className="dynasty-page__scroll-link">
-            Upoznajte vladare
+            Упознајте владаре
             <span aria-hidden="true">↓</span>
           </a>
         </div>
@@ -153,10 +153,10 @@ const DynastyPage = () => {
       <section className="dynasty-page__introduction">
         <div className="dynasty-page__container">
           <div className="dynasty-page__section-heading">
-            <span className="dynasty-page__eyebrow">Vladarsko nasljeđe</span>
+            <span className="dynasty-page__eyebrow">Владарско наслеђе</span>
 
             <h2>
-              Trag koji je <span>ostao u istoriji</span>
+              Траг који је<span> остао у историји</span>
             </h2>
           </div>
 
@@ -174,7 +174,7 @@ const DynastyPage = () => {
                     {dynastyRulers.length}
                   </span>
 
-                  <span className="dynasty-page__stat-label">Vladara</span>
+                  <span className="dynasty-page__stat-label">Владара</span>
                 </div>
 
                 <div className="dynasty-page__stat">
@@ -183,7 +183,7 @@ const DynastyPage = () => {
                   </span>
 
                   <span className="dynasty-page__stat-label">
-                    Istorijskih događaja
+                    Истроијских догађаја
                   </span>
                 </div>
 
@@ -195,7 +195,7 @@ const DynastyPage = () => {
                   </span>
 
                   <span className="dynasty-page__stat-label">
-                    Godina trajanja
+                    Година трајања
                   </span>
                 </div>
               </div>
@@ -209,17 +209,15 @@ const DynastyPage = () => {
       <section className="dynasty-page__timeline-section" id="vladari">
         <div className="dynasty-page__container">
           <div className="dynasty-page__section-heading">
-            <span className="dynasty-page__eyebrow">
-              Nasljednici prijestola
-            </span>
+            <span className="dynasty-page__eyebrow">Наследници престола</span>
 
             <h2>
-              Vladari <span>dinastije</span>
+              Владари <span>династије</span>
             </h2>
 
             <p>
-              Upoznajte vladare koji su obilježili istoriju i prenosili nasljeđe
-              ove vladarske porodice.
+              Упознајте владаре који су обележили историју и преносили наслеђе
+              ове владарске породице.
             </p>
           </div>
 
@@ -285,20 +283,20 @@ const DynastyPage = () => {
                             {predecessor && (
                               <span>
                                 <span aria-hidden="true">↑</span>
-                                Prethodnik: {predecessor.name}
+                                Предходник: {predecessor.name}
                               </span>
                             )}
 
                             {successor && (
                               <span>
                                 <span aria-hidden="true">↓</span>
-                                Nasljednik: {successor.name}
+                                Наследник: {successor.name}
                               </span>
                             )}
                           </div>
 
                           <span className="dynasty-timeline__more">
-                            Istražite vladara
+                            Истражите владара
                             <span aria-hidden="true">↗</span>
                           </span>
                         </div>
@@ -310,7 +308,7 @@ const DynastyPage = () => {
             </div>
           ) : (
             <p className="dynasty-page__empty">
-              Podaci o vladarima ove dinastije još nisu dostupni.
+              Подаци о владарима ове династије још нису доступни.
             </p>
           )}
         </div>
@@ -322,10 +320,10 @@ const DynastyPage = () => {
         <section className="dynasty-page__events">
           <div className="dynasty-page__container">
             <div className="dynasty-page__section-heading">
-              <span className="dynasty-page__eyebrow">Ključni trenuci</span>
+              <span className="dynasty-page__eyebrow">Кључни тренуци</span>
 
               <h2>
-                Istorijski <span>događaji</span>
+                Историјски <span>догађаји</span>
               </h2>
             </div>
 
@@ -356,7 +354,7 @@ const DynastyPage = () => {
       <section className="dynasty-page__footer">
         <Link to="/dinastije" className="dynasty-page__back-button">
           <span aria-hidden="true">←</span>
-          Povratak na sve dinastije
+          Повратак на све династије
         </Link>
       </section>
     </main>

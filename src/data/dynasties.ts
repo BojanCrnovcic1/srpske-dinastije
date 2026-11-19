@@ -20,8 +20,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/assets/images/dynasties/vlastimirovici.jpg",
-    coverImage: "/assets/images/backgrounds/vlastimirovici.jpg",
+    image: "/assets/images/dynasties/vlastimirovici.webp",
+    coverImage: "/assets/images/backgrounds/vlastimirovici.webp",
 
     rulerIds: [
       "knez-viseslav",
@@ -135,8 +135,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/assets/images/dynasties/kotromanici.jpg",
-    coverImage: "/assets/images/backgrounds/kotromanici.jpg",
+    image: "/assets/images/dynasties/kotromanici.webp",
+    coverImage: "/assets/images/backgrounds/kotromanici.webp",
 
     rulerIds: [
       "ban-stjepan-ii",
@@ -171,8 +171,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/assets/images/dynasties/balsici.jpg",
-    coverImage: "/assets/images/backgrounds/balsici.jpg",
+    image: "/assets/images/dynasties/balsici.webp",
+    coverImage: "/assets/images/backgrounds/balsici.webp",
 
     rulerIds: ["balsa-i", "djuradj-i-balsic", "balsa-ii", "balsa-iii"],
 
@@ -205,8 +205,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/assets/images/dynasties/mrnjavcevici.jpg",
-    coverImage: "/assets/images/backgrounds/mrnjavcevici.jpg",
+    image: "/assets/images/dynasties/mrnjavcevici.webp",
+    coverImage: "/assets/images/backgrounds/mrnjavcevici.webp",
 
     rulerIds: ["kralj-vukasin", "despot-ugljesa", "kraljevic-marko"],
 
@@ -236,8 +236,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/assets/images/dynasties/lazarevici.jpg",
-    coverImage: "/assets/images/backgrounds/lazarevici.jpg",
+    image: "/assets/images/dynasties/lazarevici.webp",
+    coverImage: "/assets/images/backgrounds/lazarevici.webp",
 
     rulerIds: ["knez-lazar", "kneginja-milica", "despot-stefan-lazarevic"],
 
@@ -267,8 +267,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/assets/images/dynasties/brankovici.jpg",
-    coverImage: "/assets/images/backgrounds/brankovici.jpg",
+    image: "/assets/images/dynasties/brankovici.webp",
+    coverImage: "/assets/images/backgrounds/brankovici.webp",
 
     rulerIds: ["vuk-brankovic", "djuradj-brankovic", "lazar-brankovic"],
 
@@ -298,8 +298,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/assets/images/dynasties/petrovici.jpg",
-    coverImage: "/assets/images/backgrounds/petrovici.jpg",
+    image: "/assets/images/dynasties/petrovici.webp",
+    coverImage: "/assets/images/backgrounds/petrovici.webp",
 
     rulerIds: [
       "vladika-danilo",
@@ -338,8 +338,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/assets/images/dynasties/karadjordjevici.jpg",
-    coverImage: "/assets/images/backgrounds/karadjordjevici.jpg",
+    image: "/assets/images/dynasties/karadjordjevici.webp",
+    coverImage: "/assets/images/backgrounds/karadjordjevici.webp",
 
     rulerIds: [
       "karadjordje-petrovic",
@@ -379,8 +379,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/assets/images/dynasties/obrenovici.jpg",
-    coverImage: "/assets/images/backgrounds/obrenovici.jpg",
+    image: "/assets/images/dynasties/obrenovici.webp",
+    coverImage: "/assets/images/backgrounds/obrenovici.webp",
 
     rulerIds: [
       "knez-milos",

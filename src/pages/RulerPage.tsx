@@ -34,24 +34,24 @@ const rulerTitles: Record<RulerTitle, string> = {
 
 const achievementCategories: Record<AchievementCategory, string> = {
   military: "Војно достигнуће",
-  political: "Političko dostignuće",
-  cultural: "Kulturno dostignuće",
-  religious: "Vjersko dostignuće",
-  legal: "Pravno dostignuće",
-  territorial: "Teritorijalno proširenje",
-  architectural: "Zadužbinarstvo i arhitektura",
-  other: "Ostalo",
+  political: "Политичко достигнуће",
+  cultural: "Културно достигнуће",
+  religious: "Верско достигнуће",
+  legal: "Правно достигнуће",
+  territorial: "Територијално проширење",
+  architectural: "Архитектура",
+  other: "Остало",
 };
 
 const eventCategories: Record<EventCategory, string> = {
-  battle: "Bitka",
-  coronation: "Krunisanje",
-  treaty: "Sporazum",
-  uprising: "Ustanak",
-  political: "Politički događaj",
-  religious: "Vjerski događaj",
-  legislation: "Zakonodavstvo",
-  other: "Istorijski događaj",
+  battle: "Битка",
+  coronation: "Kрунисање",
+  treaty: "Споразум",
+  uprising: "Устанак",
+  political: "Политички догађај",
+  religious: "Верски догађај",
+  legislation: "Законодавство",
+  other: "Историјски догађај",
 };
 
 /* =========================================
@@ -68,7 +68,7 @@ const formatHistoricalDate = (date: HistoricalDate): string => {
       return `oko ${date.year}.`;
 
     case "century":
-      return `${Math.ceil(date.year / 100)}. vijek`;
+      return `${Math.ceil(date.year / 100)}. век`;
 
     case "exact":
     case "year":
@@ -90,7 +90,7 @@ const formatPeriod = (
 
 const getRulerPeriod = (ruler: Ruler): string => {
   if (!ruler.reigns.length) {
-    return "Period vladavine nije poznat";
+    return "Период владавине није познат";
   }
 
   const firstReign = ruler.reigns[0];
@@ -101,7 +101,7 @@ const getRulerPeriod = (ruler: Ruler): string => {
 
 const getReignDuration = (ruler: Ruler): string => {
   if (!ruler.reigns.length) {
-    return "Nepoznato";
+    return "Непознато";
   }
 
   const startYear = Math.min(...ruler.reigns.map((reign) => reign.start.year));
@@ -111,13 +111,13 @@ const getReignDuration = (ruler: Ruler): string => {
     .filter((year): year is number => year !== undefined);
 
   if (!endYears.length) {
-    return "Nepoznato";
+    return "Непознато";
   }
 
   const endYear = Math.max(...endYears);
   const duration = endYear - startYear;
 
-  return `${duration} ${duration === 1 ? "godina" : "godina"}`;
+  return `${duration} ${duration === 1 ? "година" : "година"}`;
 };
 
 const getRulerAchievements = (ruler: Ruler): Achievement[] => {
@@ -223,9 +223,9 @@ const RulerPage = () => {
       <section className="ruler-biography section">
         <div className="ruler-biography__container container">
           <div className="ruler-biography__content">
-            <span className="section-eyebrow">Život i vladavina</span>
+            <span className="section-eyebrow">Живот и владавина</span>
 
-            <h2 className="section-title">Vladar i njegovo nasljeđe</h2>
+            <h2 className="section-title">Владар и његово наслеђе</h2>
 
             <div className="ruler-biography__text">
               {ruler.biography ? (
@@ -239,7 +239,7 @@ const RulerPage = () => {
               to={`/dinastije/${dynasty.slug}`}
               className="ruler-biography__dynasty"
             >
-              <span>Dinastija</span>
+              <span>Династија</span>
               <strong>{dynasty.name}</strong>
               <span aria-hidden="true">↗</span>
             </Link>
@@ -255,19 +255,19 @@ const RulerPage = () => {
             <span className="ruler-stats__number">
               {rulerAchievements.length}
             </span>
-            <span className="ruler-stats__label">Zabilježenih dostignuća</span>
+            <span className="ruler-stats__label">Забележених достигнућа</span>
           </div>
 
           <div className="ruler-stats__item">
             <span className="ruler-stats__number">{rulerEvents.length}</span>
-            <span className="ruler-stats__label">Istorijskih događaja</span>
+            <span className="ruler-stats__label">Историјских догађаја</span>
           </div>
 
           <div className="ruler-stats__item">
             <span className="ruler-stats__number">
               {getReignDuration(ruler)}
             </span>
-            <span className="ruler-stats__label">Period vladavine</span>
+            <span className="ruler-stats__label">Период владавине</span>
           </div>
         </div>
       </section>
@@ -280,13 +280,13 @@ const RulerPage = () => {
         <section className="ruler-reigns section">
           <div className="container">
             <div className="section-heading">
-              <span className="section-eyebrow">Hronologija</span>
+              <span className="section-eyebrow">Хронологија</span>
 
-              <h2 className="section-title">Periodi vladavine</h2>
+              <h2 className="section-title">Период владавине</h2>
 
               <p className="section-description">
-                Hronološki pregled perioda tokom kojih je {ruler.name} upravljao
-                državom.
+                Хронолошки преглед периода током којим је {ruler.name} управљао
+                државом.
               </p>
             </div>
 
@@ -328,9 +328,9 @@ const RulerPage = () => {
         <section className="ruler-titles section">
           <div className="container">
             <div className="section-heading">
-              <span className="section-eyebrow">Vladarske titule</span>
+              <span className="section-eyebrow">Владарске титуле</span>
 
-              <h2 className="section-title">Titule kroz istoriju</h2>
+              <h2 className="section-title">Титуле кроз историју</h2>
             </div>
 
             <div className="ruler-titles__list">
@@ -361,13 +361,13 @@ const RulerPage = () => {
         <section className="ruler-achievements section">
           <div className="container">
             <div className="section-heading">
-              <span className="section-eyebrow">Istorijsko nasljeđe</span>
+              <span className="section-eyebrow">Историјско наслеђе</span>
 
-              <h2 className="section-title">Dostignuća i nasljeđe</h2>
+              <h2 className="section-title">Достигнућа и наслеђе</h2>
 
               <p className="section-description">
-                Najznačajnija politička, vojna, kulturna i graditeljska
-                ostvarenja iz perioda vladavine.
+                Најзначајнија политичка, војна, културна и градитељска остварења
+                из периода владавине.
               </p>
             </div>
 
@@ -420,12 +420,12 @@ const RulerPage = () => {
         <section className="ruler-events section">
           <div className="container">
             <div className="section-heading">
-              <span className="section-eyebrow">Istorijska hronologija</span>
+              <span className="section-eyebrow">Историјска хронологија</span>
 
-              <h2 className="section-title">Ključni istorijski događaji</h2>
+              <h2 className="section-title">Кључни историјски догађаји</h2>
 
               <p className="section-description">
-                Događaji koji su obilježili vladavinu i istorijski period{" "}
+                Догаћаји који су обележили владавину и историјски период{" "}
                 {ruler.name}.
               </p>
             </div>
@@ -471,9 +471,9 @@ const RulerPage = () => {
         <section className="ruler-succession section">
           <div className="container">
             <div className="section-heading">
-              <span className="section-eyebrow">Vladarska loza</span>
+              <span className="section-eyebrow">Владарска лоза</span>
 
-              <h2 className="section-title">Nasljeđivanje prijestola</h2>
+              <h2 className="section-title">Наслеђивање престола</h2>
             </div>
 
             <div className="ruler-succession__grid">
@@ -483,7 +483,7 @@ const RulerPage = () => {
                   className="ruler-succession-card"
                 >
                   <span className="ruler-succession-card__label">
-                    Prethodnik
+                    Претходник
                   </span>
 
                   <div className="ruler-succession-card__content">
@@ -502,9 +502,9 @@ const RulerPage = () => {
               ) : (
                 <div className="ruler-succession-card ruler-succession-card--empty">
                   <span className="ruler-succession-card__label">
-                    Prethodnik
+                    Претходник
                   </span>
-                  <p>Nije zabilježen u dostupnim podacima.</p>
+                  <p>Није забелезен у постојећим податцима.</p>
                 </div>
               )}
 
@@ -514,7 +514,7 @@ const RulerPage = () => {
                   className="ruler-succession-card"
                 >
                   <span className="ruler-succession-card__label">
-                    Nasljednik
+                    Наследник
                   </span>
 
                   <div className="ruler-succession-card__content">
@@ -533,9 +533,9 @@ const RulerPage = () => {
               ) : (
                 <div className="ruler-succession-card ruler-succession-card--empty">
                   <span className="ruler-succession-card__label">
-                    Nasljednik
+                    Наследник
                   </span>
-                  <p>Nije zabilježen u dostupnim podacima.</p>
+                  <p>Није забележен у доступним податцима.</p>
                 </div>
               )}
             </div>
@@ -549,10 +549,10 @@ const RulerPage = () => {
 
       <section className="ruler-footer">
         <div className="container ruler-footer__content">
-          <span className="section-eyebrow">Nastavi istraživanje</span>
+          <span className="section-eyebrow">Настави истраживање</span>
 
           <h2>
-            Upoznaj istoriju dinastije
+            Упознај историју династије
             <span>{dynasty.name}</span>
           </h2>
 
@@ -560,7 +560,7 @@ const RulerPage = () => {
             to={`/dinastije/${dynasty.slug}`}
             className="ruler-footer__link"
           >
-            <span>Vrati se na dinastiju</span>
+            <span>Врати се на династију</span>
             <span aria-hidden="true">↗</span>
           </Link>
         </div>
