@@ -7,7 +7,9 @@ export type RulerTitle =
   | "knez"
   | "despot"
   | "princ"
-  | "regent";
+  | "regent"
+  | "ban"
+  | "vladika";
 
 export interface ReignPeriod extends HistoricalPeriod {
   title: RulerTitle;

@@ -10,15 +10,23 @@
   width: 100%;
   max-width: 100%;
 
+  // ==========================================================
+  // TRANSPARENT INITIAL HEADER
+  // ==========================================================
+
   background: linear-gradient(
     180deg,
-    rgba(8, 9, 11, 0.55) 0%,
-    rgba(8, 9, 11, 0.3) 72%,
-    rgba(8, 9, 11, 0.05) 100%
+    rgba(8, 9, 11, 0.18) 0%,
+    rgba(8, 9, 11, 0.08) 65%,
+    rgba(8, 9, 11, 0) 100%
   );
 
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+
+  transition:
+    background $transition-base,
+    backdrop-filter $transition-base;
 
   // ==========================================================
   // CONTAINER
@@ -333,7 +341,6 @@
       font-size: 1.3rem;
     }
 
-    // Navigation is hidden before it starts colliding.
     &__navigation {
       display: none;
     }

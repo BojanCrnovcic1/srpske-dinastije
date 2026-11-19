@@ -13,7 +13,7 @@ const dynasties: Dynasty[] = [
   {
     id: "vojislavljevici",
     name: "Војислављевићи",
-    period: "1282 — 1331",
+    period: "1018 — 1186",
     image: "/assets/images/dynasties/vojislavljevici.webp",
     href: "/dinastije/vojislavljevici",
   },

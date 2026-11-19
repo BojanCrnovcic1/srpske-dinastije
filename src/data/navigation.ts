@@ -8,10 +8,6 @@ export const navigationLinks = [
     label: "Династије",
     href: "/dynasty",
   },
-  {
-    label: "Владари",
-    href: "/ruler",
-  },
 
   {
     label: "О нама",

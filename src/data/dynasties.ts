@@ -2,6 +2,42 @@ import type { Dynasty } from "../types";
 
 export const dynasties: Dynasty[] = [
   {
+    id: "vlastimirovici",
+    name: "Властимировићи",
+    slug: "vlastimirovici",
+
+    description:
+      "Najstarija poznata srpska vladarska dinastija koja je u ranom srednjem vijeku formirala prvu srpsku kneževinu i uspješno je odbranila od bugarskih napada.",
+
+    period: {
+      start: {
+        year: 780,
+        precision: "approximate",
+      },
+      end: {
+        year: 960,
+        precision: "approximate",
+      },
+    },
+
+    image: "/images/dynasties/vlastimirovici.jpg",
+    coverImage: "/images/backgrounds/vlastimirovici.jpg",
+
+    rulerIds: [
+      "knez-viseslav",
+      "knez-vlastimir",
+      "knez-mutimir",
+      "knez-caslav",
+    ],
+
+    eventIds: ["odbrana-od-bugara-839", "primanje-hriscanstva-870"],
+
+    musicTrackId: "vlastimirovici-theme",
+
+    status: "published",
+    order: 1,
+  },
+  {
     id: "vojislavljevici",
     name: "Војислављевићи",
     slug: "vojislavljevici",
@@ -29,8 +65,8 @@ export const dynasties: Dynasty[] = [
 
     musicTrackId: "vojislavljevici-theme",
 
-    status: "published",
-    order: 1,
+    status: "draft",
+    order: 2,
   },
   {
     id: "nemanjici",
@@ -61,7 +97,108 @@ export const dynasties: Dynasty[] = [
     musicTrackId: "nemanjici-theme",
 
     status: "draft",
-    order: 2,
+    order: 3,
+  },
+  {
+    id: "kotromanici",
+    name: "Котроманићи",
+    slug: "kotromanici",
+
+    description:
+      "Vladarska dinastija srednjovjekovne Bosne koja je pod banom Kulininom i kraljem Tvrtkom I dostigla najveći teritorijalni i kulturni uspon.",
+
+    period: {
+      start: {
+        year: 1250,
+        precision: "approximate",
+      },
+      end: {
+        year: 1463,
+        precision: "year",
+      },
+    },
+
+    image: "/images/dynasties/kotromanici.jpg",
+    coverImage: "/images/backgrounds/kotromanici.jpg",
+
+    rulerIds: [
+      "ban-stjepan-ii",
+      "kralj-tvrtko-i",
+      "kralj-stjepan-tomas",
+      "stjepan-tomasevic",
+    ],
+
+    eventIds: ["krunisanje-u-milesevi-1377", "pad-bosne-1463"],
+
+    musicTrackId: "kotromanici-theme",
+
+    status: "published",
+    order: 4,
+  },
+  {
+    id: "balsici",
+    name: "Балшићи",
+    slug: "balsici",
+
+    description:
+      "Srednjovjekovna vlasteoska i vladarska dinastija koja je nakon raspada Srpskog carstva vladala Zetom i uspješno odolijevala Mlečanima i Osmanlijama.",
+
+    period: {
+      start: {
+        year: 1360,
+        precision: "year",
+      },
+      end: {
+        year: 1421,
+        precision: "year",
+      },
+    },
+
+    image: "/images/dynasties/balsici.jpg",
+    coverImage: "/images/backgrounds/balsici.jpg",
+
+    rulerIds: ["balsa-i", "djuradj-i-balsic", "balsa-ii", "balsa-iii"],
+
+    eventIds: [
+      "bitka-na-saurskom-polju-1385",
+      "pripajanje-zete-despotovini-1421",
+    ],
+
+    musicTrackId: "balsici-theme",
+
+    status: "published",
+    order: 5,
+  },
+  {
+    id: "mrnjavcevici",
+    name: "Мрњавчевићи",
+    slug: "mrnjavcevici",
+
+    description:
+      "Moćna srednjovjekovna dinastija koja je vladala južnim srpskim oblastima u Makedoniji i predvodila hrišćansku vojsku u Maričkoj bici.",
+
+    period: {
+      start: {
+        year: 1365,
+        precision: "year",
+      },
+      end: {
+        year: 1395,
+        precision: "year",
+      },
+    },
+
+    image: "/images/dynasties/mrnjavcevici.jpg",
+    coverImage: "/images/backgrounds/mrnjavcevici.jpg",
+
+    rulerIds: ["kralj-vukasin", "despot-ugljesa", "kraljevic-marko"],
+
+    eventIds: ["maricka-bitka-1371", "bitka-na-rovinama-1395"],
+
+    musicTrackId: "mrnjavcevici-theme",
+
+    status: "published",
+    order: 6,
   },
   {
     id: "lazarevici",
@@ -92,7 +229,7 @@ export const dynasties: Dynasty[] = [
     musicTrackId: "lazarevici-theme",
 
     status: "published",
-    order: 3,
+    order: 7,
   },
   {
     id: "brankovici",
@@ -123,7 +260,47 @@ export const dynasties: Dynasty[] = [
     musicTrackId: "brankovici-theme",
 
     status: "published",
-    order: 4,
+    order: 8,
+  },
+  {
+    id: "petrovici",
+    name: "Петровићи",
+    slug: "petrovici",
+
+    description:
+      "Crnogorska vladarska dinastija (Petrović-Njegoš) koja je kroz vladike, knjaževe i kralja Nikolu I vodila borbu za oslobođenje i ujedinjenje.",
+
+    period: {
+      start: {
+        year: 1697,
+        precision: "year",
+      },
+      end: {
+        year: 1918,
+        precision: "year",
+      },
+    },
+
+    image: "/images/dynasties/petrovici.jpg",
+    coverImage: "/images/backgrounds/petrovici.jpg",
+
+    rulerIds: [
+      "vladika-danilo",
+      "petar-i-petrovic-njegos",
+      "petar-ii-petrovic-njegos",
+      "kralj-nikola-i",
+    ],
+
+    eventIds: [
+      "bitka-na-martinicima-1796",
+      "berlinski-kongres-crna-gora-1878",
+      "proglasenje-kraljevine-crne-gore-1910",
+    ],
+
+    musicTrackId: "petrovici-theme",
+
+    status: "published",
+    order: 9,
   },
   {
     id: "karadjordjevici",
@@ -163,8 +340,8 @@ export const dynasties: Dynasty[] = [
 
     musicTrackId: "karadjordjevici-theme",
 
-    status: "published",
-    order: 5,
+    status: "draft",
+    order: 10,
   },
   {
     id: "obrenovici",
@@ -203,7 +380,7 @@ export const dynasties: Dynasty[] = [
 
     musicTrackId: "obrenovici-theme",
 
-    status: "published",
-    order: 6,
+    status: "draft",
+    order: 11,
   },
 ];
