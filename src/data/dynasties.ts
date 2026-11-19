@@ -7,7 +7,7 @@ export const dynasties: Dynasty[] = [
     slug: "vlastimirovici",
 
     description:
-      "Najstarija poznata srpska vladarska dinastija koja je u ranom srednjem vijeku formirala prvu srpsku kneževinu i uspješno je odbranila od bugarskih napada.",
+      "Најстарија позната српска владарска династија која је у раном средњем вијеку обликовала прву српску кнежевину и успјешно је одбранила од бугарских напада.",
 
     period: {
       start: {
@@ -20,8 +20,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/vlastimirovici.jpg",
-    coverImage: "/images/backgrounds/vlastimirovici.jpg",
+    image: "/assets/images/dynasties/vlastimirovici.jpg",
+    coverImage: "/assets/images/backgrounds/vlastimirovici.jpg",
 
     rulerIds: [
       "knez-viseslav",
@@ -43,7 +43,7 @@ export const dynasties: Dynasty[] = [
     slug: "vojislavljevici",
 
     description:
-      "Prva srpska srednjovjekovna dinastija koja je izborila nezavisnost Duklje od Vizantije i uspostavila prvu kraljevinu na ovim prostorima.",
+      "Прва српска средњовјековна династија која је изборила независност Дукље од Византије и успоставила прву краљевину на овим просторима.",
 
     period: {
       start: {
@@ -56,8 +56,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/vojislavljevici.jpg",
-    coverImage: "/images/backgrounds/vojislavljevici.jpg",
+    image: "/assets/images/dynasties/vojislavljevici.webp",
+    coverImage: "/images/backgrounds/vojislavljevici.webp",
 
     rulerIds: ["stefan-vojislav", "mihailo-vojislavljevic", "konstantin-bodin"],
 
@@ -74,7 +74,7 @@ export const dynasties: Dynasty[] = [
     slug: "nemanjici",
 
     description:
-      "Jedna od najznačajnijih srpskih srednjovjekovnih dinastija, koja je obilježila razvoj srpske države, crkve i kulture.",
+      "Једна од најзначајнијих српских средњовјековних династија која је обиљежила развој српске државе, цркве и културе.",
 
     period: {
       start: {
@@ -87,12 +87,29 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/nemanjici.jpg",
-    coverImage: "/images/backgrounds/nemanjici.jpg",
+    image: "/assets/images/dynasties/nemanjici.webp",
+    coverImage: "/assets/images/backgrounds/nemanjici.webp",
 
-    rulerIds: ["stefan-nemanja", "stefan-prvovencani", "stefan-dusan"],
+    rulerIds: [
+      "stefan-nemanja",
+      "stefan-prvovencani",
+      "stefan-radoslav",
+      "stefan-vladislav",
+      "uros-i",
+      "dragutin",
+      "milutin",
+      "stefan-decanski",
+      "stefan-dusan",
+      "uros-v",
+    ],
 
-    eventIds: ["krunisanje-1217", "proglasenje-carstva-1346"],
+    eventIds: [
+      "krunisanje-1217",
+      "autokefalnost-crkve-1219",
+      "sabor-u-dezevu-1282",
+      "bitka-kod-velbuzda-1330",
+      "proglasenje-carstva-1346",
+    ],
 
     musicTrackId: "nemanjici-theme",
 
@@ -105,7 +122,7 @@ export const dynasties: Dynasty[] = [
     slug: "kotromanici",
 
     description:
-      "Vladarska dinastija srednjovjekovne Bosne koja je pod banom Kulininom i kraljem Tvrtkom I dostigla najveći teritorijalni i kulturni uspon.",
+      "Владарска династија средњовјековне Босне која је под баном Кулином и краљем Твртком I достигла највећи територијални и културни успон.",
 
     period: {
       start: {
@@ -118,8 +135,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/kotromanici.jpg",
-    coverImage: "/images/backgrounds/kotromanici.jpg",
+    image: "/assets/images/dynasties/kotromanici.jpg",
+    coverImage: "/assets/images/backgrounds/kotromanici.jpg",
 
     rulerIds: [
       "ban-stjepan-ii",
@@ -141,7 +158,7 @@ export const dynasties: Dynasty[] = [
     slug: "balsici",
 
     description:
-      "Srednjovjekovna vlasteoska i vladarska dinastija koja je nakon raspada Srpskog carstva vladala Zetom i uspješno odolijevala Mlečanima i Osmanlijama.",
+      "Средњовјековна великашка и владарска династија која је након распада Српског царства владала Зетом и успјешно се одупирала Млечанима и Османлијама.",
 
     period: {
       start: {
@@ -154,8 +171,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/balsici.jpg",
-    coverImage: "/images/backgrounds/balsici.jpg",
+    image: "/assets/images/dynasties/balsici.jpg",
+    coverImage: "/assets/images/backgrounds/balsici.jpg",
 
     rulerIds: ["balsa-i", "djuradj-i-balsic", "balsa-ii", "balsa-iii"],
 
@@ -175,7 +192,7 @@ export const dynasties: Dynasty[] = [
     slug: "mrnjavcevici",
 
     description:
-      "Moćna srednjovjekovna dinastija koja je vladala južnim srpskim oblastima u Makedoniji i predvodila hrišćansku vojsku u Maričkoj bici.",
+      "Моћна средњовјековна династија која је владала јужним српским областима у Македонији и предводила хришћанску војску у Маричкој бици.",
 
     period: {
       start: {
@@ -188,8 +205,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/mrnjavcevici.jpg",
-    coverImage: "/images/backgrounds/mrnjavcevici.jpg",
+    image: "/assets/images/dynasties/mrnjavcevici.jpg",
+    coverImage: "/assets/images/backgrounds/mrnjavcevici.jpg",
 
     rulerIds: ["kralj-vukasin", "despot-ugljesa", "kraljevic-marko"],
 
@@ -206,7 +223,7 @@ export const dynasties: Dynasty[] = [
     slug: "lazarevici",
 
     description:
-      "Srednjovjekovna dinastija koja je predvodila Srbiju u doba Kosovskog boja i ostvarila snažan kulturni i ekonomski procvat kroz Srpsku despotovinu.",
+      "Средњовјековна династија која је предводила Србију у доба Косовског боја и остварила снажан културни и економски процват кроз Српску деспотовину.",
 
     period: {
       start: {
@@ -219,8 +236,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/lazarevici.jpg",
-    coverImage: "/images/backgrounds/lazarevici.jpg",
+    image: "/assets/images/dynasties/lazarevici.jpg",
+    coverImage: "/assets/images/backgrounds/lazarevici.jpg",
 
     rulerIds: ["knez-lazar", "kneginja-milica", "despot-stefan-lazarevic"],
 
@@ -237,7 +254,7 @@ export const dynasties: Dynasty[] = [
     slug: "brankovici",
 
     description:
-      "Posljednja srednjovjekovna vladarska dinastija koja je upravljala Srpskom despotovinom i vodila dugotrajnu borbu za očuvanje državnosti pred osmanskim osvajanjima.",
+      "Посљедња средњовјековна владарска династија која је управљала Српском деспотовином и водила дуготрајну борбу за очување државности пред османским освајањима.",
 
     period: {
       start: {
@@ -250,8 +267,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/brankovici.jpg",
-    coverImage: "/images/backgrounds/brankovici.jpg",
+    image: "/assets/images/dynasties/brankovici.jpg",
+    coverImage: "/assets/images/backgrounds/brankovici.jpg",
 
     rulerIds: ["vuk-brankovic", "djuradj-brankovic", "lazar-brankovic"],
 
@@ -268,7 +285,7 @@ export const dynasties: Dynasty[] = [
     slug: "petrovici",
 
     description:
-      "Crnogorska vladarska dinastija (Petrović-Njegoš) koja je kroz vladike, knjaževe i kralja Nikolu I vodila borbu za oslobođenje i ujedinjenje.",
+      "Црногорска владарска династија Петровић-Његош која је кроз владика, књажеве и краља Николу I предводила борбу за ослобођење и уједињење.",
 
     period: {
       start: {
@@ -281,8 +298,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/petrovici.jpg",
-    coverImage: "/images/backgrounds/petrovici.jpg",
+    image: "/assets/images/dynasties/petrovici.jpg",
+    coverImage: "/assets/images/backgrounds/petrovici.jpg",
 
     rulerIds: [
       "vladika-danilo",
@@ -308,7 +325,7 @@ export const dynasties: Dynasty[] = [
     slug: "karadjordjevici",
 
     description:
-      "Novovjekovna dinastija potekla od vođe Prvog srpskog ustanka, koja je vodila Srbiju kroz oslobodilačke ratove i stvorila Kraljevinu Jugoslaviju.",
+      "Нововјековна династија потекла од вође Првог српског устанка, која је водила Србију кроз ослободилачке ратове и створила Краљевину Југославију.",
 
     period: {
       start: {
@@ -321,8 +338,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/karadjordjevici.jpg",
-    coverImage: "/images/backgrounds/karadjordjevici.jpg",
+    image: "/assets/images/dynasties/karadjordjevici.jpg",
+    coverImage: "/assets/images/backgrounds/karadjordjevici.jpg",
 
     rulerIds: [
       "karadjordje-petrovic",
@@ -349,7 +366,7 @@ export const dynasties: Dynasty[] = [
     slug: "obrenovici",
 
     description:
-      "Novovjekovna dinastija koja je diplomatskim putem i ustancima izborila autonomiju, međunarodno priznanje nezavisnosti Srbije i uzdigla je u rang kraljevine.",
+      "Нововјековна династија која је дипломатским путем и устанцима изборила аутономију, међународно признање независности Србије и уздигла је у ранг краљевине.",
 
     period: {
       start: {
@@ -362,8 +379,8 @@ export const dynasties: Dynasty[] = [
       },
     },
 
-    image: "/images/dynasties/obrenovici.jpg",
-    coverImage: "/images/backgrounds/obrenovici.jpg",
+    image: "/assets/images/dynasties/obrenovici.jpg",
+    coverImage: "/assets/images/backgrounds/obrenovici.jpg",
 
     rulerIds: [
       "knez-milos",

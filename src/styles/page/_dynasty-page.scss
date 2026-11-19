@@ -1,0 +1,1017 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// ============================================================
+// DYNASTY PAGE
+// ============================================================
+
+.dynasty-page {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: $section-space;
+  overflow: hidden;
+  color: $color-text;
+
+  // Global background
+  background-color: $color-bg;
+  background-image:
+    linear-gradient(rgba(5, 6, 8, 0.88), rgba(5, 6, 8, 0.91)),
+    url("/assets/images/backgrounds/dynasties.webp");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  &__container {
+    @include container;
+  }
+
+  // ==========================================================
+  // HERO
+  // ==========================================================
+
+  &__hero {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: min(780px, 90vh);
+    padding: calc($header-height + 5rem) $container-gutter 6rem;
+    background-color: $color-bg-soft;
+    background-position: center;
+    background-size: cover;
+    isolation: isolate;
+    text-align: center;
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      background:
+        radial-gradient(
+          ellipse at center 40%,
+          rgba($color-gold, 0.12),
+          transparent 55%
+        ),
+        linear-gradient(
+          180deg,
+          rgba($color-bg, 0.12),
+          rgba($color-bg, 0.15) 45%,
+          $color-bg 100%
+        );
+    }
+  }
+
+  &__hero-content {
+    width: min(100%, 900px);
+    margin-inline: auto;
+    animation: dynasty-hero-appear 900ms ease both;
+  }
+
+  &__back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-16;
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-gold-light;
+    }
+
+    span {
+      color: $color-gold;
+      font-size: $font-size-lg;
+      transition: transform $transition-base;
+    }
+
+    &:hover span {
+      transform: translateX(-4px);
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    color: $color-gold-light;
+    font-family: $font-ui;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: $space-5 0;
+    color: $color-text;
+    font-family: $font-display;
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+    text-wrap: balance;
+    text-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  &__ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-4;
+    width: min(220px, 55%);
+    margin: $space-8 auto;
+
+    > span:not(.dynasty-page__ornament-symbol) {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, $color-gold);
+    }
+
+    > span:last-child {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__ornament-symbol {
+    color: $color-gold-light;
+    font-size: 0.85rem;
+  }
+
+  &__period {
+    margin: 0 0 $space-6;
+    color: $color-gold-light;
+    font-family: $font-ui;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  &__hero-description {
+    max-width: 690px;
+    margin: 0 auto;
+    color: rgba($color-text, 0.88);
+    font-family: $font-body;
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    line-height: 1.8;
+  }
+
+  &__scroll-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+    margin-top: $space-16;
+    color: $color-text-muted;
+    font-family: $font-ui;
+    font-size: $font-size-xs;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    span {
+      color: $color-gold-light;
+      font-size: 1.5rem;
+      animation: dynasty-scroll 1.8s ease-in-out infinite;
+    }
+
+    &:hover {
+      color: $color-gold-light;
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+  }
+
+  // ==========================================================
+  // SECTION HEADING
+  // ==========================================================
+
+  &__section-heading {
+    max-width: 750px;
+    margin: 0 auto $space-16;
+    text-align: center;
+
+    h2 {
+      margin: $space-4 0;
+      color: $color-text;
+      font-family: $font-display;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+
+      span {
+        color: $color-gold-light;
+        font-style: italic;
+      }
+    }
+
+    > p {
+      max-width: 580px;
+      margin: $space-5 auto 0;
+      color: $color-text-muted;
+      font-size: $font-size-base;
+      line-height: 1.8;
+    }
+  }
+
+  // ==========================================================
+  // INTRODUCTION
+  // ==========================================================
+
+  &__introduction {
+    position: relative;
+    padding-block: clamp(5rem, 9vw, 9rem);
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: min(500px, 80%);
+      height: 1px;
+      margin-inline: auto;
+      content: "";
+      background: linear-gradient(
+        90deg,
+        transparent,
+        $color-gold-dark,
+        transparent
+      );
+    }
+  }
+
+  &__introduction-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+  }
+
+  &__introduction-image {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    max-height: 600px;
+    overflow: hidden;
+    border: 1px solid rgba($color-gold, 0.3);
+    background: $color-surface;
+    box-shadow: $shadow-card;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent 65%, rgba(5, 6, 8, 0.3));
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.8) contrast(1.04);
+      transition: transform $transition-slow;
+    }
+
+    &:hover img {
+      transform: scale(1.035);
+    }
+  }
+
+  &__introduction-text {
+    > p {
+      margin: 0;
+      color: $color-text-muted;
+      font-family: $font-body;
+      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      line-height: 2;
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: $space-4;
+    margin-top: $space-12;
+    padding-top: $space-8;
+    border-top: 1px solid $color-border;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  &__stat-value {
+    color: $color-gold-light;
+    font-family: $font-display;
+    font-size: clamp(2rem, 3vw, 3rem);
+    line-height: 1;
+  }
+
+  &__stat-label {
+    color: $color-text-subtle;
+    font-size: $font-size-xs;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  // ==========================================================
+  // TIMELINE SECTION
+  // ==========================================================
+
+  &__timeline-section {
+    padding-block: clamp(5rem, 9vw, 9rem);
+    background:
+      radial-gradient(
+        ellipse at 50% 30%,
+        rgba($color-gold, 0.045),
+        transparent 65%
+      ),
+      rgba($color-bg-soft, 0.88);
+  }
+
+  &__empty {
+    color: $color-text-muted;
+    text-align: center;
+  }
+
+  // ==========================================================
+  // HISTORICAL EVENTS
+  // ==========================================================
+
+  &__events {
+    padding-block: clamp(5rem, 9vw, 9rem);
+  }
+
+  &__events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: $space-6;
+  }
+
+  // ==========================================================
+  // FOOTER
+  // ==========================================================
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    padding: $space-12 $container-gutter 0;
+  }
+
+  &__back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-3;
+    min-height: 50px;
+    padding: $space-3 $space-8;
+    border: 1px solid $color-border;
+    color: $color-text;
+    background: $color-surface;
+    font-family: $font-ui;
+    font-size: $font-size-sm;
+    text-decoration: none;
+    transition:
+      border-color $transition-base,
+      color $transition-base,
+      background $transition-base;
+
+    span {
+      color: $color-gold-light;
+      transition: transform $transition-base;
+    }
+
+    &:hover {
+      border-color: $color-gold-light;
+      color: $color-gold-light;
+      background: $color-surface-raised;
+
+      span {
+        transform: translateX(-4px);
+      }
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+  }
+}
+
+// ============================================================
+// RULER TIMELINE
+// ============================================================
+
+.dynasty-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 1100px);
+  margin-inline: auto;
+  padding-block: $space-8;
+
+  &__line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      $color-gold-dark 5%,
+      $color-gold 50%,
+      $color-gold-dark 95%,
+      transparent
+    );
+    transform: translateX(-50%);
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 50%;
+      width: 7px;
+      height: 7px;
+      border: 1px solid $color-gold;
+      border-radius: 50%;
+      background: $color-bg-soft;
+      content: "";
+      transform: translateX(-50%);
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 290px;
+    align-items: center;
+
+    &:nth-child(odd) {
+      justify-content: flex-start;
+
+      .dynasty-timeline__card {
+        margin-right: calc(50% + 45px);
+      }
+
+      .dynasty-timeline__marker {
+        left: 50%;
+      }
+    }
+
+    &:nth-child(even) {
+      justify-content: flex-end;
+
+      .dynasty-timeline__card {
+        margin-left: calc(50% + 45px);
+      }
+
+      .dynasty-timeline__marker {
+        left: 50%;
+      }
+    }
+
+    &:hover {
+      .dynasty-timeline__marker {
+        border-color: $color-gold-light;
+        box-shadow: $shadow-gold-strong;
+      }
+    }
+  }
+
+  &__marker {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid $color-gold;
+    border-radius: 50%;
+    background: $color-bg-soft;
+    box-shadow: 0 0 0 7px rgba($color-bg-soft, 0.9);
+    color: $color-gold-light;
+    font-family: $font-display;
+    font-size: $font-size-md;
+    transform: translate(-50%, -50%);
+    transition:
+      border-color $transition-base,
+      box-shadow $transition-base;
+
+    span {
+      line-height: 1;
+    }
+  }
+
+  &__card {
+    width: calc(50% - 45px);
+    min-width: 0;
+    border: 1px solid rgba($color-gold, 0.22);
+    background: $color-surface;
+    box-shadow: $shadow-card;
+    transition:
+      border-color $transition-base,
+      transform $transition-base,
+      box-shadow $transition-base;
+
+    &:hover {
+      border-color: $color-border-strong;
+      box-shadow: $shadow-gold;
+      transform: translateY(-4px);
+    }
+  }
+
+  &__link {
+    display: grid;
+    grid-template-columns: minmax(120px, 0.8fr) minmax(0, 1.2fr);
+    min-height: 230px;
+    color: inherit;
+    text-decoration: none;
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+  }
+
+  &__portrait {
+    position: relative;
+    min-height: 100%;
+    overflow: hidden;
+    background: $color-bg-soft;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      background: linear-gradient(
+        90deg,
+        transparent 55%,
+        rgba(21, 22, 25, 0.55)
+      );
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 230px;
+      object-fit: cover;
+      object-position: center top;
+      filter: saturate(0.75) contrast(1.04);
+      transition:
+        transform 800ms ease,
+        filter 800ms ease;
+    }
+
+    .dynasty-timeline__card:hover & img {
+      transform: scale(1.04);
+      filter: saturate(0.95) contrast(1.04);
+    }
+  }
+
+  &__portrait-number {
+    position: absolute;
+    z-index: 1;
+    top: $space-3;
+    left: $space-3;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba($color-gold-light, 0.6);
+    background: rgba(5, 6, 8, 0.65);
+    color: $color-gold-light;
+    font-family: $font-display;
+    font-size: $font-size-sm;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: $space-5;
+  }
+
+  &__title {
+    color: $color-gold-light;
+    font-family: $font-ui;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  &__content h3 {
+    margin: $space-2 0;
+    color: $color-text;
+    font-family: $font-display;
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  &__period {
+    color: $color-gold;
+    font-family: $font-ui;
+    font-size: $font-size-xs;
+    letter-spacing: 0.08em;
+  }
+
+  &__content p {
+    margin: $space-4 0;
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+    line-height: 1.7;
+  }
+
+  &__relations {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+    width: 100%;
+    margin-top: auto;
+    padding-top: $space-3;
+    border-top: 1px solid rgba($color-gold, 0.14);
+
+    span {
+      color: $color-text-subtle;
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    span span {
+      margin-right: $space-2;
+      color: $color-gold;
+    }
+  }
+
+  &__more {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    margin-top: $space-4;
+    color: $color-gold-light;
+    font-family: $font-ui;
+    font-size: $font-size-xs;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    span {
+      transition: transform $transition-base;
+    }
+
+    .dynasty-timeline__card:hover & span {
+      transform: translate(3px, -3px);
+    }
+  }
+}
+
+// ============================================================
+// EVENT CARDS
+// ============================================================
+
+.dynasty-event {
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+  padding: $space-6;
+  border: 1px solid rgba($color-gold, 0.2);
+  background: $color-surface;
+  box-shadow: $shadow-card;
+  transition:
+    border-color $transition-base,
+    transform $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: $color-border-strong;
+  }
+
+  &__date {
+    color: $color-gold-light;
+    font-family: $font-ui;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin: $space-4 0;
+    color: $color-text;
+    font-family: $font-display;
+    font-size: $font-size-xl;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  p {
+    margin: 0;
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+    line-height: 1.75;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-3;
+    margin-top: auto;
+    padding-top: $space-5;
+    color: $color-text-subtle;
+    font-size: $font-size-xs;
+    text-transform: uppercase;
+
+    span:last-child {
+      color: $color-gold;
+    }
+  }
+}
+
+// ============================================================
+// RESPONSIVE - TABLET
+// ============================================================
+
+@include respond-down($breakpoint-lg) {
+  .dynasty-page {
+    &__introduction-content {
+      gap: $space-8;
+    }
+
+    &__events-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .dynasty-timeline {
+    &__link {
+      grid-template-columns: 110px minmax(0, 1fr);
+    }
+
+    &__content {
+      padding: $space-4;
+    }
+
+    &__content h3 {
+      font-size: 1.65rem;
+    }
+  }
+}
+
+// ============================================================
+// RESPONSIVE - MOBILE
+// ============================================================
+
+@include respond-down($breakpoint-md) {
+  .dynasty-page {
+    background-image:
+      linear-gradient(rgba(5, 6, 8, 0.88), rgba(5, 6, 8, 0.92)),
+      url("/assets/images/backgrounds/dynasties-mobile.webp");
+    background-position: center top;
+    background-size: cover;
+    background-attachment: scroll;
+
+    &__hero {
+      min-height: 680px;
+      padding-top: calc($header-height + 4rem);
+      background-position: center;
+    }
+
+    &__back-link {
+      margin-bottom: $space-12;
+    }
+
+    &__title {
+      font-size: clamp(3rem, 11vw, 5rem);
+    }
+
+    &__hero-description {
+      font-size: $font-size-base;
+      line-height: 1.75;
+    }
+
+    &__introduction-content {
+      grid-template-columns: 1fr;
+      gap: $space-8;
+    }
+
+    &__introduction-image {
+      width: min(100%, 480px);
+      max-height: 520px;
+      margin-inline: auto;
+    }
+
+    &__introduction-text {
+      text-align: center;
+    }
+
+    &__stats {
+      text-align: left;
+    }
+
+    &__section-heading {
+      margin-bottom: $space-10;
+
+      h2 {
+        font-size: clamp(2.4rem, 8vw, 3.5rem);
+      }
+    }
+
+    &__events-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .dynasty-timeline {
+    width: 100%;
+    padding-left: 42px;
+
+    &__line {
+      left: 20px;
+      transform: none;
+    }
+
+    &__item,
+    &__item:nth-child(odd),
+    &__item:nth-child(even) {
+      justify-content: flex-end;
+      min-height: 0;
+      padding-bottom: $space-8;
+
+      .dynasty-timeline__card {
+        width: 100%;
+        margin: 0;
+      }
+
+      .dynasty-timeline__marker {
+        top: 28px;
+        left: -22px;
+      }
+    }
+
+    &__link {
+      grid-template-columns: 120px minmax(0, 1fr);
+    }
+
+    &__portrait img {
+      min-height: 240px;
+    }
+  }
+}
+
+// ============================================================
+// RESPONSIVE - SMALL MOBILE
+// ============================================================
+
+@include respond-down($breakpoint-sm) {
+  .dynasty-page {
+    &__hero {
+      min-height: 620px;
+      padding-inline: $space-5;
+    }
+
+    &__title {
+      font-size: clamp(2.8rem, 13vw, 4rem);
+    }
+
+    &__period {
+      font-size: 0.7rem;
+    }
+
+    &__scroll-link {
+      margin-top: $space-12;
+    }
+
+    &__stats {
+      gap: $space-3;
+    }
+
+    &__stat-value {
+      font-size: 2rem;
+    }
+
+    &__stat-label {
+      font-size: 0.65rem;
+    }
+
+    &__back-button {
+      width: 100%;
+    }
+  }
+
+  .dynasty-timeline {
+    padding-left: 30px;
+
+    &__line {
+      left: 13px;
+    }
+
+    &__item,
+    &__item:nth-child(odd),
+    &__item:nth-child(even) {
+      .dynasty-timeline__marker {
+        left: -17px;
+        width: 34px;
+        height: 34px;
+        font-size: $font-size-xs;
+      }
+    }
+
+    &__link {
+      grid-template-columns: 1fr;
+    }
+
+    &__portrait {
+      aspect-ratio: 16 / 9;
+      max-height: 220px;
+
+      img {
+        min-height: 0;
+        object-position: center 25%;
+      }
+
+      &::after {
+        background: linear-gradient(
+          180deg,
+          transparent 55%,
+          rgba(21, 22, 25, 0.45)
+        );
+      }
+    }
+
+    &__content {
+      padding: $space-5;
+    }
+
+    &__content h3 {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+// ============================================================
+// ANIMATIONS
+// ============================================================
+
+@keyframes dynasty-hero-appear {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dynasty-scroll {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dynasty-page__hero-content,
+  .dynasty-page__scroll-link span {
+    animation: none;
+  }
+
+  .dynasty-page *,
+  .dynasty-page *::before,
+  .dynasty-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

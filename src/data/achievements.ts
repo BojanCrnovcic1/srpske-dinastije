@@ -4,58 +4,227 @@ export const achievements: Achievement[] = [
   {
     id: "ujedinjenje-zemalja",
     rulerId: "stefan-nemanja",
-
-    title: "Učvršćivanje srpske države",
+    title: "Учвршћивање српске државе",
     description:
-      "Učvršćivanje vlasti i proširenje teritorije pod vlašću Stefana Nemanje.",
-
+      "Учвршћивање централне власти и проширење територије Рашке под влашћу Стефана Немање.",
     category: "political",
-
-    date: {
-      year: 1166,
-      precision: "approximate",
-    },
-
+    date: { year: 1166, precision: "approximate" },
     status: "draft",
     order: 1,
   },
-
   {
     id: "manastir-studenica",
     rulerId: "stefan-nemanja",
-
-    title: "Manastir Studenica",
+    title: "Манастир Студеница",
     description:
-      "Podizanje jedne od najznačajnijih srpskih srednjovjekovnih zadužbina.",
-
+      "Подизање једне од најзначајнијих српских средњовјековних задужбина и првог средишта самосталне цркве.",
     category: "architectural",
-
-    date: {
-      year: 1190,
-      precision: "approximate",
-    },
-
-    image: "/images/achievements/studenica.jpg",
-
+    date: { year: 1190, precision: "approximate" },
+    image: "/assets/images/achievements/studenica.webp",
     status: "draft",
     order: 2,
   },
-
   {
-    id: "dušanov-zakonik",
-    rulerId: "stefan-dusan",
-
-    title: "Dušanov zakonik",
+    id: "obnova-hilandara",
+    rulerId: "stefan-nemanja",
+    title: "Обнова манастира Хиландар",
     description:
-      "Značajan pravni zbornik srednjovjekovne Srbije, donesen 1349. godine i dopunjen 1354.",
-
+      "Заједнички подухват Стефана Немање и Саве Немањића којим је обновљен српски манастир на Светој Гори.",
+    category: "architectural",
+    date: { year: 1198, precision: "year" },
+    image: "/assets/images/achievements/hilandar.webp",
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "krunisanje-srbije",
+    rulerId: "stefan-prvovencani",
+    title: "Краљевска круна Србије",
+    description:
+      "Уздигнуће Србије у ранг краљевине и потврда државне самосталности на међународној сцени.",
+    category: "political",
+    date: { year: 1217, precision: "year" },
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "zivot-svetog-simeona",
+    rulerId: "stefan-prvovencani",
+    title: "Житије Светог Симеона",
+    description:
+      "Значајно књижевно и биографско дјело посвећено оцу Стефану Немањи, важно за развој средњовјековне писмености.",
+    category: "cultural",
+    date: { year: 1216, precision: "approximate" },
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "priprata-u-studenici",
+    rulerId: "stefan-radoslav",
+    title: "Спољна припрата у Студеници",
+    description:
+      "Доградња припрате уз Богородичину цркву у Студеници, као одраз снажног византијског утицаја у доба краља Радослава.",
+    category: "architectural",
+    date: { year: 1230, precision: "approximate" },
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "manastir-mileseva",
+    rulerId: "stefan-vladislav",
+    title: "Манастир Милешева",
+    description:
+      "Задужбина краља Владислава, чувена по фрескама врхунске умјетничке вриједности, међу којима се истиче Бели анђео.",
+    category: "architectural",
+    date: { year: 1235, precision: "approximate" },
+    image: "/assets/images/achievements/mileseva.webp",
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "prenos-mostiju-svetog-save",
+    rulerId: "stefan-vladislav",
+    title: "Пренос моштију Светог Саве у Милешеву",
+    description:
+      "Пренос моштију из Трнова у Милешеву, чиме је манастир постао једно од најважнијих духовних средишта.",
+    category: "cultural",
+    date: { year: 1237, precision: "year" },
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "razvoj-rudarstva-brskovo",
+    rulerId: "uros-i",
+    title: "Развој рударства и трговине",
+    description:
+      "Јачање привреде кроз експлоатацију рудника, попут Брскова, и долазак саских рудара и дубровачких трговаца.",
+    category: "political",
+    date: { year: 1254, precision: "approximate" },
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "manastir-sopocani",
+    rulerId: "uros-i",
+    title: "Манастир Сопоћани",
+    description:
+      "Задужбина краља Уроша I, позната по монументалном фрескосликарству које најављује ренесансне тежње.",
+    category: "architectural",
+    date: { year: 1265, precision: "approximate" },
+    image: "/assets/images/achievements/sopocani.webp",
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "sremska-kraljevina-dragutina",
+    rulerId: "dragutin",
+    title: "Проширење власти на сјевер и Срем",
+    description:
+      "Успостављање и ширење области под влашћу краља Драгутина на сјеверу и у Срему, са ослонцем на Београд.",
+    category: "political",
+    date: { year: 1284, precision: "approximate" },
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "prosirenje-na-jug-makedonija",
+    rulerId: "milutin",
+    title: "Ширење државе на југ",
+    description:
+      "Значајно територијално ширење Србије у областима сјеверне и средње Македоније током владавине краља Милутина.",
+    category: "political",
+    date: { year: 1299, precision: "approximate" },
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "manastir-gracanica",
+    rulerId: "milutin",
+    title: "Манастир Грачаница",
+    description:
+      "Једна од најзначајнијих задужбина краља Милутина и врхунско остварење позновизантијске архитектуре и сликарства.",
+    category: "architectural",
+    date: { year: 1321, precision: "approximate" },
+    image: "/assets/images/achievements/gracanica.webp",
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "kraljeva-crkva-studenica",
+    rulerId: "milutin",
+    title: "Краљева црква у Студеници",
+    description:
+      "Црква Светих Јоакима и Ане у Студеници, подигнута као једна од најдрагоцјенијих задужбина краља Милутина.",
+    category: "architectural",
+    date: { year: 1314, precision: "year" },
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "manastir-visoki-decani",
+    rulerId: "stefan-decanski",
+    title: "Манастир Високи Дечани",
+    description:
+      "Монументална задужбина Стефана Дечанског која спаја романичку и византијску градитељску традицију.",
+    category: "architectural",
+    date: { year: 1335, precision: "approximate" },
+    image: "/assets/images/achievements/visoki-decani.webp",
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "prevlast-na-balkanu",
+    rulerId: "stefan-decanski",
+    title: "Учвршћивање превласти на Балкану",
+    description:
+      "Јачање спољнополитичког положаја Србије послије побједе код Велбужда и ширење утицаја на југу.",
+    category: "political",
+    date: { year: 1330, precision: "year" },
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "dusanov-zakonik",
+    rulerId: "stefan-dusan",
+    title: "Душанов законик",
+    description:
+      "Најважнији општи правни зборник средњовјековне Србије, донесен 1349. године и допуњен 1354. године.",
     category: "legal",
-
-    date: {
-      year: 1349,
-      precision: "year",
-    },
-
+    date: { year: 1349, precision: "year" },
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "srpska-patrijarsija-1346",
+    rulerId: "stefan-dusan",
+    title: "Уздизање Српске цркве у ранг патријаршије",
+    description:
+      "Српска архиепископија уздигнута је на ниво патријаршије, што је омогућило свечано проглашење царства.",
+    category: "political",
+    date: { year: 1346, precision: "year" },
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "teritorijalno-sirenje-carstva",
+    rulerId: "stefan-dusan",
+    title: "Територијални врхунац Српског царства",
+    description:
+      "Проширење граница државе од Дунава и Саве до Коринтског залива и од Јадрана до Егејског мора.",
+    category: "political",
+    date: { year: 1350, precision: "approximate" },
+    image: "/assets/images/achievements/dusanovo-carstvo.webp",
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "manastir-matejce",
+    rulerId: "uros-v",
+    title: "Манастир Матејче",
+    description:
+      "Задужбина повезана са владарским кругом цара Уроша V и царице Јелене, значајан споменик XIV вијека.",
+    category: "architectural",
+    date: { year: 1355, precision: "approximate" },
     status: "draft",
     order: 1,
   },

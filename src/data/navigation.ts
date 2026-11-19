@@ -6,7 +6,7 @@ export const navigationLinks = [
 
   {
     label: "Династије",
-    href: "/dynasty",
+    href: "/dinastije",
   },
 
   {

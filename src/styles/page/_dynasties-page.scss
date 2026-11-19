@@ -1,0 +1,545 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.dynasties-page {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: $section-space;
+  color: $color-text;
+  isolation: isolate;
+  overflow: hidden;
+
+  // FULL PAGE BACKGROUND
+  background:
+    linear-gradient(
+      180deg,
+      rgba($color-bg, 0.55) 0%,
+      rgba($color-bg, 0.68) 45%,
+      rgba($color-bg, 0.82) 100%
+    ),
+    url("/assets/images/backgrounds/dynasties.webp") center top / cover
+      no-repeat fixed;
+
+  // INTRO
+  &__intro {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 510px;
+    padding: calc($header-height + 5rem) $container-gutter 5rem;
+    isolation: isolate;
+    overflow: hidden;
+    background: transparent;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__intro-background {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+
+    background: radial-gradient(
+      ellipse at center,
+      transparent 15%,
+      rgba($color-bg, 0.2) 100%
+    );
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(
+        180deg,
+        transparent 55%,
+        rgba($color-bg, 0.45) 100%
+      );
+    }
+  }
+
+  &__intro-content {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 850px);
+    text-align: center;
+    animation: dynasties-intro-appear 800ms ease both;
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    color: $color-gold-light;
+    font-family: $font-ui;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: $space-5 0 $space-4;
+    color: $color-text;
+    font-family: $font-display;
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+
+    span {
+      display: block;
+      color: $color-gold-light;
+      font-style: italic;
+    }
+  }
+
+  &__ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-4;
+    width: min(220px, 55%);
+    margin: $space-8 auto;
+
+    > span:not(.dynasties-page__ornament-symbol) {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, $color-gold);
+    }
+
+    > span:last-child {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__ornament-symbol {
+    color: $color-gold-light;
+    font-size: 0.85rem;
+  }
+
+  &__description {
+    max-width: 660px;
+    margin: 0 auto;
+    color: $color-text-muted;
+    font-family: $font-body;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.8;
+  }
+
+  &__intro-meta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $space-3;
+    margin-top: $space-8;
+    color: $color-text-subtle;
+    font-family: $font-ui;
+    font-size: $font-size-xs;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__meta-separator {
+    color: $color-gold;
+    font-size: 0.7rem;
+  }
+
+  // COLLECTION
+  &__collection {
+    @include container;
+    position: relative;
+    padding-top: clamp(4rem, 7vw, 6.5rem);
+    background: transparent;
+  }
+
+  &__section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: $space-10;
+    margin-bottom: $space-12;
+
+    h2 {
+      margin: $space-3 0 0;
+      color: $color-text;
+      font-family: $font-display;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+
+    > p {
+      max-width: 440px;
+      margin: 0 0 0.2rem;
+      color: $color-text-subtle;
+      font-size: $font-size-base;
+      line-height: 1.75;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  }
+}
+
+// DYNASTY CARD
+.dynasty-card {
+  min-width: 0;
+  border: 1px solid rgba($color-gold, 0.2);
+  background: rgba($color-surface, 0.88);
+  box-shadow: $shadow-card;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+
+  animation: dynasty-card-appear 650ms ease both;
+  animation-delay: calc(var(--card-index, 0) * 55ms);
+
+  transition:
+    border-color $transition-base,
+    transform $transition-base,
+    box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: $color-border-strong;
+    box-shadow: $shadow-gold;
+
+    .dynasty-card__image {
+      transform: scale(1.045);
+    }
+
+    .dynasty-card__arrow {
+      color: $color-gold-light;
+      transform: translate(3px, -3px);
+    }
+
+    .dynasty-card__footer-line {
+      transform: scaleX(1);
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: $color-bg-soft;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.78) contrast(1.04);
+
+    transition:
+      transform 800ms ease,
+      filter 800ms ease;
+  }
+
+  &__image-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 6, 8, 0.38) 0%,
+        transparent 30%,
+        transparent 55%,
+        rgba(5, 6, 8, 0.76) 100%
+      ),
+      linear-gradient(90deg, rgba(5, 6, 8, 0.12), transparent 60%);
+    pointer-events: none;
+  }
+
+  &__number {
+    position: absolute;
+    top: $space-4;
+    left: $space-4;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba($color-gold-light, 0.65);
+    background: rgba(10, 10, 10, 0.48);
+    color: $color-gold-light;
+    font-family: $font-display;
+    font-size: $font-size-md;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  &__period {
+    position: absolute;
+    right: $space-5;
+    bottom: $space-4;
+    left: $space-5;
+    color: $color-gold-light;
+    font-family: $font-ui;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: $space-6 $space-6 $space-5;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $space-3;
+
+    h3 {
+      margin: 0;
+      color: $color-text;
+      font-family: $font-display;
+      font-size: clamp(1.7rem, 2.4vw, 2.2rem);
+      font-weight: 500;
+      line-height: 1.05;
+    }
+  }
+
+  &__arrow {
+    flex: 0 0 auto;
+    color: $color-gold;
+    font-size: 1.2rem;
+
+    transition:
+      color $transition-fast,
+      transform $transition-fast;
+  }
+
+  &__description {
+    margin: $space-4 0 $space-6;
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+    line-height: 1.75;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    margin-top: auto;
+    padding-top: $space-4;
+    border-top: 1px solid rgba($color-gold, 0.16);
+    color: $color-gold-light;
+    font-family: $font-ui;
+    font-size: $font-size-xs;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__footer-line {
+    flex: 1;
+    height: 1px;
+    background: $color-gold;
+    transform: scaleX(0.35);
+    transform-origin: left;
+    transition: transform $transition-base;
+  }
+}
+
+// TABLET
+@include respond-down($breakpoint-lg) {
+  .dynasties-page {
+    background-attachment: scroll;
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba($color-bg, 0.55) 0%,
+        rgba($color-bg, 0.68) 45%,
+        rgba($color-bg, 0.82) 100%
+      ),
+      url("/assets/images/backgrounds/dynasties-mobile.webp");
+
+    &__intro {
+      min-height: 460px;
+    }
+
+    &__section-heading {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: $space-4;
+      margin-bottom: $space-8;
+
+      > p {
+        max-width: 600px;
+      }
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: $space-6;
+    }
+  }
+
+  .dynasty-card {
+    &__content {
+      padding: $space-5;
+    }
+
+    &__heading h3 {
+      font-size: 1.9rem;
+    }
+  }
+}
+
+// MOBILE
+@include respond-down($breakpoint-sm) {
+  .dynasties-page {
+    &__intro {
+      min-height: 430px;
+      padding-top: calc($header-height + 3.5rem);
+      padding-bottom: 3.5rem;
+    }
+
+    &__title {
+      font-size: clamp(3rem, 13vw, 4.5rem);
+    }
+
+    &__ornament {
+      margin-block: $space-6;
+    }
+
+    &__description {
+      font-size: $font-size-base;
+      line-height: 1.7;
+    }
+
+    &__intro-meta {
+      gap: $space-2;
+      font-size: 0.68rem;
+    }
+
+    &__collection {
+      padding-top: $space-12;
+    }
+
+    &__section-heading {
+      margin-bottom: $space-6;
+
+      h2 {
+        font-size: 2.4rem;
+      }
+
+      > p {
+        font-size: $font-size-sm;
+      }
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: $space-5;
+    }
+  }
+
+  .dynasty-card {
+    &__image-wrapper {
+      aspect-ratio: 5 / 3;
+    }
+
+    &__content {
+      padding: $space-5;
+    }
+
+    &__heading h3 {
+      font-size: 2rem;
+    }
+
+    &__description {
+      margin-bottom: $space-5;
+    }
+  }
+}
+
+// SMALL MOBILE
+@include respond-down($breakpoint-xs) {
+  .dynasties-page {
+    &__intro {
+      min-height: 400px;
+    }
+
+    &__eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+    }
+
+    &__intro-meta {
+      flex-direction: column;
+      gap: $space-2;
+    }
+
+    &__meta-separator {
+      display: none;
+    }
+  }
+
+  .dynasty-card {
+    &__image-wrapper {
+      aspect-ratio: 4 / 3;
+    }
+  }
+}
+
+// ANIMATIONS
+@keyframes dynasties-intro-appear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dynasty-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// REDUCED MOTION
+@media (prefers-reduced-motion: reduce) {
+  .dynasties-page__intro-content,
+  .dynasty-card {
+    animation: none;
+  }
+
+  .dynasty-card,
+  .dynasty-card__image,
+  .dynasty-card__arrow,
+  .dynasty-card__footer-line {
+    transition: none;
+  }
+}

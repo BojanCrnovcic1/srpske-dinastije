@@ -1,15 +1,17 @@
 import type { EntityBase, HistoricalPeriod, ID, ContentStatus } from "./common";
 
 export type RulerTitle =
-  | "veliki-zupan"
-  | "kralj"
-  | "car"
-  | "knez"
-  | "despot"
-  | "princ"
-  | "regent"
-  | "ban"
-  | "vladika";
+  | "велики жупан"
+  | "краљ"
+  | "цар"
+  | "кнез"
+  | "деспот"
+  | "принц"
+  | "регент"
+  | "бан"
+  | "владика"
+  | "херцег"
+  | "господин";
 
 export interface ReignPeriod extends HistoricalPeriod {
   title: RulerTitle;
