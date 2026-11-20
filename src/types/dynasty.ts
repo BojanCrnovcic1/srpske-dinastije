@@ -12,7 +12,7 @@ export interface Dynasty extends EntityBase {
   rulerIds: ID[];
   eventIds: ID[];
 
-  musicTrackId?: ID;
+  musicTrackIds?: ID[];
 
   status: ContentStatus;
   order: number;

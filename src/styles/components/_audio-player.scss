@@ -1,0 +1,962 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.audio-player {
+  position: relative;
+  z-index: $z-menu;
+  flex: 0 0 auto;
+
+  // ==========================================================
+  // TRIGGER — USKLAĐEN SA HEADER DUGMETOM
+  // ==========================================================
+
+  &__trigger {
+    @include flex-center;
+
+    position: relative;
+
+    width: 38px;
+    height: 38px;
+
+    padding: 0;
+
+    color: $color-gold-light;
+    font-size: 0.95rem;
+
+    background: rgba($color-bg, 0.3);
+
+    border: 1px solid rgba($color-gold, 0.7);
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+      color $transition-base,
+      background $transition-base,
+      border-color $transition-base,
+      box-shadow $transition-base,
+      transform $transition-fast;
+
+    svg {
+      position: relative;
+      z-index: 1;
+      transition: transform $transition-base;
+    }
+
+    &:hover {
+      color: $color-bg;
+      background: $color-gold-light;
+      border-color: $color-gold-light;
+      box-shadow: $shadow-gold;
+      transform: translateY(-1px);
+
+      svg {
+        transform: scale(1.08);
+      }
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+
+    &--playing {
+      border-color: $color-gold-light;
+      box-shadow:
+        0 0 0 3px rgba($color-gold, 0.08),
+        0 0 18px rgba($color-gold, 0.2);
+
+      animation: audio-trigger-pulse 2.8s ease-in-out infinite;
+    }
+  }
+
+  // ==========================================================
+  // AUDIO VISUALIZER
+  // ==========================================================
+
+  &__visualizer {
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+
+    width: 17px;
+    height: 17px;
+
+    padding: 3px;
+
+    background: $color-bg;
+    border: 1px solid $color-gold-dark;
+    border-radius: 50%;
+
+    span {
+      display: block;
+
+      width: 2px;
+      height: 5px;
+
+      background: $color-gold-light;
+      border-radius: 2px;
+
+      animation: audio-bars 0.8s ease-in-out infinite alternate;
+
+      &:nth-child(2) {
+        height: 9px;
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        height: 6px;
+        animation-delay: 0.4s;
+      }
+
+      &:nth-child(4) {
+        height: 8px;
+        animation-delay: 0.1s;
+      }
+    }
+  }
+
+  // ==========================================================
+  // BACKDROP
+  // ==========================================================
+
+  &__backdrop {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.28);
+
+    animation: audio-backdrop-in 220ms ease both;
+  }
+
+  // ==========================================================
+  // MAIN PANEL
+  // ==========================================================
+
+  &__panel {
+    position: absolute;
+    top: calc(100% + 18px);
+    right: 0;
+
+    width: min(390px, calc(100vw - 32px));
+    max-height: min(680px, calc(100dvh - 125px));
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    color: $color-text;
+
+    background:
+      radial-gradient(
+        ellipse at 90% 0%,
+        rgba($color-gold, 0.1),
+        transparent 45%
+      ),
+      linear-gradient(
+        145deg,
+        $color-surface-raised,
+        $color-bg-soft 55%,
+        $color-bg
+      );
+
+    border: 1px solid $color-border;
+    border-radius: 8px;
+
+    box-shadow:
+      0 24px 70px rgba(0, 0, 0, 0.65),
+      0 0 35px rgba($color-gold, 0.07),
+      inset 0 1px 0 rgba($color-gold-light, 0.07);
+
+    transform-origin: top right;
+
+    animation: audio-panel-in 280ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+
+    isolation: isolate;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+
+      height: 1px;
+
+      content: "";
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        $color-gold-light,
+        transparent
+      );
+
+      opacity: 0.75;
+      pointer-events: none;
+    }
+  }
+
+  // ==========================================================
+  // HEADER
+  // ==========================================================
+
+  &__header {
+    @include flex-between(1rem);
+
+    position: relative;
+
+    flex: 0 0 auto;
+
+    padding: 1.35rem 1.4rem 1.2rem;
+
+    border-bottom: 1px solid rgba($color-gold, 0.16);
+
+    background: rgba($color-bg, 0.24);
+  }
+
+  &__header-icon {
+    @include flex-center;
+
+    flex: 0 0 auto;
+
+    width: 42px;
+    height: 42px;
+
+    color: $color-gold-light;
+    font-size: 1rem;
+
+    background: rgba($color-gold, 0.1);
+
+    border: 1px solid rgba($color-gold, 0.32);
+    border-radius: 50%;
+
+    box-shadow: inset 0 0 15px rgba($color-gold, 0.05);
+  }
+
+  &__header-content {
+    flex: 1;
+    min-width: 0;
+
+    .audio-player__eyebrow {
+      display: block;
+
+      margin-bottom: 0.25rem;
+
+      color: $color-gold-light;
+
+      font-family: $font-ui;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      line-height: 1.4;
+    }
+
+    h3 {
+      margin: 0;
+
+      color: $color-text;
+
+      font-family: $font-display;
+      font-size: 1.65rem;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+  }
+
+  &__close {
+    @include flex-center;
+
+    flex: 0 0 auto;
+
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    color: $color-text-muted;
+    font-family: $font-ui;
+    font-size: 1.55rem;
+    font-weight: 300;
+    line-height: 1;
+
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+      color $transition-fast,
+      background $transition-fast,
+      border-color $transition-fast,
+      transform $transition-fast;
+
+    &:hover {
+      color: $color-gold-light;
+      background: rgba($color-gold, 0.1);
+      border-color: rgba($color-gold, 0.25);
+      transform: rotate(90deg);
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+  }
+
+  // ==========================================================
+  // CURRENT TRACK
+  // ==========================================================
+
+  &__current {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    padding: 1.2rem 1.4rem 1.25rem;
+  }
+
+  &__current-label,
+  &__section-label {
+    display: block;
+
+    color: $color-text-subtle;
+
+    font-family: $font-ui;
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.17em;
+    line-height: 1.4;
+  }
+
+  &__current-label {
+    margin-bottom: 0.85rem;
+  }
+
+  &__track-info {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+
+    min-width: 0;
+  }
+
+  &__track-icon {
+    @include flex-center;
+
+    flex: 0 0 auto;
+
+    width: 48px;
+    height: 48px;
+
+    color: $color-gold-light;
+    font-size: 1.05rem;
+
+    background: linear-gradient(
+      145deg,
+      rgba($color-gold, 0.2),
+      rgba($color-gold, 0.04)
+    );
+
+    border: 1px solid rgba($color-gold, 0.35);
+    border-radius: $radius-md;
+
+    box-shadow: inset 0 0 16px rgba($color-gold, 0.06);
+  }
+
+  &__track-text {
+    flex: 1;
+    min-width: 0;
+
+    h4 {
+      display: -webkit-box;
+
+      margin: 0 0 0.35rem;
+
+      overflow: hidden;
+
+      color: $color-text;
+
+      font-family: $font-display;
+      font-size: 1.18rem;
+      font-weight: 500;
+      line-height: 1.2;
+
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+
+    span {
+      display: block;
+
+      color: $color-gold;
+      font-family: $font-ui;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  }
+
+  // ==========================================================
+  // PLAYBACK CONTROLS
+  // ==========================================================
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+
+    padding: 0 1.4rem 1.2rem;
+  }
+
+  &__play-button {
+    @include flex-center;
+
+    flex: 0 0 auto;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    color: #100e0b;
+    font-size: 0.9rem;
+
+    background: linear-gradient(145deg, $color-gold-light, $color-gold);
+
+    border: 1px solid $color-gold-light;
+    border-radius: 50%;
+
+    box-shadow: 0 4px 18px rgba($color-gold, 0.2);
+
+    cursor: pointer;
+
+    transition:
+      transform $transition-fast,
+      box-shadow $transition-base,
+      background $transition-base;
+
+    &:hover {
+      background: $color-gold-light;
+      box-shadow: $shadow-gold-strong;
+      transform: scale(1.07);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+  }
+
+  &__status {
+    color: $color-gold-light;
+
+    font-family: $font-ui;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.17em;
+  }
+
+  // ==========================================================
+  // DIVIDER
+  // ==========================================================
+
+  &__divider {
+    @include gold-divider;
+
+    flex: 0 0 auto;
+
+    opacity: 0.55;
+  }
+
+  // ==========================================================
+  // TRACK SELECTION
+  // ==========================================================
+
+  &__section {
+    flex: 0 0 auto;
+
+    padding: 1.2rem 1.4rem 0.9rem;
+  }
+
+  &__tracks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    max-height: 220px;
+
+    margin-top: 0.85rem;
+    padding-right: 4px;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba($color-gold, 0.45) rgba($color-bg, 0.4);
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba($color-bg, 0.4);
+      border-radius: $radius-pill;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba($color-gold, 0.45);
+      border-radius: $radius-pill;
+
+      &:hover {
+        background: $color-gold-light;
+      }
+    }
+  }
+
+  &__track-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    width: 100%;
+    min-height: 57px;
+
+    padding: 0.65rem 0.7rem;
+
+    color: $color-text-muted;
+    text-align: left;
+
+    background: transparent;
+
+    border: 1px solid transparent;
+    border-radius: $radius-md;
+
+    cursor: pointer;
+
+    transition:
+      color $transition-fast,
+      background $transition-fast,
+      border-color $transition-fast,
+      transform $transition-fast;
+
+    &:hover {
+      color: $color-text;
+      background: rgba($color-gold, 0.07);
+      border-color: rgba($color-gold, 0.2);
+
+      .audio-player__track-option-icon {
+        color: $color-gold-light;
+        border-color: rgba($color-gold, 0.5);
+      }
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+
+    &--active {
+      color: $color-text;
+
+      background: linear-gradient(
+        90deg,
+        rgba($color-gold, 0.14),
+        rgba($color-gold, 0.045)
+      );
+
+      border-color: rgba($color-gold, 0.32);
+
+      .audio-player__track-option-icon {
+        color: $color-gold-light;
+        background: rgba($color-gold, 0.13);
+        border-color: rgba($color-gold, 0.4);
+      }
+
+      .audio-player__track-option-title {
+        color: $color-gold-light;
+      }
+    }
+  }
+
+  &__track-option-icon {
+    @include flex-center;
+
+    flex: 0 0 auto;
+
+    width: 32px;
+    height: 32px;
+
+    color: $color-text-subtle;
+    font-size: 0.75rem;
+
+    background: rgba($color-bg, 0.4);
+
+    border: 1px solid rgba($color-gold, 0.15);
+    border-radius: 50%;
+
+    transition:
+      color $transition-fast,
+      background $transition-fast,
+      border-color $transition-fast;
+  }
+
+  &__track-option-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    min-width: 0;
+  }
+
+  &__track-option-title {
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    color: $color-text-muted;
+
+    font-family: $font-body;
+    font-size: 0.88rem;
+    line-height: 1.25;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    transition: color $transition-fast;
+  }
+
+  &__track-option-category {
+    color: $color-text-subtle;
+
+    font-family: $font-ui;
+    font-size: 0.61rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  &__track-indicator {
+    flex: 0 0 auto;
+
+    color: $color-gold-light;
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    animation: audio-indicator-in 220ms ease both;
+  }
+
+  // ==========================================================
+  // VOLUME
+  // ==========================================================
+
+  &__volume {
+    flex: 0 0 auto;
+
+    padding: 1.15rem 1.4rem 1.35rem;
+  }
+
+  &__volume-header {
+    @include flex-between(1rem);
+
+    margin-bottom: 0.8rem;
+  }
+
+  &__volume-value {
+    color: $color-gold-light;
+
+    font-family: $font-ui;
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  &__mute-button {
+    @include flex-center;
+
+    flex: 0 0 auto;
+
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    color: $color-text-muted;
+    font-size: 0.95rem;
+
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+      color $transition-fast,
+      background $transition-fast,
+      border-color $transition-fast;
+
+    &:hover {
+      color: $color-gold-light;
+      background: rgba($color-gold, 0.1);
+      border-color: rgba($color-gold, 0.25);
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+  }
+
+  &__volume-slider {
+    flex: 1;
+
+    width: 100%;
+    height: 4px;
+
+    margin: 0;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: linear-gradient(90deg, $color-gold-light, $color-gold-dark);
+
+    border-radius: $radius-pill;
+
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+      width: 13px;
+      height: 13px;
+
+      appearance: none;
+      -webkit-appearance: none;
+
+      background: $color-gold-light;
+
+      border: 2px solid $color-bg;
+      border-radius: 50%;
+
+      box-shadow: 0 0 0 1px $color-gold;
+
+      transition:
+        transform $transition-fast,
+        box-shadow $transition-fast;
+    }
+
+    &::-moz-range-thumb {
+      width: 10px;
+      height: 10px;
+
+      background: $color-gold-light;
+
+      border: 2px solid $color-bg;
+      border-radius: 50%;
+
+      box-shadow: 0 0 0 1px $color-gold;
+
+      transition:
+        transform $transition-fast,
+        box-shadow $transition-fast;
+    }
+
+    &:hover {
+      &::-webkit-slider-thumb {
+        box-shadow:
+          0 0 0 3px rgba($color-gold, 0.15),
+          0 0 12px rgba($color-gold, 0.45);
+        transform: scale(1.12);
+      }
+
+      &::-moz-range-thumb {
+        box-shadow:
+          0 0 0 3px rgba($color-gold, 0.15),
+          0 0 12px rgba($color-gold, 0.45);
+        transform: scale(1.12);
+      }
+    }
+
+    &:focus-visible {
+      outline: 1px solid $color-gold-light;
+      outline-offset: 5px;
+    }
+  }
+
+  // ==========================================================
+  // RESPONSIVE
+  // ==========================================================
+
+  @include respond-down($breakpoint-sm) {
+    &__panel {
+      position: fixed;
+      top: 82px;
+      right: $container-gutter;
+
+      width: min(390px, calc(100vw - 2rem));
+      max-height: calc(100dvh - 100px);
+    }
+
+    &__header {
+      padding: 1.1rem 1.15rem 1rem;
+    }
+
+    &__current {
+      padding: 1rem 1.15rem;
+    }
+
+    &__controls {
+      padding: 0 1.15rem 1rem;
+    }
+
+    &__section {
+      padding: 1rem 1.15rem 0.8rem;
+    }
+
+    &__volume {
+      padding: 1rem 1.15rem 1.15rem;
+    }
+  }
+
+  @include respond-down($breakpoint-xs) {
+    &__trigger {
+      width: 32px;
+      height: 32px;
+      font-size: 0.85rem;
+    }
+
+    &__visualizer {
+      right: -4px;
+      bottom: -4px;
+    }
+
+    &__panel {
+      top: 72px;
+      right: 0.75rem;
+
+      width: calc(100vw - 1.5rem);
+      max-height: calc(100dvh - 85px);
+    }
+
+    &__header-content h3 {
+      font-size: 1.45rem;
+    }
+
+    &__track-option {
+      min-height: 53px;
+    }
+
+    &__tracks {
+      max-height: 190px;
+    }
+  }
+}
+
+// ============================================================
+// ANIMATIONS
+// ============================================================
+
+@keyframes audio-trigger-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px rgba($color-gold, 0.05),
+      0 0 12px rgba($color-gold, 0.12);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 5px rgba($color-gold, 0.09),
+      0 0 22px rgba($color-gold, 0.25);
+  }
+}
+
+@keyframes audio-bars {
+  from {
+    transform: scaleY(0.45);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes audio-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes audio-backdrop-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes audio-indicator-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// ============================================================
+// REDUCED MOTION
+// ============================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .audio-player {
+    &__trigger,
+    &__trigger--playing,
+    &__visualizer span,
+    &__panel,
+    &__backdrop,
+    &__close,
+    &__play-button,
+    &__track-option,
+    &__track-option-icon,
+    &__track-option-title,
+    &__track-indicator,
+    &__mute-button,
+    &__volume-slider {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    &__trigger:hover,
+    &__play-button:hover,
+    &__close:hover {
+      transform: none;
+    }
+  }
+}

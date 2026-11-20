@@ -1,6 +1,8 @@
 import type { EntityBase, ID } from "./common";
 
-export type MusicCategory = "ambient" | "byzantine" | "royal" | "epic";
+export type MusicCategory = "byzantine" | "epic" | "royal";
+
+export type MusicSelectionMode = "automatic" | "manual";
 
 export interface MusicTrack extends EntityBase {
   title: string;
@@ -14,4 +16,25 @@ export interface MusicSettings {
   volume: number;
   currentTrackId: ID | null;
   muted: boolean;
+  selectionMode: MusicSelectionMode;
+}
+
+export interface AudioContextType {
+  currentTrack: MusicTrack | null;
+  isPlaying: boolean;
+  volume: number;
+  isMuted: boolean;
+  selectionMode: MusicSelectionMode;
+  autoplayBlocked: boolean;
+
+  play: () => Promise<void>;
+  pause: () => void;
+  togglePlay: () => void;
+
+  setTrack: (trackId: ID) => void;
+  setDynastyTracks: (trackIds: ID[]) => void;
+  enableAutomaticSelection: (trackIds: ID[]) => void;
+
+  setVolume: (volume: number) => void;
+  toggleMute: () => void;
 }

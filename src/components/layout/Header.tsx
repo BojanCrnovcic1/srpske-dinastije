@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
-import { FaVolumeUp } from "react-icons/fa";
+
 import MobileMenu from "./MobileMenu";
 import Logo from "../common/Logo";
+
 import { navigationLinks } from "../../data/navigation";
+import AudioPlayer from "../common/AudioPlayer";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -44,15 +46,7 @@ const Header = () => {
 
           {/* Actions */}
           <div className="header__actions">
-            <button
-              type="button"
-              className="header__audio-button"
-              aria-label="Аудио плејер"
-              title="Аудио плејер — ускоро"
-              disabled
-            >
-              <FaVolumeUp aria-hidden="true" />
-            </button>
+            <AudioPlayer />
 
             {/* Mobile menu toggle */}
             <button

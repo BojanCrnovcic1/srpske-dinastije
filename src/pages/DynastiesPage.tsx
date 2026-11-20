@@ -91,10 +91,6 @@ const DynastiesPage = () => {
 
                   <div className="dynasty-card__image-overlay" />
 
-                  <span className="dynasty-card__number">
-                    {String(dynasty.order).padStart(2, "0")}
-                  </span>
-
                   <span className="dynasty-card__period">
                     {formatPeriod(dynasty)}
                   </span>

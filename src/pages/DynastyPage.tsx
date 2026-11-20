@@ -260,10 +260,6 @@ const DynastyPage = () => {
                             alt={ruler.name}
                             loading="lazy"
                           />
-
-                          <span className="dynasty-timeline__portrait-number">
-                            {String(index + 1).padStart(2, "0")}
-                          </span>
                         </div>
 
                         <div className="dynasty-timeline__content">

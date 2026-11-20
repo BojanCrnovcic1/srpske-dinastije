@@ -32,7 +32,7 @@ export const dynasties: Dynasty[] = [
 
     eventIds: ["odbrana-od-bugara-839", "primanje-hriscanstva-870"],
 
-    musicTrackId: "vlastimirovici-theme",
+    musicTrackIds: ["byzantine-01", "byzantine-02,"],
 
     status: "published",
     order: 1,
@@ -63,7 +63,7 @@ export const dynasties: Dynasty[] = [
 
     eventIds: ["bitka-kod-bara-1042", "kraljevska-kruna-1077"],
 
-    musicTrackId: "vojislavljevici-theme",
+    musicTrackIds: ["byzantine-01", "byzantine-02,"],
 
     status: "draft",
     order: 2,
@@ -111,7 +111,7 @@ export const dynasties: Dynasty[] = [
       "proglasenje-carstva-1346",
     ],
 
-    musicTrackId: "nemanjici-theme",
+    musicTrackIds: ["byzantine-01", "byzantine-02,"],
 
     status: "draft",
     order: 3,
@@ -147,7 +147,7 @@ export const dynasties: Dynasty[] = [
 
     eventIds: ["krunisanje-u-milesevi-1377", "pad-bosne-1463"],
 
-    musicTrackId: "kotromanici-theme",
+    musicTrackIds: ["epic-01", "epic-02"],
 
     status: "published",
     order: 4,
@@ -181,7 +181,7 @@ export const dynasties: Dynasty[] = [
       "pripajanje-zete-despotovini-1421",
     ],
 
-    musicTrackId: "balsici-theme",
+    musicTrackIds: ["epic-01", "epic-02"],
 
     status: "published",
     order: 5,
@@ -212,7 +212,7 @@ export const dynasties: Dynasty[] = [
 
     eventIds: ["maricka-bitka-1371", "bitka-na-rovinama-1395"],
 
-    musicTrackId: "mrnjavcevici-theme",
+    musicTrackIds: ["epic-01", "epic-02"],
 
     status: "published",
     order: 6,
@@ -243,7 +243,7 @@ export const dynasties: Dynasty[] = [
 
     eventIds: ["kosovski-boj-1389", "beograd-prestonica-1404"],
 
-    musicTrackId: "lazarevici-theme",
+    musicTrackIds: ["epic-01", "epic-02"],
 
     status: "published",
     order: 7,
@@ -274,7 +274,7 @@ export const dynasties: Dynasty[] = [
 
     eventIds: ["izgradnja-smedereva-1430", "pad-smedereva-1459"],
 
-    musicTrackId: "brankovici-theme",
+    musicTrackIds: ["epic-01", "epic-02"],
 
     status: "published",
     order: 8,
@@ -314,7 +314,7 @@ export const dynasties: Dynasty[] = [
       "proglasenje-kraljevine-crne-gore-1910",
     ],
 
-    musicTrackId: "petrovici-theme",
+    musicTrackIds: ["royal-01"],
 
     status: "published",
     order: 9,
@@ -355,7 +355,7 @@ export const dynasties: Dynasty[] = [
       "ujedinjenje-1918",
     ],
 
-    musicTrackId: "karadjordjevici-theme",
+    musicTrackIds: ["royal-02", "royal-03"],
 
     status: "draft",
     order: 10,
@@ -395,7 +395,7 @@ export const dynasties: Dynasty[] = [
       "proglasenje-kraljevine-1882",
     ],
 
-    musicTrackId: "obrenovici-theme",
+    musicTrackIds: ["royal-01", "royal-04"],
 
     status: "draft",
     order: 11,
