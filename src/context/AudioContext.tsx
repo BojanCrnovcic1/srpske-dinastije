@@ -21,6 +21,8 @@ import { musicTracks } from "../data/music";
 
 const STORAGE_KEY = "dynasties-music-settings";
 
+const DEFAULT_PLAYLIST: ID[] = ["byzantine-01", "byzantine-02"];
+
 const DEFAULT_SETTINGS: MusicSettings = {
   enabled: true,
   volume: 0.2,
@@ -35,7 +37,10 @@ interface AudioProviderProps {
 
 const AudioContext = createContext<AudioContextType | null>(null);
 
-// Load settings from localStorage.
+// ============================================================
+// INITIAL SETTINGS
+// ============================================================
+
 const getInitialSettings = (): MusicSettings => {
   if (typeof window === "undefined") {
     return DEFAULT_SETTINGS;
@@ -82,15 +87,28 @@ const getInitialSettings = (): MusicSettings => {
   }
 };
 
+// ============================================================
+// PROVIDER
+// ============================================================
+
 export const AudioProvider = ({ children }: AudioProviderProps) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Currently active automatic playlist.
+  const playlistTrackIdsRef = useRef<ID[]>(DEFAULT_PLAYLIST);
+
+  // Track currently loaded in the audio element.
+  const previousTrackIdRef = useRef<ID | null>(null);
 
   const [settings, setSettings] = useState<MusicSettings>(getInitialSettings);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [autoplayBlocked, setAutoplayBlocked] = useState(false);
 
-  // Current track.
+  // ==========================================================
+  // CURRENT TRACK
+  // ==========================================================
+
   const currentTrack = useMemo(
     () =>
       musicTracks.find((track) => track.id === settings.currentTrackId) ??
@@ -99,16 +117,57 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
     [settings.currentTrackId],
   );
 
-  // Persist settings.
+  // ==========================================================
+  // PERSIST SETTINGS
+  // ==========================================================
+
+  useEffect(() => {
+    if (!settings.enabled || isPlaying) return;
+
+    const handleFirstInteraction = () => {
+      const audio = audioRef.current;
+
+      if (!audio) return;
+
+      audio
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+          setAutoplayBlocked(false);
+        })
+        .catch(() => {
+          setAutoplayBlocked(true);
+        });
+    };
+
+    const events = ["click", "touchstart", "scroll", "keydown"];
+
+    events.forEach((event) => {
+      window.addEventListener(event, handleFirstInteraction, {
+        once: true,
+        passive: true,
+      });
+    });
+
+    return () => {
+      events.forEach((event) => {
+        window.removeEventListener(event, handleFirstInteraction);
+      });
+    };
+  }, [settings.enabled, isPlaying]);
+
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
     } catch {
-      // Storage may be unavailable.
+      // localStorage may be unavailable.
     }
   }, [settings]);
 
-  // Synchronize volume and mute.
+  // ==========================================================
+  // SYNCHRONIZE VOLUME
+  // ==========================================================
+
   useEffect(() => {
     const audio = audioRef.current;
 
@@ -118,27 +177,41 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
     audio.muted = settings.muted;
   }, [settings.volume, settings.muted]);
 
-  // Handle track changes and automatic playback.
+  // ==========================================================
+  // TRACK CHANGES AND PLAYBACK
+  // ==========================================================
+
   useEffect(() => {
     const audio = audioRef.current;
 
     if (!audio || !currentTrack) return;
 
-    audio.pause();
-    audio.load();
+    const trackChanged = previousTrackIdRef.current !== currentTrack.id;
 
-    setIsPlaying(false);
-    setAutoplayBlocked(false);
+    if (trackChanged) {
+      audio.pause();
+      previousTrackIdRef.current = currentTrack.id;
 
-    if (!settings.enabled) return;
+      setIsPlaying(false);
+      setAutoplayBlocked(false);
+    }
 
+    if (!settings.enabled) {
+      audio.pause();
+      return;
+    }
+
+    // Attempt playback. The browser may require user interaction.
     audio.play().catch(() => {
       setIsPlaying(false);
       setAutoplayBlocked(true);
     });
-  }, [currentTrack?.src, settings.enabled]);
+  }, [currentTrack?.id, settings.enabled]);
 
-  // Play.
+  // ==========================================================
+  // PLAY
+  // ==========================================================
+
   const play = useCallback(async () => {
     const audio = audioRef.current;
 
@@ -153,12 +226,15 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
       await audio.play();
       setAutoplayBlocked(false);
     } catch {
-      setAutoplayBlocked(true);
       setIsPlaying(false);
+      setAutoplayBlocked(true);
     }
   }, [currentTrack]);
 
-  // Pause.
+  // ==========================================================
+  // PAUSE
+  // ==========================================================
+
   const pause = useCallback(() => {
     audioRef.current?.pause();
 
@@ -171,7 +247,10 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
     setAutoplayBlocked(false);
   }, []);
 
-  // Toggle playback.
+  // ==========================================================
+  // TOGGLE PLAYBACK
+  // ==========================================================
+
   const togglePlay = useCallback(() => {
     if (isPlaying) {
       pause();
@@ -180,7 +259,10 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
     }
   }, [isPlaying, play, pause]);
 
-  // Manual track selection.
+  // ==========================================================
+  // MANUAL TRACK SELECTION
+  // ==========================================================
+
   const setTrack = useCallback((trackId: ID) => {
     const selectedTrack = musicTracks.find((track) => track.id === trackId);
 
@@ -194,44 +276,85 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
     }));
   }, []);
 
-  // Automatic track selection for a dynasty or homepage.
-  const setDynastyTracks = useCallback((trackIds: ID[]) => {
-    const validTracks = trackIds.filter((trackId) =>
+  // ==========================================================
+  // AUTOMATIC PLAYLIST
+  // ==========================================================
+
+  const setAutomaticPlaylist = useCallback((trackIds: ID[]) => {
+    const validTracks = Array.from(new Set(trackIds)).filter((trackId) =>
       musicTracks.some((track) => track.id === trackId),
     );
 
-    if (validTracks.length === 0) return;
+    // Use the default playlist if the dynasty has no music.
+    const nextPlaylist =
+      validTracks.length > 0 ? validTracks : DEFAULT_PLAYLIST;
+
+    // Always remember the active playlist.
+    playlistTrackIdsRef.current = nextPlaylist;
 
     setSettings((previous) => {
-      // Manual selection always has priority.
+      // Do not interrupt manually selected music.
       if (previous.selectionMode === "manual") {
+        return previous;
+      }
+
+      // Avoid unnecessarily restarting the same track.
+      if (nextPlaylist.includes(previous.currentTrackId ?? "")) {
         return previous;
       }
 
       return {
         ...previous,
-        currentTrackId: validTracks[0],
+        currentTrackId: nextPlaylist[0],
       };
     });
   }, []);
 
-  // Return to automatic selection.
-  const enableAutomaticSelection = useCallback((trackIds: ID[]) => {
-    const validTracks = trackIds.filter((trackId) =>
-      musicTracks.some((track) => track.id === trackId),
-    );
+  // ==========================================================
+  // RETURN TO AUTOMATIC SELECTION
+  // ==========================================================
 
-    if (validTracks.length === 0) return;
+  const enableAutomaticSelection = useCallback(() => {
+    const playlist = playlistTrackIdsRef.current;
+
+    if (playlist.length === 0) return;
 
     setSettings((previous) => ({
       ...previous,
       selectionMode: "automatic",
-      currentTrackId: validTracks[0],
+      currentTrackId: playlist[0],
       enabled: true,
     }));
   }, []);
 
-  // Volume.
+  // ==========================================================
+  // PLAY NEXT TRACK WHEN CURRENT TRACK ENDS
+  // ==========================================================
+
+  const handleEnded = useCallback(() => {
+    if (settings.selectionMode !== "automatic") return;
+
+    const playlist = playlistTrackIdsRef.current;
+
+    if (playlist.length === 0) return;
+
+    const currentIndex = playlist.indexOf(settings.currentTrackId ?? "");
+
+    const nextIndex =
+      currentIndex === -1 ? 0 : (currentIndex + 1) % playlist.length;
+
+    const nextTrackId = playlist[nextIndex];
+
+    setSettings((previous) => ({
+      ...previous,
+      currentTrackId: nextTrackId,
+    }));
+  }, [settings.selectionMode, settings.currentTrackId]);
+
+  // ==========================================================
+  // VOLUME
+  // ==========================================================
+
   const setVolume = useCallback((volume: number) => {
     const normalized = Math.max(0, Math.min(1, volume));
 
@@ -242,7 +365,10 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
     }));
   }, []);
 
-  // Mute.
+  // ==========================================================
+  // MUTE
+  // ==========================================================
+
   const toggleMute = useCallback(() => {
     setSettings((previous) => ({
       ...previous,
@@ -250,7 +376,10 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
     }));
   }, []);
 
-  // Audio events.
+  // ==========================================================
+  // AUDIO EVENTS
+  // ==========================================================
+
   const handlePlay = useCallback(() => {
     setIsPlaying(true);
     setAutoplayBlocked(false);
@@ -263,6 +392,10 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
   const handleError = useCallback(() => {
     setIsPlaying(false);
   }, []);
+
+  // ==========================================================
+  // CONTEXT VALUE
+  // ==========================================================
 
   const value = useMemo<AudioContextType>(
     () => ({
@@ -278,7 +411,7 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
       togglePlay,
 
       setTrack,
-      setDynastyTracks,
+      setAutomaticPlaylist,
       enableAutomaticSelection,
 
       setVolume,
@@ -295,12 +428,16 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
       pause,
       togglePlay,
       setTrack,
-      setDynastyTracks,
+      setAutomaticPlaylist,
       enableAutomaticSelection,
       setVolume,
       toggleMute,
     ],
   );
+
+  // ==========================================================
+  // RENDER
+  // ==========================================================
 
   return (
     <AudioContext.Provider value={value}>
@@ -309,15 +446,20 @@ export const AudioProvider = ({ children }: AudioProviderProps) => {
       <audio
         ref={audioRef}
         src={currentTrack?.src}
-        loop
+        loop={settings.selectionMode === "manual"}
         preload="auto"
         onPlay={handlePlay}
         onPause={handlePause}
+        onEnded={handleEnded}
         onError={handleError}
       />
     </AudioContext.Provider>
   );
 };
+
+// ============================================================
+// HOOK
+// ============================================================
 
 export const useAudioContext = () => {
   const context = useContext(AudioContext);

@@ -7,7 +7,7 @@
   flex: 0 0 auto;
 
   // ==========================================================
-  // TRIGGER — USKLAĐEN SA HEADER DUGMETOM
+  // TRIGGER
   // ==========================================================
 
   &__trigger {
@@ -24,7 +24,6 @@
     font-size: 0.95rem;
 
     background: rgba($color-bg, 0.3);
-
     border: 1px solid rgba($color-gold, 0.7);
     border-radius: 50%;
 
@@ -65,16 +64,12 @@
 
     &--playing {
       border-color: $color-gold-light;
-      box-shadow:
-        0 0 0 3px rgba($color-gold, 0.08),
-        0 0 18px rgba($color-gold, 0.2);
-
       animation: audio-trigger-pulse 2.8s ease-in-out infinite;
     }
   }
 
   // ==========================================================
-  // AUDIO VISUALIZER
+  // VISUALIZER
   // ==========================================================
 
   &__visualizer {
@@ -98,7 +93,6 @@
 
     span {
       display: block;
-
       width: 2px;
       height: 5px;
 
@@ -139,7 +133,7 @@
   }
 
   // ==========================================================
-  // MAIN PANEL
+  // PANEL
   // ==========================================================
 
   &__panel {
@@ -147,11 +141,11 @@
     top: calc(100% + 18px);
     right: 0;
 
-    width: min(390px, calc(100vw - 32px));
-    max-height: min(680px, calc(100dvh - 125px));
-
     display: flex;
     flex-direction: column;
+
+    width: min(390px, calc(100vw - 32px));
+    max-height: min(680px, calc(100dvh - 125px));
 
     overflow: hidden;
 
@@ -179,10 +173,9 @@
       inset 0 1px 0 rgba($color-gold-light, 0.07);
 
     transform-origin: top right;
+    isolation: isolate;
 
     animation: audio-panel-in 280ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
-
-    isolation: isolate;
 
     &::before {
       position: absolute;
@@ -214,14 +207,12 @@
     @include flex-between(1rem);
 
     position: relative;
-
     flex: 0 0 auto;
 
     padding: 1.35rem 1.4rem 1.2rem;
 
-    border-bottom: 1px solid rgba($color-gold, 0.16);
-
     background: rgba($color-bg, 0.24);
+    border-bottom: 1px solid rgba($color-gold, 0.16);
   }
 
   &__header-icon {
@@ -236,7 +227,6 @@
     font-size: 1rem;
 
     background: rgba($color-gold, 0.1);
-
     border: 1px solid rgba($color-gold, 0.32);
     border-radius: 50%;
 
@@ -249,11 +239,9 @@
 
     .audio-player__eyebrow {
       display: block;
-
       margin-bottom: 0.25rem;
 
       color: $color-gold-light;
-
       font-family: $font-ui;
       font-size: 0.62rem;
       font-weight: 600;
@@ -265,7 +253,6 @@
       margin: 0;
 
       color: $color-text;
-
       font-family: $font-display;
       font-size: 1.65rem;
       font-weight: 500;
@@ -315,12 +302,105 @@
   }
 
   // ==========================================================
+  // PLAYBACK MODE
+  // ==========================================================
+
+  &__mode {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    padding: 0.95rem 1.4rem;
+
+    background: rgba($color-bg, 0.32);
+    border-bottom: 1px solid rgba($color-gold, 0.12);
+  }
+
+  &__mode-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  &__mode-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+
+    font-family: $font-ui;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+
+    &--automatic {
+      color: $color-gold-light;
+    }
+
+    &--manual {
+      color: #b9a8e0;
+    }
+  }
+
+  &__mode-indicator {
+    width: 6px;
+    height: 6px;
+
+    background: currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 8px currentColor;
+  }
+
+  &__automatic-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+
+    min-height: 32px;
+    padding: 0.4rem 0.65rem;
+
+    color: $color-gold-light;
+    font-family: $font-ui;
+    font-size: 0.68rem;
+    font-weight: 500;
+
+    background: rgba($color-gold, 0.08);
+    border: 1px solid rgba($color-gold, 0.35);
+    border-radius: $radius-sm;
+
+    cursor: pointer;
+
+    transition:
+      color $transition-fast,
+      background $transition-fast,
+      border-color $transition-fast,
+      box-shadow $transition-fast;
+
+    svg {
+      flex: 0 0 auto;
+      font-size: 0.65rem;
+    }
+
+    &:hover {
+      color: $color-bg;
+      background: $color-gold-light;
+      border-color: $color-gold-light;
+      box-shadow: $shadow-gold;
+    }
+
+    &:focus-visible {
+      @include gold-focus;
+    }
+  }
+
+  // ==========================================================
   // CURRENT TRACK
   // ==========================================================
 
   &__current {
     position: relative;
-
     flex: 0 0 auto;
 
     padding: 1.2rem 1.4rem 1.25rem;
@@ -331,7 +411,6 @@
     display: block;
 
     color: $color-text-subtle;
-
     font-family: $font-ui;
     font-size: 0.63rem;
     font-weight: 600;
@@ -380,13 +459,11 @@
 
     h4 {
       display: -webkit-box;
-
       margin: 0 0 0.35rem;
 
       overflow: hidden;
 
       color: $color-text;
-
       font-family: $font-display;
       font-size: 1.18rem;
       font-weight: 500;
@@ -405,6 +482,49 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
+  }
+
+  // ==========================================================
+  // AUTOPLAY NOTICE
+  // ==========================================================
+
+  &__autoplay-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+
+    margin: 0 1.4rem 1rem;
+    padding: 0.8rem 0.85rem;
+
+    background: rgba($color-gold, 0.07);
+    border: 1px solid rgba($color-gold, 0.3);
+    border-radius: $radius-md;
+
+    animation: audio-notice-in 250ms ease both;
+
+    p {
+      margin: 0;
+
+      color: $color-text-muted;
+      font-family: $font-body;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+  }
+
+  &__notice-icon {
+    @include flex-center;
+
+    flex: 0 0 auto;
+
+    width: 25px;
+    height: 25px;
+
+    color: $color-gold-light;
+    font-size: 0.8rem;
+
+    background: rgba($color-gold, 0.12);
+    border-radius: 50%;
   }
 
   // ==========================================================
@@ -459,15 +579,35 @@
     &:focus-visible {
       @include gold-focus;
     }
+
+    &--active {
+      box-shadow:
+        0 0 0 4px rgba($color-gold, 0.09),
+        0 4px 22px rgba($color-gold, 0.28);
+    }
+  }
+
+  &__playback-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    min-width: 0;
   }
 
   &__status {
     color: $color-gold-light;
-
     font-family: $font-ui;
     font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.17em;
+  }
+
+  &__playback-description {
+    color: $color-text-subtle;
+    font-family: $font-body;
+    font-size: 0.8rem;
+    line-height: 1.35;
   }
 
   // ==========================================================
@@ -478,18 +618,30 @@
     @include gold-divider;
 
     flex: 0 0 auto;
-
     opacity: 0.55;
   }
 
   // ==========================================================
-  // TRACK SELECTION
+  // TRACK LIBRARY
   // ==========================================================
 
   &__section {
     flex: 0 0 auto;
-
     padding: 1.2rem 1.4rem 0.9rem;
+  }
+
+  &__library-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  &__track-count {
+    color: $color-text-subtle;
+    font-family: $font-ui;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
   }
 
   &__tracks {
@@ -541,7 +693,6 @@
     text-align: left;
 
     background: transparent;
-
     border: 1px solid transparent;
     border-radius: $radius-md;
 
@@ -603,7 +754,6 @@
     font-size: 0.75rem;
 
     background: rgba($color-bg, 0.4);
-
     border: 1px solid rgba($color-gold, 0.15);
     border-radius: 50%;
 
@@ -624,11 +774,9 @@
 
   &__track-option-title {
     display: -webkit-box;
-
     overflow: hidden;
 
     color: $color-text-muted;
-
     font-family: $font-body;
     font-size: 0.88rem;
     line-height: 1.25;
@@ -641,7 +789,6 @@
 
   &__track-option-category {
     color: $color-text-subtle;
-
     font-family: $font-ui;
     font-size: 0.61rem;
     letter-spacing: 0.12em;
@@ -658,25 +805,54 @@
     animation: audio-indicator-in 220ms ease both;
   }
 
+  &__mini-visualizer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+
+    width: 17px;
+    height: 18px;
+
+    span {
+      display: block;
+
+      width: 2px;
+      height: 6px;
+
+      background: $color-gold-light;
+      border-radius: 2px;
+
+      animation: audio-mini-bars 0.65s ease-in-out infinite alternate;
+
+      &:nth-child(2) {
+        height: 12px;
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        height: 8px;
+        animation-delay: 0.35s;
+      }
+    }
+  }
+
   // ==========================================================
   // VOLUME
   // ==========================================================
 
   &__volume {
     flex: 0 0 auto;
-
     padding: 1.15rem 1.4rem 1.35rem;
   }
 
   &__volume-header {
     @include flex-between(1rem);
-
     margin-bottom: 0.8rem;
   }
 
   &__volume-value {
     color: $color-gold-light;
-
     font-family: $font-ui;
     font-size: 0.72rem;
     font-weight: 600;
@@ -738,7 +914,6 @@
     background: linear-gradient(90deg, $color-gold-light, $color-gold-dark);
 
     border-radius: $radius-pill;
-
     cursor: pointer;
 
     &::-webkit-slider-thumb {
@@ -749,7 +924,6 @@
       -webkit-appearance: none;
 
       background: $color-gold-light;
-
       border: 2px solid $color-bg;
       border-radius: 50%;
 
@@ -765,7 +939,6 @@
       height: 10px;
 
       background: $color-gold-light;
-
       border: 2px solid $color-bg;
       border-radius: 50%;
 
@@ -799,6 +972,33 @@
   }
 
   // ==========================================================
+  // FOOTER
+  // ==========================================================
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    padding: 0.8rem 1.4rem;
+
+    background: rgba($color-bg, 0.35);
+    border-top: 1px solid rgba($color-gold, 0.13);
+
+    span {
+      color: $color-text-subtle;
+      font-family: $font-ui;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+    }
+
+    span:first-child {
+      color: $color-gold;
+    }
+  }
+
+  // ==========================================================
   // RESPONSIVE
   // ==========================================================
 
@@ -816,6 +1016,10 @@
       padding: 1.1rem 1.15rem 1rem;
     }
 
+    &__mode {
+      padding-inline: 1.15rem;
+    }
+
     &__current {
       padding: 1rem 1.15rem;
     }
@@ -830,6 +1034,14 @@
 
     &__volume {
       padding: 1rem 1.15rem 1.15rem;
+    }
+
+    &__autoplay-notice {
+      margin-inline: 1.15rem;
+    }
+
+    &__footer {
+      padding-inline: 1.15rem;
     }
   }
 
@@ -857,12 +1069,24 @@
       font-size: 1.45rem;
     }
 
+    &__mode {
+      align-items: flex-start;
+    }
+
+    &__automatic-button {
+      width: 100%;
+    }
+
     &__track-option {
       min-height: 53px;
     }
 
     &__tracks {
       max-height: 190px;
+    }
+
+    &__footer span {
+      font-size: 0.48rem;
     }
   }
 }
@@ -930,6 +1154,28 @@
   }
 }
 
+@keyframes audio-notice-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes audio-mini-bars {
+  from {
+    transform: scaleY(0.4);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
 // ============================================================
 // REDUCED MOTION
 // ============================================================
@@ -947,8 +1193,11 @@
     &__track-option-icon,
     &__track-option-title,
     &__track-indicator,
+    &__mini-visualizer span,
+    &__autoplay-notice,
     &__mute-button,
-    &__volume-slider {
+    &__volume-slider,
+    &__automatic-button {
       animation: none !important;
       transition: none !important;
     }

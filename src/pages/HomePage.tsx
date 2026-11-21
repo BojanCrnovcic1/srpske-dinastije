@@ -9,14 +9,17 @@ import { dynastyService } from "../services/dynastyService";
 import HeritageSection from "../components/home/HeritageSection";
 import { useAudio } from "../hooks/useAudioPlayer";
 
+const HOME_PLAYLIST = ["byzantine-01", "byzantine-02"];
+
 const HomePage = () => {
   const [dynasties, setDynasties] = useState<Dynasty[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { setDynastyTracks } = useAudio();
+
+  const { setAutomaticPlaylist } = useAudio();
 
   useEffect(() => {
-    setDynastyTracks(["byzantine-01", "byzantine-02"]);
-  }, [setDynastyTracks]);
+    setAutomaticPlaylist(HOME_PLAYLIST);
+  }, [setAutomaticPlaylist]);
 
   useEffect(() => {
     const loadDynasties = async () => {

@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import type { DatePrecision, Dynasty } from "../types";
 import { dynasties } from "../data/dynasties";
+import { useEffect } from "react";
+import { useAudio } from "../hooks/useAudioPlayer";
+
+const DEFAULT_PLAYLIST = ["byzantine-01", "byzantine-02"];
 
 const formatYear = (year: number, precision: DatePrecision) => {
   return precision === "approximate" ? `око ${year}.` : `${year}.`;
@@ -19,6 +23,12 @@ const formatPeriod = (dynasty: Dynasty) => {
 };
 
 const DynastiesPage = () => {
+  const { setAutomaticPlaylist } = useAudio();
+
+  useEffect(() => {
+    setAutomaticPlaylist(DEFAULT_PLAYLIST);
+  }, [setAutomaticPlaylist]);
+
   const sortedDynasties = [...dynasties].sort((a, b) => a.order - b.order);
 
   return (

@@ -32,8 +32,8 @@ export interface AudioContextType {
   togglePlay: () => void;
 
   setTrack: (trackId: ID) => void;
-  setDynastyTracks: (trackIds: ID[]) => void;
-  enableAutomaticSelection: (trackIds: ID[]) => void;
+  setAutomaticPlaylist: (trackIds: ID[]) => void;
+  enableAutomaticSelection: () => void;
 
   setVolume: (volume: number) => void;
   toggleMute: () => void;

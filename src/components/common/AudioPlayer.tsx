@@ -6,7 +6,9 @@ import {
   FaPlay,
   FaPause,
   FaMusic,
+  FaRedoAlt,
 } from "react-icons/fa";
+
 import { useAudio } from "../../hooks/useAudioPlayer";
 import { musicTracks } from "../../data/music";
 
@@ -29,9 +31,15 @@ const AudioPlayer = () => {
     setVolume,
     isMuted,
     toggleMute,
+    selectionMode,
+    enableAutomaticSelection,
+    autoplayBlocked,
   } = useAudio();
 
-  // Close player when clicking outside
+  // ==========================================================
+  // CLOSE ON OUTSIDE CLICK
+  // ==========================================================
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -49,11 +57,37 @@ const AudioPlayer = () => {
     };
   }, []);
 
+  // ==========================================================
+  // CLOSE WITH ESCAPE
+  // ==========================================================
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen]);
+
+  // ==========================================================
+  // RENDER
+  // ==========================================================
+
   return (
     <div
       ref={panelRef}
       className={clsx("audio-player", isOpen && "audio-player--open")}
     >
+      {/* TRIGGER */}
+
       <button
         type="button"
         className={clsx(
@@ -65,7 +99,11 @@ const AudioPlayer = () => {
         aria-expanded={isOpen}
         aria-controls="audio-player-panel"
       >
-        <FaVolumeUp aria-hidden="true" />
+        {isMuted || volume === 0 ? (
+          <FaVolumeMute aria-hidden="true" />
+        ) : (
+          <FaVolumeUp aria-hidden="true" />
+        )}
 
         {isPlaying && (
           <span className="audio-player__visualizer" aria-hidden="true">
@@ -87,6 +125,8 @@ const AudioPlayer = () => {
             role="dialog"
             aria-label="Audio player"
           >
+            {/* HEADER */}
+
             <div className="audio-player__header">
               <div className="audio-player__header-icon">
                 <FaMusic aria-hidden="true" />
@@ -108,6 +148,44 @@ const AudioPlayer = () => {
               </button>
             </div>
 
+            {/* PLAYBACK MODE */}
+
+            <div className="audio-player__mode">
+              <div className="audio-player__mode-info">
+                <span className="audio-player__section-label">
+                  PLAYBACK MODE
+                </span>
+
+                <span
+                  className={clsx(
+                    "audio-player__mode-status",
+                    selectionMode === "automatic"
+                      ? "audio-player__mode-status--automatic"
+                      : "audio-player__mode-status--manual",
+                  )}
+                >
+                  <span className="audio-player__mode-indicator" />
+
+                  {selectionMode === "automatic"
+                    ? "AUTOMATIC"
+                    : "MANUAL SELECTION"}
+                </span>
+              </div>
+
+              {selectionMode === "manual" && (
+                <button
+                  type="button"
+                  className="audio-player__automatic-button"
+                  onClick={enableAutomaticSelection}
+                >
+                  <FaRedoAlt aria-hidden="true" />
+                  <span>Врати аутоматску музику</span>
+                </button>
+              )}
+            </div>
+
+            {/* CURRENT TRACK */}
+
             <div className="audio-player__current">
               <span className="audio-player__current-label">
                 CURRENT SOUNDTRACK
@@ -125,16 +203,36 @@ const AudioPlayer = () => {
                     {currentTrack
                       ? (categoryLabels[currentTrack.category] ??
                         currentTrack.category)
-                      : "Ambient"}
+                      : "No category"}
                   </span>
                 </div>
               </div>
             </div>
 
+            {/* AUTOPLAY NOTICE */}
+
+            {autoplayBlocked && !isPlaying && (
+              <div className="audio-player__autoplay-notice" role="status">
+                <span className="audio-player__notice-icon">
+                  <FaVolumeMute aria-hidden="true" />
+                </span>
+
+                <p>
+                  Ваш прегледач је блокирао аутоматску репродукцију. Притисните
+                  дугме за репродукцију да бисте покренули музику.
+                </p>
+              </div>
+            )}
+
+            {/* PLAYBACK CONTROLS */}
+
             <div className="audio-player__controls">
               <button
                 type="button"
-                className="audio-player__play-button"
+                className={clsx(
+                  "audio-player__play-button",
+                  isPlaying && "audio-player__play-button--active",
+                )}
                 onClick={togglePlay}
                 aria-label={isPlaying ? "Пауза" : "Пусти музику"}
               >
@@ -145,17 +243,33 @@ const AudioPlayer = () => {
                 )}
               </button>
 
-              <span className="audio-player__status">
-                {isPlaying ? "PLAYING" : "PAUSED"}
-              </span>
+              <div className="audio-player__playback-info">
+                <span className="audio-player__status">
+                  {isPlaying ? "NOW PLAYING" : "PAUSED"}
+                </span>
+
+                <span className="audio-player__playback-description">
+                  {isPlaying
+                    ? "Историја оживљава кроз музику"
+                    : "Репродукција је заустављена"}
+                </span>
+              </div>
             </div>
 
             <div className="audio-player__divider" />
 
+            {/* TRACK LIBRARY */}
+
             <div className="audio-player__section">
-              <span className="audio-player__section-label">
-                SELECT SOUNDTRACK
-              </span>
+              <div className="audio-player__library-header">
+                <span className="audio-player__section-label">
+                  SELECT SOUNDTRACK
+                </span>
+
+                <span className="audio-player__track-count">
+                  {musicTracks.length} TRACKS
+                </span>
+              </div>
 
               <div className="audio-player__tracks">
                 {musicTracks.map((track) => (
@@ -168,6 +282,7 @@ const AudioPlayer = () => {
                         "audio-player__track-option--active",
                     )}
                     onClick={() => setTrack(track.id)}
+                    aria-pressed={currentTrack?.id === track.id}
                   >
                     <span className="audio-player__track-option-icon">
                       <FaMusic aria-hidden="true" />
@@ -185,7 +300,15 @@ const AudioPlayer = () => {
 
                     {currentTrack?.id === track.id && (
                       <span className="audio-player__track-indicator">
-                        {isPlaying ? "♫" : "✓"}
+                        {isPlaying ? (
+                          <span className="audio-player__mini-visualizer">
+                            <span />
+                            <span />
+                            <span />
+                          </span>
+                        ) : (
+                          "✓"
+                        )}
                       </span>
                     )}
                   </button>
@@ -194,6 +317,8 @@ const AudioPlayer = () => {
             </div>
 
             <div className="audio-player__divider" />
+
+            {/* VOLUME */}
 
             <div className="audio-player__volume">
               <div className="audio-player__volume-header">
@@ -229,6 +354,13 @@ const AudioPlayer = () => {
                   aria-label="Јачина звука"
                 />
               </div>
+            </div>
+
+            {/* FOOTER */}
+
+            <div className="audio-player__footer">
+              <span>СРПСКЕ ДИНАСТИЈЕ</span>
+              <span>HISTORICAL SOUNDTRACK</span>
             </div>
           </div>
         </>

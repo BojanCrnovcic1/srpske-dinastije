@@ -3,6 +3,8 @@ import type { Dynasty, HistoricalDate, Ruler, RulerTitle } from "../types";
 import { rulers } from "../data/rulers";
 import { dynasties } from "../data/dynasties";
 import { events } from "../data/events";
+import { useEffect } from "react";
+import { useAudio } from "../hooks/useAudioPlayer";
 
 const rulerTitles: Record<RulerTitle, string> = {
   "велики жупан": "Велики жупан",
@@ -87,8 +89,15 @@ const getDynastyRulers = (dynasty: Dynasty): DynastyRuler[] => {
 
 const DynastyPage = () => {
   const { slug } = useParams<{ slug: string }>();
-
   const dynasty = dynasties.find((item) => item.slug === slug);
+
+  const { setAutomaticPlaylist } = useAudio();
+
+  useEffect(() => {
+    if (!dynasty) return;
+
+    setAutomaticPlaylist(dynasty.musicTrackIds ?? []);
+  }, [dynasty?.id, setAutomaticPlaylist]);
 
   if (!dynasty) {
     return <Navigate to="/dinastije" replace />;
