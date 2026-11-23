@@ -57,16 +57,61 @@ export const dynasties: Dynasty[] = [
     },
 
     image: "/assets/images/dynasties/vojislavljevici.webp",
-    coverImage: "/images/backgrounds/vojislavljevici.webp",
+    coverImage: "/assets/images/backgrounds/vojislavljevici.webp",
 
     rulerIds: ["stefan-vojislav", "mihailo-vojislavljevic", "konstantin-bodin"],
 
-    eventIds: ["bitka-kod-bara-1042", "kraljevska-kruna-1077"],
+    eventIds: [
+      "bitka-kod-bara-1042",
+      "kraljevska-kruna-1077",
+      "barska-arhiepiskopija-1089",
+    ],
 
-    musicTrackIds: ["byzantine-01", "byzantine-02,"],
+    musicTrackIds: ["byzantine-01", "byzantine-02"],
 
     status: "draft",
     order: 2,
+  },
+  {
+    id: "vukanovici",
+    name: "Вукановићи",
+    slug: "vukanovici",
+
+    description:
+      "Српска средњовјековна владарска династија која је владала Рашком крајем XI и током XII вијека. Бочна грана Војислављевића од којих потичу Немањићи. Њени владари одиграли су важну улогу у учвршћивању српске државности и борби за самосталност од византијског утицаја.",
+
+    period: {
+      start: {
+        year: 1083,
+        precision: "approximate",
+      },
+      end: {
+        year: 1166,
+        precision: "approximate",
+      },
+    },
+
+    image: "/assets/images/dynasties/vukanovici.webp",
+    coverImage: "/assets/images/backgrounds/vukanovici.webp",
+
+    rulerIds: [
+      "vukan-vukanovici",
+      "uros-i-vukanovici",
+      "uros-ii-vukanovici",
+      "desa-vukanovici",
+      "belos-vukanovici",
+    ],
+
+    eventIds: [
+      "vukan-sukobi-vizantija",
+      "pohod-manojla-komnina-1149",
+      "borba-za-raski-presto-1165",
+    ],
+
+    musicTrackIds: ["byzantine-01", "byzantine-02"],
+
+    status: "draft",
+    order: 3,
   },
   {
     id: "nemanjici",
@@ -109,12 +154,13 @@ export const dynasties: Dynasty[] = [
       "sabor-u-dezevu-1282",
       "bitka-kod-velbuzda-1330",
       "proglasenje-carstva-1346",
+      "raspad-srpskog-carstva-1371",
     ],
 
     musicTrackIds: ["byzantine-01", "byzantine-02,"],
 
     status: "draft",
-    order: 3,
+    order: 4,
   },
   {
     id: "kotromanici",
@@ -139,18 +185,29 @@ export const dynasties: Dynasty[] = [
     coverImage: "/assets/images/backgrounds/kotromanici.webp",
 
     rulerIds: [
+      "ban-prijezda-i",
+      "ban-prijezda-ii",
+      "ban-stjepan-i",
       "ban-stjepan-ii",
       "kralj-tvrtko-i",
+      "kralj-stjepan-dabisa",
+      "kralj-stjepan-ostoja",
+      "kralj-tvrtko-ii",
       "kralj-stjepan-tomas",
       "stjepan-tomasevic",
     ],
 
-    eventIds: ["krunisanje-u-milesevi-1377", "pad-bosne-1463"],
+    eventIds: [
+      "prosirenje-bosne-1326",
+      "krunisanje-u-milesevi-1377",
+      "osnivanje-herceg-novog-1382",
+      "pad-bosanskog-kraljevstva-1463",
+    ],
 
     musicTrackIds: ["epic-01", "epic-02"],
 
     status: "published",
-    order: 4,
+    order: 5,
   },
   {
     id: "balsici",
@@ -174,17 +231,102 @@ export const dynasties: Dynasty[] = [
     image: "/assets/images/dynasties/balsici.webp",
     coverImage: "/assets/images/backgrounds/balsici.webp",
 
-    rulerIds: ["balsa-i", "djuradj-i-balsic", "balsa-ii", "balsa-iii"],
+    rulerIds: [
+      "balsa-i",
+      "djuradj-i-balsic",
+      "balsa-ii",
+      "djuradj-ii-balsic",
+      "balsa-iii",
+    ],
 
     eventIds: [
+      "uspon-balsica-u-zeti-1360",
       "bitka-na-saurskom-polju-1385",
+      "prvi-mletacki-rat-u-zeti-1396",
       "pripajanje-zete-despotovini-1421",
     ],
 
     musicTrackIds: ["epic-01", "epic-02"],
 
     status: "published",
-    order: 5,
+    order: 6,
+  },
+  {
+    id: "kosace",
+    name: "Косаче",
+    slug: "kosace",
+
+    description:
+      "Једна од најмоћнијих средњовјековних властелинских породица на простору данашње Херцеговине и Босне. Под вођством Сандаља Хранића и Стефана Вукчића Косаче, породица је проширила своје посједе и стекла велики политички утицај. Стефан Вукчић је узео титулу херцега од Светог Саве, по којој је област Херцеговина добила име.",
+
+    period: {
+      start: {
+        year: 1320,
+        precision: "approximate",
+      },
+      end: {
+        year: 1483,
+        precision: "approximate",
+      },
+    },
+
+    image: "/assets/images/dynasties/kosace.webp",
+    coverImage: "/assets/images/backgrounds/kosace.webp",
+
+    rulerIds: [
+      "vlatko-vukovic",
+      "sandalj-hranic",
+      "stjepan-vukcic-kosaca",
+      "vladislav-hercegovic",
+      "vlatko-hercegovic",
+    ],
+
+    eventIds: [
+      "uspon-sandalja-hranica",
+      "proglasenje-hercega-1448",
+      "pad-bosanskog-kraljevstva-1463",
+      "pad-hercegovine-1482",
+    ],
+
+    musicTrackIds: ["byzantine-01", "byzantine-02"],
+
+    status: "draft",
+    order: 7,
+  },
+  {
+    id: "dejanovici",
+    name: "Дејановићи",
+    slug: "dejanovici",
+
+    description:
+      "Српска средњовјековна властелинска и владарска породица која је управљала областима око Куманова, Штипа и Струмице у другој половини XIV вијека. Њени најзначајнији представници, Јован Драгаш и Константин Драгаш, владали су пространом облашћу у вријеме распада Српског царства и ширења Османског царства. Последњи Римски цар Константин IX Драгаш по мајчиној линији је из ове династије",
+
+    period: {
+      start: {
+        year: 1355,
+        precision: "approximate",
+      },
+      end: {
+        year: 1395,
+        precision: "year",
+      },
+    },
+
+    image: "/assets/images/dynasties/dejanovici.webp",
+    coverImage: "/assets/images/backgrounds/dejanovici.webp",
+
+    rulerIds: ["dejan-dejanovic", "jovan-dragas", "konstantin-dragas"],
+
+    eventIds: [
+      "raspad-srpskog-carstva-1371",
+      "maricka-bitka-1371",
+      "bitka-na-rovina-1395",
+    ],
+
+    musicTrackIds: ["byzantine-01", "byzantine-02"],
+
+    status: "draft",
+    order: 8,
   },
   {
     id: "mrnjavcevici",
@@ -215,7 +357,7 @@ export const dynasties: Dynasty[] = [
     musicTrackIds: ["epic-01", "epic-02"],
 
     status: "published",
-    order: 6,
+    order: 9,
   },
   {
     id: "lazarevici",
@@ -246,7 +388,7 @@ export const dynasties: Dynasty[] = [
     musicTrackIds: ["epic-01", "epic-02"],
 
     status: "published",
-    order: 7,
+    order: 10,
   },
   {
     id: "brankovici",
@@ -277,7 +419,47 @@ export const dynasties: Dynasty[] = [
     musicTrackIds: ["epic-01", "epic-02"],
 
     status: "published",
-    order: 8,
+    order: 11,
+  },
+  {
+    id: "crnojevici",
+    name: "Црнојевићи",
+    slug: "crnojevici",
+
+    description:
+      "Средњовјековна владарска породица која је управљала Зетом у XV вијеку. Под њиховом влашћу Зета је постала важно политичко и културно средиште, а Ђурађ Црнојевић је основао прву српску штампарију на Цетињу 1494. године.",
+
+    period: {
+      start: {
+        year: 1451,
+        precision: "approximate",
+      },
+      end: {
+        year: 1496,
+        precision: "year",
+      },
+    },
+
+    image: "/assets/images/dynasties/crnojevici.webp",
+    coverImage: "/assets/images/backgrounds/crnojevici.webp",
+
+    rulerIds: [
+      "stefan-crnojevic",
+      "ivan-crnojevic",
+      "durad-crnojevic",
+      "stefan-crnojevic-ii",
+    ],
+
+    eventIds: [
+      "uspon-crnojevica-u-zeti",
+      "osnivanje-cetinja",
+      "osnivanje-crnojevica-stamparije-1494",
+    ],
+
+    musicTrackIds: ["byzantine-01", "byzantine-02"],
+
+    status: "draft",
+    order: 12,
   },
   {
     id: "petrovici",
@@ -317,7 +499,7 @@ export const dynasties: Dynasty[] = [
     musicTrackIds: ["royal-01"],
 
     status: "published",
-    order: 9,
+    order: 13,
   },
   {
     id: "karadjordjevici",
@@ -358,7 +540,7 @@ export const dynasties: Dynasty[] = [
     musicTrackIds: ["royal-02", "royal-03"],
 
     status: "draft",
-    order: 10,
+    order: 14,
   },
   {
     id: "obrenovici",
@@ -398,6 +580,6 @@ export const dynasties: Dynasty[] = [
     musicTrackIds: ["royal-01", "royal-04"],
 
     status: "draft",
-    order: 11,
+    order: 15,
   },
 ];

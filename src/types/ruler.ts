@@ -6,12 +6,16 @@ export type RulerTitle =
   | "цар"
   | "кнез"
   | "деспот"
+  | "севастократор"
   | "принц"
   | "регент"
   | "бан"
   | "владика"
   | "херцег"
-  | "господин";
+  | "господар"
+  | "господар Зете"
+  | "војвода"
+  | "велики војвода";
 
 export interface ReignPeriod extends HistoricalPeriod {
   title: RulerTitle;
