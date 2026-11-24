@@ -352,7 +352,11 @@ export const dynasties: Dynasty[] = [
 
     rulerIds: ["kralj-vukasin", "despot-ugljesa", "kraljevic-marko"],
 
-    eventIds: ["maricka-bitka-1371", "bitka-na-rovinama-1395"],
+    eventIds: [
+      "krunisanje-vukasina-za-kralja-1365",
+      "maricka-bitka-1371-m",
+      "bitka-na-rovinama-1395",
+    ],
 
     musicTrackIds: ["epic-01", "epic-02"],
 
@@ -383,7 +387,12 @@ export const dynasties: Dynasty[] = [
 
     rulerIds: ["knez-lazar", "kneginja-milica", "despot-stefan-lazarevic"],
 
-    eventIds: ["kosovski-boj-1389", "beograd-prestonica-1404"],
+    eventIds: [
+      "kosovski-boj-1389",
+      "angorska-bitka-1402",
+      "beograd-prestonica-1404",
+      "smrt-despota-stefana-1427",
+    ],
 
     musicTrackIds: ["epic-01", "epic-02"],
 
@@ -412,9 +421,23 @@ export const dynasties: Dynasty[] = [
     image: "/assets/images/dynasties/brankovici.webp",
     coverImage: "/assets/images/backgrounds/brankovici.webp",
 
-    rulerIds: ["vuk-brankovic", "djuradj-brankovic", "lazar-brankovic"],
+    rulerIds: [
+      "vuk-brankovic",
+      "djuradj-brankovic",
+      "lazar-brankovic",
+      "stefan-brankovic",
+      "vuk-grgurevic-brankovic",
+      "djordje-brankovic",
+      "jovan-brankovic",
+    ],
 
-    eventIds: ["izgradnja-smedereva-1430", "pad-smedereva-1459"],
+    eventIds: [
+      "izgradnja-smedereva-1430",
+      "prvi-pad-despotovine-1439",
+      "segedinski-mir-i-obnova-despotovine-1444",
+      "pad-smedereva-1459",
+      "kraj-sremskih-despota-brankovica-1502",
+    ],
 
     musicTrackIds: ["epic-01", "epic-02"],
 
@@ -467,7 +490,7 @@ export const dynasties: Dynasty[] = [
     slug: "petrovici",
 
     description:
-      "Црногорска владарска династија Петровић-Његош која је кроз владика, књажеве и краља Николу I предводила борбу за ослобођење и уједињење.",
+      "Црногорска владарска династија Петровић-Његош која је кроз владике, књажеве и краља Николу I водила дуготрајну борбу за слободу, модернизацију државе и међународно признање.",
 
     period: {
       start: {
@@ -485,21 +508,28 @@ export const dynasties: Dynasty[] = [
 
     rulerIds: [
       "vladika-danilo",
+      "vladika-sava-petrovic",
+      "vladika-vasilije-petrovic",
+      "scepan-mali",
       "petar-i-petrovic-njegos",
       "petar-ii-petrovic-njegos",
+      "knjaz-danilo-i",
       "kralj-nikola-i",
     ],
 
     eventIds: [
-      "bitka-na-martinicima-1796",
+      "izbor-vladike-danila-1697",
+      "bitke-na-martinicima-i-krusima-1796",
+      "donosenje-zakonika-opsteg-crnogorskog-1798",
       "berlinski-kongres-crna-gora-1878",
       "proglasenje-kraljevine-crne-gore-1910",
+      "podgoricka-skupstina-1918",
     ],
 
     musicTrackIds: ["royal-01"],
 
     status: "published",
-    order: 13,
+    order: 12,
   },
   {
     id: "karadjordjevici",

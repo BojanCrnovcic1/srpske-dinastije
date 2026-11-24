@@ -581,6 +581,191 @@ export const events: HistoricalEvent[] = [
   },
 
   {
+    id: "krunisanje-vukasina-za-kralja-1365",
+    dynastyId: "mrnjavcevici",
+    rulerIds: ["kralj-vukasin"],
+    title: "Крунисање Вукашина за краља и савладара (1365)",
+    description:
+      "Вукашин Мрњавчевић добио је краљевску круну и постао савладар цара Уроша V, чиме је кућа Мрњавчевића преузела водећу улогу на југу царства.",
+    date: {
+      year: 1365,
+      precision: "year",
+    },
+    category: "coronation",
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "maricka-bitka-1371-m",
+    dynastyId: "mrnjavcevici",
+    rulerIds: ["kralj-vukasin", "despot-ugljesa"],
+    title: "Маричка битка (1371)",
+    description:
+      "Одлучујући сукоб код Черномена на ријеци Марици у којем је османска војска поразила хришћанску војску браће Мрњавчевић, а краљ Вукашин и деспот Угљеша су погинули.",
+    date: {
+      year: 1371,
+      precision: "year",
+    },
+    category: "battle",
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "bitka-na-rovinama-1395-m",
+    dynastyId: "mrnjavcevici",
+    rulerIds: ["kraljevic-marko"],
+    title: "Битка на Ровинама и крај Мрњавчевића (1395)",
+    description:
+      "У бици између османске војске и влашког војводе Мирче Старијег погинуо је краљ Марко Мрњавчевић, чиме је угашена владарска лоза Мрњавчевића.",
+    date: {
+      year: 1395,
+      precision: "year",
+    },
+    category: "battle",
+    status: "draft",
+    order: 3,
+  },
+
+  {
+    id: "kosovski-boj-1389",
+    dynastyId: "lazarevici",
+    rulerIds: ["knez-lazar", "kneginja-milica"],
+    title: "Косовски бој (1389)",
+    description:
+      "Судбоносна битка на Косову пољу у којој је српска војска предвођена кнезом Лазаром пружила снажан отпор османској војсци; кнез Лазар је погинуо, а бој је постао трајни стуб српског памћења.",
+    date: {
+      year: 1389,
+      precision: "year",
+    },
+    category: "battle",
+    image: "/assets/images/events/boj-kosovo.webp",
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "angorska-bitka-1402",
+    dynastyId: "lazarevici",
+    rulerIds: ["despot-stefan-lazarevic"],
+    title: "Ангорска битка и стицање деспотске титуле (1402)",
+    description:
+      "Након сукоба Тимура и султана Бајазита код Ангоре, Стефан Лазаревић је у Цариграду добио високо достојанство деспота и остварио значајнију спољнополитичку самосталност.",
+    date: {
+      year: 1402,
+      precision: "year",
+    },
+    category: "political",
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "beograd-prestonica-1404",
+    dynastyId: "lazarevici",
+    rulerIds: ["despot-stefan-lazarevic"],
+    title: "Проглашење Београда за престоницу Деспотовине (око 1404)",
+    description:
+      "Деспот Стефан Лазаревић учинио је Београд својом престоницом, обновио његова утврђења и претворио га у важно политичко, привредно и културно средиште.",
+    date: {
+      year: 1404,
+      precision: "year",
+    },
+    category: "political",
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "smrt-despota-stefana-1427",
+    dynastyId: "lazarevici",
+    rulerIds: ["despot-stefan-lazarevic"],
+    title:
+      "Смрт деспота Стефана Лазаревића и прелаз власти на Бранковиће (1427)",
+    description:
+      "Смрћу деспота Стефана Лазаревића, који није имао потомака, власт у Српској деспотовини прешла је на сестрића Ђурђа Бранковића.",
+    date: {
+      year: 1427,
+      precision: "year",
+    },
+    category: "political",
+    status: "draft",
+    order: 4,
+  },
+
+  {
+    id: "izgradnja-smedereva-1430",
+    dynastyId: "brankovici",
+    rulerIds: ["djuradj-brankovic"],
+    title: "Изградња Смедерева и пренос престонице (1430)",
+    description:
+      "Након што је Београд враћен Угарској 1427. године, деспот Ђурађ Бранковић подигао је моћну Смедеревску тврђаву на ушћу Језаве у Дунав као нову престоницу Деспотовине.",
+    date: {
+      year: 1430,
+      precision: "year",
+    },
+    category: "political",
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "prvi-pad-despotovine-1439",
+    dynastyId: "brankovici",
+    rulerIds: ["djuradj-brankovic"],
+    title: "Први пад Смедерева и Српске деспотовине (1439)",
+    description:
+      "Послије тромјесечне опсаде султан Мурат II заузео је Смедерево, чиме је Српска деспотовина привремено пала под османску власт.",
+    date: {
+      year: 1439,
+      precision: "year",
+    },
+    category: "battle",
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "segedinski-mir-i-obnova-despotovine-1444",
+    dynastyId: "brankovici",
+    rulerIds: ["djuradj-brankovic"],
+    title: "Сегедински мир и обнова Српске деспотовине (1444)",
+    description:
+      "Захваљујући успјесима у Дугој војни и вјештој дипломатији деспота Ђурђа, Српска деспотовина је обновљена, а Смедерево и српски градови су враћени под његову управу.",
+    date: {
+      year: 1444,
+      precision: "year",
+    },
+    category: "political",
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "pad-smedereva-1459",
+    dynastyId: "brankovici",
+    rulerIds: ["stefan-brankovic"],
+    title: "Коначни пад Смедерева и Српске деспотовине (1459)",
+    description:
+      "Османским заузимањем Смедерева 20. јуна 1459. године престала је да постоји средњовјековна Српска деспотовина, чиме је завршено раздобље средњовјековне српске државности.",
+    date: {
+      year: 1459,
+      precision: "year",
+    },
+    category: "battle",
+    status: "draft",
+    order: 4,
+  },
+  {
+    id: "kraj-sremskih-despota-brankovica-1502",
+    dynastyId: "brankovici",
+    rulerIds: ["jovan-brankovic"],
+    title: "Смрт деспота Јована и гашење лозе Бранковића (1502)",
+    description:
+      "Смрћу деспота Јована Бранковића угашена је владарска породица Бранковић, која је након пада Смедерева деценијама чувала деспотску традицију у Срему.",
+    date: {
+      year: 1502,
+      precision: "year",
+    },
+    category: "political",
+    status: "draft",
+    order: 5,
+  },
+
+  {
     id: "preuzimanje-vlasti-u-zeti-1421",
     dynastyId: "crnojevici",
     rulerIds: ["stefan-crnojevic"],
@@ -654,5 +839,98 @@ export const events: HistoricalEvent[] = [
     category: "political",
     status: "draft",
     order: 5,
+  },
+  {
+    id: "izbor-vladike-danila-1697",
+    dynastyId: "petrovici",
+    rulerIds: ["vladika-danilo"],
+    title: "Избор владике Данила и почетак династије Петровић-Његош (1697)",
+    description:
+      "Избором Данила Петровића за митрополита и владику на Цетињу успостављен је трајан насљедни владарски континуитет куће Петровић-Његош.",
+    date: {
+      year: 1697,
+      precision: "year",
+    },
+    category: "political",
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "bitke-na-martinicima-i-krusima-1796",
+    dynastyId: "petrovici",
+    rulerIds: ["petar-i-petrovic-njegos"],
+    title: "Битке на Мартинићима и Крусима (1796)",
+    description:
+      "Велике војне побједе црногорске и брдске војске предвођене владиком Петром I над османским снагама које су учврстиле слободу и самосталност земље.",
+    date: {
+      year: 1796,
+      precision: "year",
+    },
+    category: "battle",
+    image: "/assets/images/events/boj-na-krusima.webp",
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "donosenje-zakonika-opsteg-crnogorskog-1798",
+    dynastyId: "petrovici",
+    rulerIds: ["petar-i-petrovic-njegos"],
+    title: "Доношење Законика општег црногорског и брдског (1798)",
+    description:
+      "Први писани законски акт у Црној Гори којим су уређени јавни ред, заштита имовине, сузбијање крвне освете и развој државних институција.",
+    date: {
+      year: 1798,
+      precision: "year",
+    },
+    category: "political",
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "berlinski-kongres-crna-gora-1878",
+    dynastyId: "petrovici",
+    rulerIds: ["kralj-nikola-i"],
+    title: "Међународно признање независности на Берлинском конгресу (1878)",
+    description:
+      "На Берлинском конгресу међународно је потврђена независност Црне Горе и признато значајно проширење њене територије са изласком на море.",
+    date: {
+      year: 1878,
+      precision: "year",
+    },
+    category: "political",
+    status: "draft",
+    order: 4,
+  },
+  {
+    id: "proglasenje-kraljevine-crne-gore-1910",
+    dynastyId: "petrovici",
+    rulerIds: ["kralj-nikola-i"],
+    title: "Проглашење Краљевине Црне Горе (1910)",
+    description:
+      "Поводом педесетогодишњице владавине књаза Николе I, Црна Гора је свечано проглашена за краљевину, а Никола I постао краљ.",
+    date: {
+      year: 1910,
+      precision: "year",
+    },
+    category: "coronation",
+    image: "/assets/images/events/krunisanje-kralja-nikole.webp",
+    status: "draft",
+    order: 5,
+  },
+  {
+    id: "podgoricka-skupstina-1918",
+    dynastyId: "petrovici",
+    rulerIds: ["kralj-nikola-i"],
+    title: "Подгоричка скупштина и крај владавине династије Петровић (1918)",
+    description:
+      "Одлукама Подгоричке скупштине и стварањем Краљевства Срба, Хрвата и Словенаца завршена је владавина династије Петровић-Његош у Црној Гори.",
+    date: {
+      year: 1918,
+      precision: "year",
+    },
+    category: "political",
+    image: "/assets/images/events/podgoricka-skupstina.webp",
+    status: "draft",
+    order: 6,
   },
 ];

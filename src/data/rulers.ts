@@ -1677,7 +1677,7 @@ export const rulers: Ruler[] = [
     ],
     portrait: "/assets/images/backgrounds/dejanovici.webp",
     achievementsIds: ["ocuvanje-oblasti-dejanovica"],
-    eventIds: ["maricka-bitka-1371-dejanovici", "nasljedstvo-dejanove-oblasti"],
+    eventIds: ["maricka-bitka-1371", "nasljedstvo-dejanove-oblasti"],
     predecessorId: "dejan-dejanovic",
     successorId: "konstantin-dragas",
     status: "draft",
@@ -1710,6 +1710,561 @@ export const rulers: Ruler[] = [
     predecessorId: "jovan-dragas",
     status: "draft",
     order: 3,
+  },
+
+  {
+    id: "kralj-vukasin",
+    dynastyId: "mrnjavcevici",
+
+    name: "Краљ Вукашин Мрњавчевић",
+    slug: "kralj-vukasin",
+    title: "краљ",
+
+    description:
+      "Најмоћнији великаш у доба слабљења Српског царства, савладар цара Уроша V и господар пространих области у Македонији са сједиштем у Прилепу.",
+
+    reigns: [
+      {
+        start: { year: 1365, precision: "year" },
+        end: { year: 1371, precision: "year" },
+        title: "краљ",
+        note: "Крунисан за краља и савладара цара Уроша V; погинуо у Маричкој бици 1371. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1365, precision: "year" },
+        title: "краљ",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/kralj-vukasin.webp",
+
+    achievementsIds: [
+      "savladarstvo-sa-carem-urosem-v",
+      "ucvrscivanje-prilepske-oblasti",
+    ],
+
+    eventIds: ["krunisanje-vukasina-za-kralja-1365", "maricka-bitka-1371"],
+
+    successorId: "kraljevic-marko",
+
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "despot-ugljesa",
+    dynastyId: "mrnjavcevici",
+
+    name: "Деспот Јован Угљеша Мрњавчевић",
+    slug: "despot-ugljesa",
+    title: "деспот",
+
+    description:
+      "Господар Серске области и брат краља Вукашина, познат по дипломатском помирењу са Цариградском патријаршијом и организацији похода против Османлија.",
+
+    reigns: [
+      {
+        start: { year: 1365, precision: "year" },
+        end: { year: 1371, precision: "year" },
+        title: "деспот",
+        note: "Владао Серском облашћу са титулом деспота до погибије у Маричкој бици 1371. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1365, precision: "year" },
+        title: "деспот",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/despot-ugljesa.webp",
+
+    achievementsIds: [
+      "pomirenje-srpske-i-carigradske-crkve-1368",
+      "organizacija-anti-osmanskog-saveza-1371",
+    ],
+
+    eventIds: ["maricka-bitka-1371-m"],
+
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "kraljevic-marko",
+    dynastyId: "mrnjavcevici",
+
+    name: "Краљ Марко Мрњавчевић (Краљевић Марко)",
+    slug: "kraljevic-marko",
+    title: "краљ",
+
+    description:
+      "Син краља Вукашина и посљедњи владар из куће Мрњавчевића, који је као османски вазал владао Прилепским краљевством и постао највећи јунак народне епике.",
+
+    reigns: [
+      {
+        start: { year: 1371, precision: "year" },
+        end: { year: 1395, precision: "year" },
+        title: "краљ",
+        note: "Носио титулу краља у Прилепу након Маричке битке до погибије на Ровинама 1395. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1370, precision: "approximate" },
+        title: "млади краљ",
+      },
+      {
+        start: { year: 1371, precision: "year" },
+        title: "краљ",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/kraljevic-marko.webp",
+
+    achievementsIds: [
+      "ocuvanje-prilepskog-kraljevstva",
+      "manastir-svetog-dimitrija-markov-manastir",
+    ],
+
+    eventIds: ["bitka-na-rovinama-1395-m"],
+
+    predecessorId: "kralj-vukasin",
+
+    status: "draft",
+    order: 3,
+  },
+
+  {
+    id: "knez-lazar",
+    dynastyId: "lazarevici",
+
+    name: "Кнез Лазар Хребељановић",
+    slug: "knez-lazar",
+    title: "кнез",
+
+    description:
+      "Најмоћнији српски обласни господар послије распада Српског царства, утемељивач Моравске Србије и предводник хришћанске војске у Косовском боју 1389. године.",
+
+    reigns: [
+      {
+        start: { year: 1371, precision: "year" },
+        end: { year: 1389, precision: "year" },
+        title: "кнез",
+        note: "Учвршћивање власти у Моравској Србији и предвођење одбране на Косову пољу 1389. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1371, precision: "year" },
+        title: "кнез",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/knez-lazar.webp",
+
+    achievementsIds: [
+      "objedinjavanje-moravske-srbije",
+      "manastir-ravanica",
+      "zastita-rudnika-i-trgovackih-puteva",
+    ],
+
+    eventIds: ["kosovski-boj-1389"],
+
+    successorId: "kneginja-milica",
+
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "kneginja-milica",
+    dynastyId: "lazarevici",
+
+    name: "Кнегиња Милица (монахиња Јевгенија)",
+    slug: "kneginja-milica",
+    title: "кнегиња",
+
+    description:
+      "Супруга кнеза Лазара која је послије Косовског боја преузела бригу о држави у име малољетног Стефана, сачувала мир и оставила траг у средњовјековној књижевности.",
+
+    reigns: [
+      {
+        start: { year: 1389, precision: "year" },
+        end: { year: 1393, precision: "year" },
+        title: "кнегиња",
+        note: "Регентска и савјетодавна улога након Косовског боја до пунољетства и самосталније управе Стефана Лазаревића.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1389, precision: "year" },
+        title: "кнегиња",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/kneginja-milica.webp",
+
+    achievementsIds: [
+      "ocuvanje-zemlje-nakon-kosovskog-boja",
+      "manastir-ljubostinja",
+      "knjizevno-stvaralastvo-monahinje-jevgenije",
+    ],
+
+    eventIds: ["kosovski-boj-1389"],
+
+    predecessorId: "knez-lazar",
+    successorId: "despot-stefan-lazarevic",
+
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "despot-stefan-lazarevic",
+    dynastyId: "lazarevici",
+
+    name: "Деспот Стефан Лазаревић",
+    slug: "despot-stefan-lazarevic",
+    title: "деспот",
+
+    description:
+      "Син кнеза Лазара и кнегиње Милице, први српски деспот који је уздигао Београд у нову пријестоницу, ојачао Српску деспотовину и остао упамћен као витез, државник и писац.",
+
+    reigns: [
+      {
+        start: { year: 1389, precision: "year" },
+        end: { year: 1402, precision: "year" },
+        title: "кнез",
+        note: "Владавина као српски кнез до добијања деспотске титуле 1402. године.",
+      },
+      {
+        start: { year: 1402, precision: "year" },
+        end: { year: 1427, precision: "year" },
+        title: "деспот",
+        note: "Период снажног културног, привредног и територијалног развоја Српске деспотовине.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1389, precision: "year" },
+        title: "кнез",
+      },
+      {
+        start: { year: 1402, precision: "year" },
+        title: "деспот",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/despot-stefan-lazarevic.webp",
+
+    achievementsIds: [
+      "dobijanje-despotskog-dostojanstva-1402",
+      "obnova-i-uzdizanje-beograda",
+      "manastir-manasija-resava",
+      "slovo-ljubve-i-resavska-skola",
+      "zakon-o-rudnicima-u-novom-brdu",
+    ],
+
+    eventIds: [
+      "angorska-bitka-1402",
+      "beograd-prestonica-1404",
+      "smrt-despota-stefana-1427",
+    ],
+
+    predecessorId: "kneginja-milica",
+
+    status: "draft",
+    order: 3,
+  },
+
+  {
+    id: "vuk-brankovic",
+    dynastyId: "brankovici",
+
+    name: "Вук Бранковић",
+    slug: "vuk-brankovic",
+    title: "господар",
+
+    description:
+      "Родоначелник владарске лозе Бранковића, господар Косова, Метохије и Полимља који је предводио десно крило српске војске у Косовском боју 1389. године и наставио отпор Османлијама.",
+
+    reigns: [
+      {
+        start: { year: 1371, precision: "approximate" },
+        end: { year: 1396, precision: "year" },
+        title: "господар",
+        note: "Самостални обласни господар области Бранковића прије успостављања деспотске власти династије 1427. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1371, precision: "approximate" },
+        title: "господар",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/vuk-brankovic.webp",
+
+    achievementsIds: [
+      "ucvrscivanje-oblasti-brankovica",
+      "otpor-osmanlijama-poslije-1389",
+    ],
+
+    eventIds: [],
+
+    successorId: "djuradj-brankovic",
+
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "djuradj-brankovic",
+    dynastyId: "brankovici",
+
+    name: "Деспот Ђурађ Бранковић",
+    slug: "djuradj-brankovic",
+    title: "деспот",
+
+    description:
+      "Насљедник деспота Стефана Лазаревића, градитељ Смедеревске тврђаве и државник који је вјештом дипломатијом и жртвама годинама одлагао коначни пад Српске деспотовине.",
+
+    reigns: [
+      {
+        start: { year: 1427, precision: "year" },
+        end: { year: 1439, precision: "year" },
+        title: "деспот",
+        note: "Први период владавине и изградња нове пријестонице Смедерева.",
+      },
+      {
+        start: { year: 1444, precision: "year" },
+        end: { year: 1456, precision: "year" },
+        title: "деспот",
+        note: "Обнова Деспотовине након Сегединског мира и Дуге војне.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1427, precision: "year" },
+        title: "деспот",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/despot-durad-brankovic.webp",
+
+    achievementsIds: [
+      "izgradnja-smederevske-tvrdjave",
+      "obnova-srpske-despotovine-1444",
+      "esfigmenska-povelja-i-podrska-svetoj-gori",
+    ],
+
+    eventIds: [
+      "izgradnja-smedereva-1430",
+      "prvi-pad-despotovine-1439",
+      "segedinski-mir-i-obnova-despotovine-1444",
+    ],
+
+    predecessorId: "vuk-brankovic",
+    successorId: "lazar-brankovic",
+
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "lazar-brankovic",
+    dynastyId: "brankovici",
+
+    name: "Деспот Лазар Бранковић",
+    slug: "lazar-brankovic",
+    title: "деспот",
+
+    description:
+      "Најмлађи син деспота Ђурђа који је преузео управу над знатно суженом Српском деспотовином у изузетно тешким приликама након опсаде Београда 1456. године.",
+
+    reigns: [
+      {
+        start: { year: 1456, precision: "year" },
+        end: { year: 1458, precision: "year" },
+        title: "деспот",
+        note: "Кратка владавина обиљежена притиском Османлија и унутрашњим подјелама на двору.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1446, precision: "year" },
+        title: "деспот",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/lazar-brankovic.webp",
+
+    achievementsIds: ["ocuvanje-smedereva-i-preostalih-oblasti-1457"],
+
+    eventIds: [],
+
+    predecessorId: "djuradj-brankovic",
+    successorId: "stefan-brankovic",
+
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "stefan-brankovic",
+    dynastyId: "brankovici",
+
+    name: "Деспот Стефан Бранковић (Стефан Слепи)",
+    slug: "stefan-brankovic",
+    title: "деспот",
+
+    description:
+      "Средњи син деспота Ђурђа, ослијепљен у османском заточеништву 1441. године, који је након смрти брата Лазара накратко управљао Деспотовином уочи пада Смедерева.",
+
+    reigns: [
+      {
+        start: { year: 1458, precision: "year" },
+        end: { year: 1459, precision: "year" },
+        title: "деспот",
+        note: "Владао Српском деспотовином до доласка Стјепана Томашевића и пада Смедерева 1459. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1458, precision: "year" },
+        title: "деспот",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/stefan-brankovic.webp",
+
+    achievementsIds: ["ocuvanje-dinastickog-kontinuiteta-u-izgnanstvu"],
+
+    eventIds: ["pad-smedereva-1459"],
+
+    predecessorId: "lazar-brankovic",
+    successorId: "vuk-grgurevic-brankovic",
+
+    status: "draft",
+    order: 4,
+  },
+  {
+    id: "vuk-grgurevic-brankovic",
+    dynastyId: "brankovici",
+
+    name: "Деспот Вук Гргуревић Бранковић (Змај Огњени Вук)",
+    slug: "vuk-grgurevic-brankovic",
+    title: "деспот",
+
+    description:
+      "Унук деспота Ђурђа Бранковића и прослављени ратник у јужној Угарској и Срему, који је водио бројне походе против Османлија и стекао славу у народној епици.",
+
+    reigns: [
+      {
+        start: { year: 1471, precision: "year" },
+        end: { year: 1485, precision: "year" },
+        title: "деспот",
+        note: "Титуларни српски деспот у Срему и заповједник српских чета у Угарској.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1471, precision: "year" },
+        title: "деспот",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/vuk-grgurevic-brankovic.webp",
+
+    achievementsIds: [
+      "obnova-despotske-titule-u-sremu-1471",
+      "ratni-pohodi-protiv-osmanlija-u-posavini",
+    ],
+
+    eventIds: [],
+
+    predecessorId: "stefan-brankovic",
+    successorId: "djordje-brankovic",
+
+    status: "draft",
+    order: 5,
+  },
+  {
+    id: "djordje-brankovic",
+    dynastyId: "brankovici",
+
+    name: "Деспот Ђорђе Бранковић (монах Максим)",
+    slug: "djordje-brankovic",
+    title: "деспот",
+
+    description:
+      "Син деспота Стефана Слепог који је владао као српски деспот у Срему, а потом се замонашио и као владика Максим обновио духовни живот и подигао манастир Крушедол.",
+
+    reigns: [
+      {
+        start: { year: 1486, precision: "year" },
+        end: { year: 1496, precision: "year" },
+        title: "деспот",
+        note: "Деспот у Срему до одрицања од титуле у корист брата Јована и одласка у монаштво.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1486, precision: "year" },
+        title: "деспот",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/djordje-brankovic.webp",
+
+    achievementsIds: [
+      "manastir-krusedol-i-duhovno-srediste-srema",
+      "obnova-beogradske-mitropolije",
+    ],
+
+    eventIds: [],
+
+    predecessorId: "vuk-grgurevic-brankovic",
+    successorId: "jovan-brankovic",
+
+    status: "draft",
+    order: 6,
+  },
+  {
+    id: "jovan-brankovic",
+    dynastyId: "brankovici",
+
+    name: "Деспот Јован Бранковић",
+    slug: "jovan-brankovic",
+    title: "деспот",
+
+    description:
+      "Посљедњи српски деспот из породице Бранковић, који је из Срема водио борбе против Османлија у Босни и Подунављу све до своје смрти 1502. године.",
+
+    reigns: [
+      {
+        start: { year: 1496, precision: "year" },
+        end: { year: 1502, precision: "year" },
+        title: "деспот",
+        note: "Посљедњи мушки изданак владарске лозе Бранковића.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1496, precision: "year" },
+        title: "деспот",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/jovan-brankovic.webp",
+
+    achievementsIds: [
+      "odbrana-srema-i-granicnih-oblasti",
+      "ktitorska-djelatnost-na-fruskoj-gori",
+    ],
+
+    eventIds: ["kraj-sremskih-despota-brankovica-1502"],
+
+    predecessorId: "djordje-brankovic",
+
+    status: "draft",
+    order: 7,
   },
 
   {
@@ -1828,5 +2383,312 @@ export const rulers: Ruler[] = [
     predecessorId: "durad-crnojevic",
     status: "draft",
     order: 4,
+  },
+  {
+    id: "vladika-danilo",
+    dynastyId: "petrovici",
+
+    name: "Владика Данило I Петровић Његош",
+    slug: "vladika-danilo",
+    title: "владика",
+
+    description:
+      "Родоначелник владарске династије Петровић-Његош који је објединио црногорска племена, успоставио насљедни владарски континуитет на Цетињу и учврстио везе са Русијом.",
+
+    reigns: [
+      {
+        start: { year: 1697, precision: "year" },
+        end: { year: 1735, precision: "year" },
+        title: "владика",
+        note: "Успостављање владарске куће Петровића и зачетак организованије државне и црквене власти.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1697, precision: "year" },
+        title: "владика",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/vladika-danilo.webp",
+
+    achievementsIds: [
+      "utemeljenje-dinastije-petrovic-njegos",
+      "uspostavljanje-veza-sa-rusijom-1711",
+    ],
+
+    eventIds: ["izbor-vladike-danila-1697"],
+
+    successorId: "vladika-sava-petrovic",
+
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "vladika-sava-petrovic",
+    dynastyId: "petrovici",
+
+    name: "Владика Сава Петровић Његош",
+    slug: "vladika-sava-petrovic",
+    title: "владика",
+
+    description:
+      "Црногорски владика који је у више наврата управљао земљом у сложеним међународним околностима између Млетачке републике, Османског царства и Русије.",
+
+    reigns: [
+      {
+        start: { year: 1735, precision: "year" },
+        end: { year: 1781, precision: "year" },
+        title: "владика",
+        note: "Дуготрајно владикатовање са периодима заједничке управе и дипломатског дјеловања уз владику Василија.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1735, precision: "year" },
+        title: "владика",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/vladika-sava-petrovic.webp",
+
+    achievementsIds: [
+      "ocuvanje-manastirskih-poseda-i-povelja",
+      "odrzavanje-ravnoteze-prema-mlecima-i-porti",
+    ],
+
+    eventIds: [],
+
+    predecessorId: "vladika-danilo",
+    successorId: "vladika-vasilije-petrovic",
+
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "vladika-vasilije-petrovic",
+    dynastyId: "petrovici",
+
+    name: "Владика Василије Петровић Његош",
+    slug: "vladika-vasilije-petrovic",
+    title: "владика",
+
+    description:
+      "Истакнути дипломата, реформатор и писац „Историје о Црној Гори“ (1754), који је неуморно тражио заштиту и помоћ за Црну Гору на европским дворовима.",
+
+    reigns: [
+      {
+        start: { year: 1750, precision: "year" },
+        end: { year: 1766, precision: "year" },
+        title: "владика",
+        note: "Интензивна дипломатска мисија у Русији и одбрана црногорске самосталности.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1750, precision: "year" },
+        title: "владика",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/vladika-vasilije-petrovic.webp",
+
+    achievementsIds: [
+      "istorija-o-crnoj-gori-1754",
+      "diplomatska-borba-za-polozaj-crne-gore",
+    ],
+
+    eventIds: [],
+
+    predecessorId: "vladika-sava-petrovic",
+    successorId: "petar-i-petrovic-njegos",
+
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "petar-i-petrovic-njegos",
+    dynastyId: "petrovici",
+
+    name: "Свети Петар I Цетињски (Петар I Петровић Његош)",
+    slug: "petar-i-petrovic-njegos",
+    title: "владика",
+
+    description:
+      "Један од највећих црногорских владара и духовника који је извојевао велике војне побједе на Мартинићима и Крусима, донио први писани законик и објединио Црну Гору и Брда.",
+
+    reigns: [
+      {
+        start: { year: 1784, precision: "year" },
+        end: { year: 1830, precision: "year" },
+        title: "владика",
+        note: "Дуготрајна владавина у којој су постављени темељи црногорске државности и законодавства.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1784, precision: "year" },
+        title: "владика",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/vladika-petar-i-petrovic.webp",
+
+    achievementsIds: [
+      "zakonik-opsti-crnogorski-i-brdski-1798",
+      "pobjede-na-martinicima-i-krusima-1796",
+      "ujedinjenje-crne-gore-i-brda",
+    ],
+
+    eventIds: [
+      "bitke-na-martinicima-i-krusima-1796",
+      "donosenje-zakonika-opsteg-crnogorskog-1798",
+    ],
+
+    predecessorId: "scepan-mali",
+    successorId: "petar-ii-petrovic-njegos",
+
+    status: "draft",
+    order: 5,
+  },
+  {
+    id: "petar-ii-petrovic-njegos",
+    dynastyId: "petrovici",
+
+    name: "Петар II Петровић Његош",
+    slug: "petar-ii-petrovic-njegos",
+    title: "владика",
+
+    description:
+      "Владика, државник и највећи пјесник и мислилац српске и јужнословенске књижевности, аутор „Горског вијенца“, „Луче микрокозма“ и „Лажног цара Шћепана Малог“.",
+
+    reigns: [
+      {
+        start: { year: 1830, precision: "year" },
+        end: { year: 1851, precision: "year" },
+        title: "владика",
+        note: "Период јачања централне власти, увођења гвардије, пореза и штампарије на Цетињу, уз врхунско књижевно стваралаштво.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1830, precision: "year" },
+        title: "владика",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/vladika-petar-ii-petrovic.webp",
+
+    achievementsIds: [
+      "gorski-vijenac-i-knjizevno-nasljedje",
+      "osnivanje-gvardije-i-drzavnih-institucija",
+      "cetinjaska-stamparija-i-prosvjeta",
+    ],
+
+    eventIds: [],
+
+    predecessorId: "petar-i-petrovic-njegos",
+    successorId: "knjaz-danilo-i",
+
+    status: "draft",
+    order: 6,
+  },
+  {
+    id: "knjaz-danilo-i",
+    dynastyId: "petrovici",
+
+    name: "Књаз Данило I Петровић Његош",
+    slug: "knjaz-danilo-i",
+    title: "књаз",
+
+    description:
+      "Први свјетовни владар и књаз Црне Горе који је раздвојио свјетовну од духовне власти, донио Данилов законик (1855) и извојевао велику побједу на Граховцу (1858).",
+
+    reigns: [
+      {
+        start: { year: 1851, precision: "year" },
+        end: { year: 1860, precision: "year" },
+        title: "књаз",
+        note: "Претварање Црне Горе у насљедну свјетовну књажевину и снажне државно-правне реформе.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1851, precision: "year" },
+        title: "књаз",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/knjaz-danilo-i.webp",
+
+    achievementsIds: [
+      "danilov-zakonik-1855",
+      "sekularizacija-vlasti-i-jacanje-drzave",
+      "grahovacka-bitka-i-medjunarodno-razgranicenje-1858",
+    ],
+
+    eventIds: [],
+
+    predecessorId: "petar-ii-petrovic-njegos",
+    successorId: "kralj-nikola-i",
+
+    status: "draft",
+    order: 7,
+  },
+  {
+    id: "kralj-nikola-i",
+    dynastyId: "petrovici",
+
+    name: "Књаз и краљ Никола I Петровић Његош",
+    slug: "kralj-nikola-i",
+    title: "краљ",
+
+    description:
+      "Најдуговечнији владар из династије Петровић-Његош, прво књаз а од 1910. године краљ Црне Горе, за чије владавине је држава добила међународно признање независности (1878), значајно проширила територију и модернизовала се.",
+
+    reigns: [
+      {
+        start: { year: 1860, precision: "year" },
+        end: { year: 1910, precision: "year" },
+        title: "књаз",
+        note: "Владавина као књаз Црне Горе обиљежена ратовима за ослобођење, Берлинским конгресом и модернизацијом.",
+      },
+      {
+        start: { year: 1910, precision: "year" },
+        end: { year: 1918, precision: "year" },
+        title: "краљ",
+        note: "Проглашен за краља Црне Горе 1910. године; владао до одлука Подгоричке скупштине и уједињења 1918. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1860, precision: "year" },
+        title: "књаз",
+      },
+      {
+        start: { year: 1910, precision: "year" },
+        title: "краљ",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/kralj-nikola.webp",
+
+    achievementsIds: [
+      "medjunarodno-priznanje-nezavisnosti-1878",
+      "ustav-knjazevine-crne-gore-1905",
+      "uzdizanje-crne-gore-u-kraljevinu-1910",
+      "oslobodjenje-niksica-bara-ulcinja-i-podgorice",
+    ],
+
+    eventIds: [
+      "berlinski-kongres-crna-gora-1878",
+      "proglasenje-kraljevine-crne-gore-1910",
+      "podgoricka-skupstina-1918",
+    ],
+
+    predecessorId: "knjaz-danilo-i",
+
+    status: "draft",
+    order: 8,
   },
 ];
