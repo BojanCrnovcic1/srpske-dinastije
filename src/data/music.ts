@@ -3,22 +3,23 @@ import type { MusicTrack } from "../types";
 export const musicTracks: MusicTrack[] = [
   {
     id: "byzantine-01",
+    title: "Dragoslav Pavle Aksentijevic - Hodite svi zemljorodni",
+    src: "/assets/audio/Dragoslav Pavle Aksentijevic - Hodite svi zemljorodni.mp3",
+    category: "byzantine",
+  },
+  {
+    id: "byzantine-02",
     title: "Agni Pethene",
     src: "/assets/audio/agni-parthene.mp3",
     category: "byzantine",
   },
   {
-    id: "byzantine-02",
+    id: "byzantine-03",
     title: "Psalm 135 - Epic Byzantine Music",
     src: "/assets/audio/Psalm 135 - Epic Byzantine Music.mp3",
     category: "byzantine",
   },
-  {
-    id: "byzantine-03",
-    title: "Dragoslav Pavle Aksentijevic - Hodite svi zemljorodni",
-    src: "/assets/audio/Dragoslav Pavle Aksentijevic - Hodite svi zemljorodni.mp3",
-    category: "byzantine",
-  },
+
   {
     id: "epic-01",
     title: "Lazars Curse - Epic Slavic Music of Serbia",

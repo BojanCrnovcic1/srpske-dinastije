@@ -32,7 +32,7 @@ export const dynasties: Dynasty[] = [
 
     eventIds: ["odbrana-od-bugara-839", "primanje-hriscanstva-870"],
 
-    musicTrackIds: ["byzantine-01", "byzantine-02,"],
+    musicTrackIds: ["byzantine-02", "byzantine-03"],
 
     status: "published",
     order: 1,
@@ -67,7 +67,7 @@ export const dynasties: Dynasty[] = [
       "barska-arhiepiskopija-1089",
     ],
 
-    musicTrackIds: ["byzantine-01", "byzantine-02"],
+    musicTrackIds: ["byzantine-02", "byzantine-03"],
 
     status: "draft",
     order: 2,
@@ -108,7 +108,7 @@ export const dynasties: Dynasty[] = [
       "borba-za-raski-presto-1165",
     ],
 
-    musicTrackIds: ["byzantine-01", "byzantine-02"],
+    musicTrackIds: ["byzantine-02", "byzantine-03"],
 
     status: "draft",
     order: 3,
@@ -157,7 +157,7 @@ export const dynasties: Dynasty[] = [
       "raspad-srpskog-carstva-1371",
     ],
 
-    musicTrackIds: ["byzantine-03", "byzantine-01", "byzantine-02,"],
+    musicTrackIds: ["byzantine-01", "byzantine-02", "byzantine-03"],
 
     status: "draft",
     order: 4,
@@ -526,7 +526,7 @@ export const dynasties: Dynasty[] = [
       "podgoricka-skupstina-1918",
     ],
 
-    musicTrackIds: ["royal-01", "byzantine-01"],
+    musicTrackIds: ["royal-01", "byzantine-03"],
 
     status: "published",
     order: 12,
