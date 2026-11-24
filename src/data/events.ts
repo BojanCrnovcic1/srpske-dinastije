@@ -933,4 +933,197 @@ export const events: HistoricalEvent[] = [
     status: "draft",
     order: 6,
   },
+  {
+    id: "prvi-srpski-ustanak-1804",
+    dynastyId: "karadjordjevici",
+    rulerIds: ["karadjordje-petrovic"],
+    title: "Први српски устанак (1804)",
+    description:
+      "Збором у Орашцу и избором Карађорђа Петровића за вожда започела је оружана борба за ослобођење од османске власти и обнову српске државе.",
+    date: {
+      year: 1804,
+      precision: "year",
+    },
+    category: "battle",
+    image: "/assets/images/events/prvi-srpski-ustanak.webp",
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "oslobodjenje-beograda-1806",
+    dynastyId: "karadjordjevici",
+    rulerIds: ["karadjordje-petrovic"],
+    title: "Ослобођење Београда у Првом српском устанку (1806)",
+    description:
+      "Устаничка војска под вођством Карађорђа заузела је београдску варош и утврдила српску власт у кључном стратешком граду на Дунаву и Сави.",
+    date: {
+      year: 1806,
+      precision: "year",
+    },
+    category: "battle",
+    image: "/assets/images/events/oslobodjenje-beograda-1806.webp",
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "krunisanje-petra-i-1904",
+    dynastyId: "karadjordjevici",
+    rulerIds: ["kralj-petar-i"],
+    title: "Крунисање краља Петра I Карађорђевића у Београду (1904)",
+    description:
+      "Свечано крунисање краља Петра I у Саборној цркви у Београду означило је почетак новог уставно-парламентарног и културног периода Србије.",
+    date: {
+      year: 1904,
+      precision: "year",
+    },
+    category: "coronation",
+    image: "/assets/images/events/krunisanje-petra-i-1904.webp",
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "proboj-solunskog-fronta-1918",
+    dynastyId: "karadjordjevici",
+    rulerIds: ["kralj-petar-i", "kralj-aleksandar-i"],
+    title: "Пробој Солунског фронта (1918)",
+    description:
+      "Одлучујућа савезничка офанзива у којој је српска војска пробила утврђене линије на Солунском фронту и убрзала ослобођење Србије и крај Првог свјетског рата.",
+    date: {
+      year: 1918,
+      precision: "year",
+    },
+    category: "battle",
+    image: "/assets/images/events/proboj-solunskog-fronta-1918.webp",
+    status: "draft",
+    order: 4,
+  },
+  {
+    id: "ujedinjenje-1918",
+    dynastyId: "karadjordjevici",
+    rulerIds: ["kralj-petar-i", "kralj-aleksandar-i"],
+    title: "Стварање Краљевства Срба, Хрвата и Словенаца (1918)",
+    description:
+      "Проглашењем уједињења 1. децембра 1918. године формирана је заједничка јужнословенска држава под влашћу династије Карађорђевић.",
+    date: {
+      year: 1918,
+      precision: "year",
+    },
+    category: "political",
+    image: "/assets/images/events/ujedinjenje-1918.webp",
+    status: "draft",
+    order: 5,
+  },
+  {
+    id: "drugi-srpski-ustanak-1815",
+    dynastyId: "obrenovici",
+    rulerIds: ["knez-milos"],
+    title: "Други српски устанак (1815)",
+    description:
+      "Сабором у Такову на Цвијети 1815. године под вођством Милоша Обреновића започео је Други српски устанак, који је довео до споразума са Марашли Али-пашом и почетка српске аутономије.",
+    date: {
+      year: 1815,
+      precision: "year",
+    },
+    category: "military",
+    image: "/assets/images/events/drugi-srpski-ustanak-1815.webp",
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "hatiserif-i-autonomija-1830",
+    dynastyId: "obrenovici",
+    rulerIds: ["knez-milos"],
+    title: "Хатишериф из 1830. године и аутономија Кнежевине Србије",
+    description:
+      "Султановим хатишерифом из 1830. године Србија је званично стекла статус аутономне кнежевине у оквиру Османског царства, а Милошу Обреновићу признато је насљедно кнежевско достојанство.",
+    date: {
+      year: 1830,
+      precision: "year",
+    },
+    category: "political",
+    image: "/assets/images/events/hatiserif-1830.webp",
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "sretenjski-ustav-1835",
+    dynastyId: "obrenovici",
+    rulerIds: ["knez-milos"],
+    title: "Доношење Сретењског устава (1835)",
+    description:
+      "На Сретењској скупштини у Крагујевцу усвојен је први модерни устав Србије, израђен по узору на најлибералније европске уставе тог доба.",
+    date: {
+      year: 1835,
+      precision: "year",
+    },
+    category: "political",
+    image: "/assets/images/events/sretenjski-ustav-1835.webp",
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "predaja-gradova-1867",
+    dynastyId: "obrenovici",
+    rulerIds: ["knez-mihailo"],
+    title: "Предаја кључева српских градова кнезу Михаилу (1867)",
+    description:
+      "На Калемегдану су кнезу Михаилу Обреновићу свечано предати кључеви Београда, Смедерева, Кладова и Шапца, чиме су османски гарнизони коначно напустили Србију.",
+    date: {
+      year: 1867,
+      precision: "year",
+    },
+    category: "political",
+    image: "/assets/images/events/predaja-gradova-1867.webp",
+    status: "draft",
+    order: 4,
+  },
+  {
+    id: "berlinski-kongres-1878",
+    dynastyId: "obrenovici",
+    rulerIds: ["kralj-milan"],
+    title:
+      "Међународно признање независности Србије на Берлинском конгресу (1878)",
+    description:
+      "Одлукама Берлинског конгреса Србија је постала међународно призната независна држава и територијално се проширила на нишки, пиротски, топлички и врањски округ.",
+    date: {
+      year: 1878,
+      precision: "year",
+    },
+    category: "political",
+    image: "/assets/images/events/berlinski-kongres-1878.webp",
+    status: "draft",
+    order: 5,
+  },
+  {
+    id: "proglasenje-kraljevine-1882",
+    dynastyId: "obrenovici",
+    rulerIds: ["kralj-milan"],
+    title: "Проглашење Краљевине Србије (1882)",
+    description:
+      "Народна скупштина прогласила је Кнежевину Србију за Краљевину Србију, а кнез Милан Обреновић постао је први нововјековни српски краљ.",
+    date: {
+      year: 1882,
+      precision: "year",
+    },
+    category: "coronation",
+    image: "/assets/images/events/proglasenje-kraljevine-1882.webp",
+    status: "draft",
+    order: 6,
+  },
+  {
+    id: "majski-prevrat-1903",
+    dynastyId: "obrenovici",
+    rulerIds: ["kralj-aleksandar-obrenovic"],
+    title: "Мајски преврат и крај династије Обреновић (1903)",
+    description:
+      "Убиством краља Александра Обреновића и краљице Драге у ноћи 29. маја 1903. године угашена је владарска лоза Обреновића, а на пријесто су се вратили Карађорђевићи.",
+    date: {
+      year: 1903,
+      precision: "year",
+    },
+    category: "political",
+    image: "/assets/images/events/majski-prevrat-1903.webp",
+    status: "draft",
+    order: 7,
+  },
 ];

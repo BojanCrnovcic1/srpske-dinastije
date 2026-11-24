@@ -14,16 +14,27 @@ export const musicTracks: MusicTrack[] = [
     category: "byzantine",
   },
   {
+    id: "byzantine-03",
+    title: "Dragoslav Pavle Aksentijevic - Hodite svi zemljorodni",
+    src: "/assets/audio/Dragoslav Pavle Aksentijevic - Hodite svi zemljorodni.mp3",
+    category: "byzantine",
+  },
+  {
     id: "epic-01",
-    title:
-      "The Adventures of Marko Kraljević – Epic Slavic Music of the Balkans",
-    src: "/assets/audio/The Adventures of Marko Kraljević – Epic Slavic Music of the Balkans.mp3",
+    title: "Lazars Curse - Epic Slavic Music of Serbia",
+    src: "/assets/audio/Lazars Curse - Epic Slavic Music of Serbia.mp3",
     category: "epic",
   },
   {
     id: "epic-02",
     title: "Farya Faraji- Gusta mi magla Padnala",
     src: "/assets/audio/Farya Faraji- Gusta mi magla Padnala.mp3",
+    category: "epic",
+  },
+  {
+    id: "epic-03",
+    title: "Rasti, Rasti, Moj Zeleni Bore â__ Epic Serbian Folk",
+    src: "/assets/audio/Rasti, Rasti, Moj Zeleni Bore â__ Epic Serbian Folk.mp3",
     category: "epic",
   },
   {
@@ -46,6 +57,12 @@ export const musicTracks: MusicTrack[] = [
   },
   {
     id: "royal-04",
+    title: "Himna Vostani Serbije!",
+    src: "/assets/audio/Himna Vostani Serbije!.mp3",
+    category: "royal",
+  },
+  {
+    id: "royal-05",
     title: "Što se bore misli moje",
     src: "/assets/audio/sto-se-bore-misli-moje.mp3",
     category: "royal",

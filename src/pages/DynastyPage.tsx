@@ -14,6 +14,7 @@ const rulerTitles: Record<RulerTitle, string> = {
   кнез: "Kнез",
   кнегиња: "Кнегиња",
   деспот: "Деспот",
+  вожд: "Вожд",
   севастократор: "Севастократор",
   принц: "Принц",
   регент: "Регент",
@@ -199,7 +200,7 @@ const DynastyPage = () => {
                   </span>
 
                   <span className="dynasty-page__stat-label">
-                    Истроијских догађаја
+                    Историјских догађаја
                   </span>
                 </div>
 

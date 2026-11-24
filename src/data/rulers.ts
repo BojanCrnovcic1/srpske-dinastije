@@ -2619,7 +2619,7 @@ export const rulers: Ruler[] = [
       },
     ],
 
-    portrait: "/assets/images/rulers/knjaz-danilo-i.webp",
+    portrait: "/assets/images/rulers/knjaz-danilo-petrovic.webp",
 
     achievementsIds: [
       "danilov-zakonik-1855",
@@ -2690,5 +2690,449 @@ export const rulers: Ruler[] = [
 
     status: "draft",
     order: 8,
+  },
+  {
+    id: "karadjordje-petrovic",
+    dynastyId: "karadjordjevici",
+
+    name: "Ђорђе Петровић — Карађорђе",
+    slug: "karadjordje-petrovic",
+    title: "вожд",
+
+    description:
+      "Врховни вожд Првог српског устанка и родоначелник династије Карађорђевић, који је подигао народ на оружје против османске власти и поставио темеље обнове српске државности.",
+
+    reigns: [
+      {
+        start: { year: 1804, precision: "year" },
+        end: { year: 1813, precision: "year" },
+        title: "вожд",
+        note: "Врховни вожд устаничке Србије од окупљања у Орашцу 1804. до слома устанка 1813. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1804, precision: "year" },
+        title: "вожд",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/karadjordje.webp",
+
+    achievementsIds: [
+      "podizanje-prvog-srpskog-ustanka",
+      "oslobodjenje-beograda-i-ustanicka-vlast",
+      "praviteljstvujsci-sovjet-i-ustanicke-institucije",
+    ],
+
+    eventIds: ["prvi-srpski-ustanak-1804", "oslobodjenje-beograda-1806"],
+
+    successorId: "knez-aleksandar-karadjordjevic",
+
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "knez-aleksandar-karadjordjevic",
+    dynastyId: "karadjordjevici",
+
+    name: "Кнез Александар Карађорђевић",
+    slug: "knez-aleksandar-karadjordjevic",
+    title: "кнез",
+
+    description:
+      "Син Карађорђа Петровића и кнез Србије у периоду уставобранитеља, током чије владавине су ојачане државне институције, просвјета, закони и привредни развој земље.",
+
+    reigns: [
+      {
+        start: { year: 1842, precision: "year" },
+        end: { year: 1858, precision: "year" },
+        title: "кнез",
+        note: "Владавина као српски кнез у доба уставобранитеља до Светоандрејске скупштине 1858. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1842, precision: "year" },
+        title: "кнез",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/knez-aleksandar-karadjordjevic.webp",
+
+    achievementsIds: [
+      "gradjanski-zakonik-i-pravne-reforme-1844",
+      "osnivanje-prvih-fabrika-i-nacertanije",
+    ],
+
+    eventIds: [],
+
+    predecessorId: "karadjordje-petrovic",
+    successorId: "kralj-petar-i",
+
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "kralj-petar-i",
+    dynastyId: "karadjordjevici",
+
+    name: "Краљ Петар I Карађорђевић",
+    slug: "kralj-petar-i",
+    title: "краљ",
+
+    description:
+      "Уставни краљ Србије и потом први краљ Срба, Хрвата и Словенаца, упамћен као симбол парламентаризма, слободарства и пожртвовања у балканским ратовима и Првом свјетском рату.",
+
+    reigns: [
+      {
+        start: { year: 1903, precision: "year" },
+        end: { year: 1918, precision: "year" },
+        title: "краљ",
+        note: "Краљ Србије од 1903. године до стварања заједничке југословенске државе 1918. године.",
+      },
+      {
+        start: { year: 1918, precision: "year" },
+        end: { year: 1921, precision: "year" },
+        title: "краљ",
+        note: "Први краљ Краљевства Срба, Хрвата и Словенаца до смрти 1921. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1903, precision: "year" },
+        title: "краљ",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/kralj-petar-i.webp",
+
+    achievementsIds: [
+      "ustavna-monarhija-i-parlamentarni-zivot-1903",
+      "oslobodjenje-stare-srbije-i-makedonije-1912-1913",
+      "zaduzbina-crkva-svetog-djordja-na-oplencu",
+    ],
+
+    eventIds: [
+      "krunisanje-petra-i-1904",
+      "proboj-solunskog-fronta-1918",
+      "ujedinjenje-1918",
+    ],
+
+    predecessorId: "knez-aleksandar-karadjordjevic",
+    successorId: "kralj-aleksandar-i",
+
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "kralj-aleksandar-i",
+    dynastyId: "karadjordjevici",
+
+    name: "Краљ Александар I Карађорђевић",
+    slug: "kralj-aleksandar-i",
+    title: "краљ",
+
+    description:
+      "Врховни командант српске војске у побједничким ратовима 1912–1918. и краљ Југославије који је објединио јужнословенске земље у заједничку државу и изградио монументалне задужбине.",
+
+    reigns: [
+      {
+        start: { year: 1921, precision: "year" },
+        end: { year: 1934, precision: "year" },
+        title: "краљ",
+        note: "Краљ Краљевства Срба, Хрвата и Словенаца, а од 1929. године краљ Краљевине Југославије до атентата у Марсељу 1934. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1921, precision: "year" },
+        title: "краљ",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/kralj-aleksandar-karadjordjevic.webp",
+
+    achievementsIds: [
+      "stvaranje-i-konsolidacija-jugoslovenske-drzave",
+      "pobjeda-na-solunskom-frontu-kao-regent-i-komandant",
+      "kraljevski-dvor-na-dedinju-i-oplenacki-mozaici",
+    ],
+
+    eventIds: ["proboj-solunskog-fronta-1918", "ujedinjenje-1918"],
+
+    predecessorId: "kralj-petar-i",
+    successorId: "kralj-petar-ii",
+
+    status: "draft",
+    order: 4,
+  },
+  {
+    id: "kralj-petar-ii",
+    dynastyId: "karadjordjevici",
+
+    name: "Краљ Петар II Карађорђевић",
+    slug: "kralj-petar-ii",
+    title: "краљ",
+
+    description:
+      "Посљедњи краљ из династије Карађорђевић који је на престо дошао уочи Другог свјетског рата и проводио ратне и поратне године у изгнанству након проглашења републике 1945. године.",
+
+    reigns: [
+      {
+        start: { year: 1934, precision: "year" },
+        end: { year: 1945, precision: "year" },
+        title: "краљ",
+        note: "Формално краљ од 1934. (прво под намесништвом, а од марта 1941. самостално) до укидања монархије 1945. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1934, precision: "year" },
+        title: "краљ",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/kralj-petar-ii.webp",
+
+    achievementsIds: ["simbol-drzavnog-kontinuiteta-u-drugom-svjetskom-ratu"],
+
+    eventIds: [],
+
+    predecessorId: "kralj-aleksandar-i",
+
+    status: "draft",
+    order: 5,
+  },
+  {
+    id: "knez-milos",
+    dynastyId: "obrenovici",
+
+    name: "Кнез Милош Обреновић",
+    slug: "knez-milos",
+    title: "кнез",
+
+    description:
+      "Вођа Другог српског устанка и родоначелник династије Обреновић, који је комбинацијом оружане борбе и вјеште дипломатије изборио аутономију Кнежевине Србије и насљедно кнежевско достојанство.",
+
+    reigns: [
+      {
+        start: { year: 1815, precision: "year" },
+        end: { year: 1839, precision: "year" },
+        title: "кнез",
+        note: "Прва владавина обиљежена стицањем аутономије (1830), Сретењским уставом (1835) и укидањем феудализма.",
+      },
+      {
+        start: { year: 1858, precision: "year" },
+        end: { year: 1860, precision: "year" },
+        title: "кнез",
+        note: "Друга владавина након Светоандрејске скупштине и повратка Обреновића на пријесто.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1817, precision: "year" },
+        title: "кнез",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/knez-milos.webp",
+
+    achievementsIds: [
+      "podizanje-drugog-srpskog-ustanka",
+      "sticanje-autonomije-hatiserifom-1830",
+      "ukidanje-feudalizma-i-sretenjski-ustav",
+      "konak-kneza-milosa-i-sabornа-crkva",
+    ],
+
+    eventIds: [
+      "drugi-srpski-ustanak-1815",
+      "hatiserif-i-autonomija-1830",
+      "sretenjski-ustav-1835",
+    ],
+
+    successorId: "knez-milan-obrenovic",
+
+    status: "draft",
+    order: 1,
+  },
+  {
+    id: "knez-milan-obrenovic",
+    dynastyId: "obrenovici",
+
+    name: "Кнез Милан Обреновић (Милан II)",
+    slug: "knez-milan-obrenovic",
+    title: "кнез",
+
+    description:
+      "Најстарији син кнеза Милоша који је наслиједио пријесто након очеве абдикације 1839. године, али је због тешке болести владао свега двадесет шест дана.",
+
+    reigns: [
+      {
+        start: { year: 1839, precision: "year" },
+        end: { year: 1839, precision: "year" },
+        title: "кнез",
+        note: "Најкраћа владавина у нововјековној историји Србије (јун–јул 1839. године).",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1839, precision: "year" },
+        title: "кнез",
+      },
+    ],
+
+    portrait: "/assets/images//achievements/knez-milan-ii-portret.webp",
+
+    achievementsIds: ["ocuvanje-nasljednog-knezevskog-prava-1839"],
+
+    eventIds: [],
+
+    predecessorId: "knez-milos",
+    successorId: "knez-mihailo",
+
+    status: "draft",
+    order: 2,
+  },
+  {
+    id: "knez-mihailo",
+    dynastyId: "obrenovici",
+
+    name: "Кнез Михаило Обреновић",
+    slug: "knez-mihailo",
+    title: "кнез",
+
+    description:
+      "Један од најпросвећенијих српских владара XIX вијека, творац Балканског савеза и државник који је мирним путем изборио повлачење османских гарнизона из српских градова 1867. године.",
+
+    reigns: [
+      {
+        start: { year: 1839, precision: "year" },
+        end: { year: 1842, precision: "year" },
+        title: "кнез",
+        note: "Прва владавина након смрти брата Милана до доласка уставобранитеља 1842. године.",
+      },
+      {
+        start: { year: 1860, precision: "year" },
+        end: { year: 1868, precision: "year" },
+        title: "кнез",
+        note: "Друга владавина обиљежена модернизацијом државе, војним реформама и преузимањем градова 1867. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1839, precision: "year" },
+        title: "кнез",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/knez-mihailo.webp",
+
+    achievementsIds: [
+      "oslobodjenje-gradova-od-osmanskih-posada-1867",
+      "osnivanje-narodne-vojske-i-drzavne-reforme",
+      "balkanski-savez-i-kulturni-procvat-beograda",
+    ],
+
+    eventIds: ["predaja-gradova-1867"],
+
+    predecessorId: "knez-milan-obrenovic",
+    successorId: "kralj-milan",
+
+    status: "draft",
+    order: 3,
+  },
+  {
+    id: "kralj-milan",
+    dynastyId: "obrenovici",
+
+    name: "Кнез и краљ Милан Обреновић",
+    slug: "kralj-milan",
+    title: "краљ",
+
+    description:
+      "Владар за чије владавине је Србија послије ослободилачких ратова добила међународно признање независности на Берлинском конгресу (1878) и била проглашена за краљевину (1882).",
+
+    reigns: [
+      {
+        start: { year: 1868, precision: "year" },
+        end: { year: 1882, precision: "year" },
+        title: "кнез",
+        note: "Владавина као кнез Србије (до 1872. под намјесништвом), крунисана међународним признањем независности 1878. године.",
+      },
+      {
+        start: { year: 1882, precision: "year" },
+        end: { year: 1889, precision: "year" },
+        title: "краљ",
+        note: "Први нововјековни краљ Србије од 1882. до абдикације 1889. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1868, precision: "year" },
+        title: "кнез",
+      },
+      {
+        start: { year: 1882, precision: "year" },
+        title: "краљ",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/kralj-milan.webp",
+
+    achievementsIds: [
+      "medjunarodno-priznanje-nezavisnosti-srbije-1878",
+      "uzdizanje-srbije-u-kraljevinu-1882",
+      "izgradnja-prve-zeljeznice-i-stajace-vojske",
+      "namesnicki-ustav-1869-i-radikalski-ustav-1888",
+    ],
+
+    eventIds: ["berlinski-kongres-1878", "proglasenje-kraljevine-1882"],
+
+    predecessorId: "knez-mihailo",
+    successorId: "kralj-aleksandar-obrenovic",
+
+    status: "draft",
+    order: 4,
+  },
+  {
+    id: "kralj-aleksandar-obrenovic",
+    dynastyId: "obrenovici",
+
+    name: "Краљ Александар Обреновић",
+    slug: "kralj-aleksandar-obrenovic",
+    title: "краљ",
+
+    description:
+      "Посљедњи владар из династије Обреновић, чију су владавину обиљежили чести уставни преокрети, политичке кризе и Мајски преврат 1903. године којим је угашена династија.",
+
+    reigns: [
+      {
+        start: { year: 1889, precision: "year" },
+        end: { year: 1903, precision: "year" },
+        title: "краљ",
+        note: "Краљ Србије (до 1893. под намјесништвом) до Мајског преврата 1903. године.",
+      },
+    ],
+    titleHistory: [
+      {
+        start: { year: 1889, precision: "year" },
+        title: "краљ",
+      },
+    ],
+
+    portrait: "/assets/images/rulers/kralj-aleksandar-obrenovic.webp",
+
+    achievementsIds: [
+      "aprilski-ustav-i-dvodomni-sistem-1901",
+      "podrska-hilandaru-i-kulturnim-ustanovama",
+    ],
+
+    eventIds: ["majski-prevrat-1903"],
+
+    predecessorId: "kralj-milan",
+
+    status: "draft",
+    order: 5,
   },
 ];

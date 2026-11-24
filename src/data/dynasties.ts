@@ -157,7 +157,7 @@ export const dynasties: Dynasty[] = [
       "raspad-srpskog-carstva-1371",
     ],
 
-    musicTrackIds: ["byzantine-01", "byzantine-02,"],
+    musicTrackIds: ["byzantine-03", "byzantine-01", "byzantine-02,"],
 
     status: "draft",
     order: 4,
@@ -204,7 +204,7 @@ export const dynasties: Dynasty[] = [
       "pad-bosanskog-kraljevstva-1463",
     ],
 
-    musicTrackIds: ["epic-01", "epic-02"],
+    musicTrackIds: ["epic-02", "epic-03"],
 
     status: "published",
     order: 5,
@@ -246,7 +246,7 @@ export const dynasties: Dynasty[] = [
       "pripajanje-zete-despotovini-1421",
     ],
 
-    musicTrackIds: ["epic-01", "epic-02"],
+    musicTrackIds: ["epic-02", "epic-03"],
 
     status: "published",
     order: 6,
@@ -288,7 +288,7 @@ export const dynasties: Dynasty[] = [
       "pad-hercegovine-1482",
     ],
 
-    musicTrackIds: ["byzantine-01", "byzantine-02"],
+    musicTrackIds: ["epic-02", "epic-03"],
 
     status: "draft",
     order: 7,
@@ -323,7 +323,7 @@ export const dynasties: Dynasty[] = [
       "bitka-na-rovina-1395",
     ],
 
-    musicTrackIds: ["byzantine-01", "byzantine-02"],
+    musicTrackIds: ["epic-02", "epic-03"],
 
     status: "draft",
     order: 8,
@@ -358,7 +358,7 @@ export const dynasties: Dynasty[] = [
       "bitka-na-rovinama-1395",
     ],
 
-    musicTrackIds: ["epic-01", "epic-02"],
+    musicTrackIds: ["epic-02", "epic-03"],
 
     status: "published",
     order: 9,
@@ -394,7 +394,7 @@ export const dynasties: Dynasty[] = [
       "smrt-despota-stefana-1427",
     ],
 
-    musicTrackIds: ["epic-01", "epic-02"],
+    musicTrackIds: ["epic-01", "epic-02", "epic-03"],
 
     status: "published",
     order: 10,
@@ -439,7 +439,7 @@ export const dynasties: Dynasty[] = [
       "kraj-sremskih-despota-brankovica-1502",
     ],
 
-    musicTrackIds: ["epic-01", "epic-02"],
+    musicTrackIds: ["epic-01", "epic-02", "epic-03"],
 
     status: "published",
     order: 11,
@@ -479,7 +479,7 @@ export const dynasties: Dynasty[] = [
       "osnivanje-crnojevica-stamparije-1494",
     ],
 
-    musicTrackIds: ["byzantine-01", "byzantine-02"],
+    musicTrackIds: ["epic-02", "epic-03"],
 
     status: "draft",
     order: 12,
@@ -526,7 +526,7 @@ export const dynasties: Dynasty[] = [
       "podgoricka-skupstina-1918",
     ],
 
-    musicTrackIds: ["royal-01"],
+    musicTrackIds: ["royal-01", "byzantine-01"],
 
     status: "published",
     order: 12,
@@ -563,6 +563,8 @@ export const dynasties: Dynasty[] = [
 
     eventIds: [
       "prvi-srpski-ustanak-1804",
+      "oslobodjenje-beograda-1806",
+      "krunisanje-petra-i-1904",
       "proboj-solunskog-fronta-1918",
       "ujedinjenje-1918",
     ],
@@ -596,6 +598,7 @@ export const dynasties: Dynasty[] = [
 
     rulerIds: [
       "knez-milos",
+      "knez-milan-obrenovic",
       "knez-mihailo",
       "kralj-milan",
       "kralj-aleksandar-obrenovic",
@@ -603,11 +606,15 @@ export const dynasties: Dynasty[] = [
 
     eventIds: [
       "drugi-srpski-ustanak-1815",
+      "hatiserif-i-autonomija-1830",
+      "sretenjski-ustav-1835",
+      "predaja-gradova-1867",
       "berlinski-kongres-1878",
       "proglasenje-kraljevine-1882",
+      "majski-prevrat-1903",
     ],
 
-    musicTrackIds: ["royal-01", "royal-04"],
+    musicTrackIds: ["royal-04", "royal-05"],
 
     status: "draft",
     order: 15,
