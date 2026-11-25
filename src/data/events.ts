@@ -1024,7 +1024,7 @@ export const events: HistoricalEvent[] = [
       year: 1815,
       precision: "year",
     },
-    category: "military",
+    category: "battle",
     image: "/assets/images/events/drugi-srpski-ustanak-1815.webp",
     status: "draft",
     order: 1,
